@@ -36,13 +36,9 @@ Most people have bottles they remember. Not the vintage or the appellation — t
 
 ![France, rendered as a treemap — each region sized not by geography, but by presence in a life](/journal/france-treemap.png)
 
-When you look at this, you might see a map of France. Bordeaux, Rhone Valley, Champagne, Alsace — regions, sized by something.
+Bordeaux. Rhone Valley. Champagne. Alsace. Regions, sized by something.
 
-But this is not a geography lesson.
-
-Every tile is a period of your life. A large Bordeaux tile is not a statement about Bordeaux. It is the year you kept going back to that place in the 11th. A small Alsace tile is somewhere you haven't been yet.
-
-You don't see a map of wine. You see where your life has been.
+Every tile is a period of your life. A large Bordeaux tile is the year you kept going back to that place in the 11th. A small Alsace tile is somewhere you haven't been yet.
 
 ## What sits quietly beneath
 
@@ -50,9 +46,7 @@ You don't see a map of wine. You see where your life has been.
 
 Behind every tile, context waits. The grapes that grow in a place. The climate that shapes them. The character of a region, held in a few careful sentences.
 
-You don't need any of this. But when you're curious — when you want to understand why a wine tasted the way it did, or what connects the bottles you keep choosing — it's there. Quietly. Like a good reference book that never insists on being read.
-
-The app preserves the context around a moment so you don't have to carry it yourself.
+You don't need any of this. But when you're curious — when you want to understand why a wine tasted the way it did, or what connects the bottles you keep choosing — it's there. Quietly. Like a reference book that never insists on being read.
 
 ## The shape of where you've been
 
@@ -60,12 +54,10 @@ The app preserves the context around a moment so you don't have to carry it your
 
 Tap into Bordeaux and the world opens. Medoc. Graves. Pomerol. Saint-Emilion. Dozens of names, each holding evenings you may have forgotten you had.
 
-You didn't plan to explore the Right Bank. But the atlas shows you that you did — dinner by dinner, bottle by bottle, without ever consulting a map.
-
-This is what a label doesn't say. It doesn't say that your life has a geography. That the wines you choose trace a path through places, and the path has a shape, and the shape means something.
+You didn't plan to explore the Right Bank. But you did — dinner by dinner, bottle by bottle, without ever consulting a map.
 
 ## A quiet record
 
 Wine won't preserve everything. But it can anchor what remains — a date, a place, a name, a note — so that when you return, the rest comes back.
 
-You already know which evening you'd go back to.
+The bread. The lighting. The person who was there.
