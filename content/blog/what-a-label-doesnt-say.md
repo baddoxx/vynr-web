@@ -18,6 +18,10 @@ We know the weight of the glass in our hand. The colour against the tablecloth. 
 
 The label doesn't hold any of that. It holds geography, classification, a family name. It holds everything except what happened.
 
+We think we'll remember. We always think that. But years compress. The dinners blur together. The details go first — what you ordered, what you said, what the wine actually tasted like. Then the sequence goes. Was that the trip before or after? Did that restaurant close, or did you just stop going? Eventually only fragments remain: a colour, a season, a feeling you can't quite place.
+
+It happens faster than anyone expects.
+
 ## Why wine
 
 Wine is not the only thing present at important moments. But it is one of the few that recurs.
@@ -64,8 +68,8 @@ This is what a label doesn't say. It doesn't say that your life has a geography.
 
 ## A quiet record
 
-Most of what matters in a life is not recorded. The particular warmth of an evening. The way a conversation turned. The slow realisation, years later, that a certain period was happier than you knew at the time.
+Wine won't preserve everything. But it can anchor what remains — a date, a place, a name, a note — so that when you return, the rest comes back. The bread. The lighting. The thing someone said.
 
-Wine won't preserve all of that. But it can anchor it — a date, a place, a name, a note — so that when you return, the rest comes back.
+There are evenings you would like to be able to return to. Most of them, you still can — if something holds the thread.
 
-A label is a starting point. What it doesn't say is everything that matters.
+That is all a journal needs to do. Not capture everything. Just enough that the rest survives.
