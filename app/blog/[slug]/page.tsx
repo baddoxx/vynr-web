@@ -18,11 +18,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   return (
     <main style={{ maxWidth: 700, margin: '60px auto', padding: 20 }}>
       <h1>{post.title}</h1>
-      <small>
-        {post.date instanceof Date
-          ? post.date.toISOString().slice(0, 10)
-          : String(post.date)}
-      </small>
+      <small>{new Date(String(post.date)).toISOString().slice(0, 10)}</small>
       <article dangerouslySetInnerHTML={{ __html: contentHtml }} />
     </main>
   )
