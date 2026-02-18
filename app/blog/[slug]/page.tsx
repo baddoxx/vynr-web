@@ -27,7 +27,18 @@ export default async function PostPage({
   const post = getPostBySlug(slug);
 
   const processedContent = await remark().use(html).process(post.content);
-  const contentHtml = processedContent.toString();
+  const rawHtml = processedContent.toString();
+
+  // Wrap inline images in memory-shot containers with alternating triangles
+  let imageCount = 0;
+  const contentHtml = rawHtml.replace(
+    /<p>\s*<img\s+([^>]*?)\/?\s*>\s*<\/p>/g,
+    (_match, attrs) => {
+      imageCount++;
+      const parity = imageCount % 2 === 1 ? "odd" : "even";
+      return `<div class="memory-shot memory-shot-${parity}"><img ${attrs}></div>`;
+    }
+  );
 
   return (
     <section
