@@ -140,13 +140,16 @@ body {
   position: relative;
   overflow: hidden;
   max-width: 300px;
+  aspect-ratio: 1 / 1;
   margin: 2.5rem auto 2rem;
 }
 
 .memory-shot img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
+  object-position: center top;
   opacity: 0.82;
   filter: saturate(0.88) contrast(0.96);
   border: none;
