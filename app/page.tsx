@@ -49,20 +49,16 @@ export default function Home() {
         Explore regions. Track bottles. Keep a tasting journal.
       </p>
 
-      {/* Hero — France treemap */}
-      <div style={{ marginTop: "3rem", marginBottom: "3rem" }}>
+      {/* Hero — wine glass illustration */}
+      <div style={{ marginTop: "2.5rem", marginBottom: "2.5rem" }}>
         <Image
-          src="/journal/france-treemap.png"
-          alt="France rendered as a treemap — Bordeaux, Rh&ocirc;ne Valley, Champagne, each region sized by presence"
-          width={340}
-          height={539}
-          className="home-hero"
-          style={{ width: "100%", height: "auto" }}
+          src="/journal/vynr-glass.jpg"
+          alt="A wine glass, ink illustration"
+          width={180}
+          height={180}
+          style={{ width: 180, height: "auto", margin: "0 auto", display: "block" }}
           priority
         />
-        <span className="journal-caption">
-          Your cellar, rendered as territory
-        </span>
       </div>
 
       <div
