@@ -42,7 +42,7 @@ Every tile is a period of your life. A large Bordeaux tile is the year you kept 
 
 ## What sits quietly beneath
 
-![The Alsace reference panel — place, grapes, character, drawn in ink](/journal/alsace-atlas.png)
+![The Loire Valley — France's longest river, its most diverse wine region, drawn in ink](/journal/loire-valley.png)
 
 Behind every tile, context waits. The grapes that grow in a place. The climate that shapes them. The character of a region, held in a few careful sentences.
 
