@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -6,7 +7,7 @@ export default function Home() {
       style={{
         maxWidth: 600,
         margin: "0 auto",
-        padding: "120px 24px 80px",
+        padding: "80px 24px 80px",
         textAlign: "center",
       }}
     >
@@ -36,7 +37,7 @@ export default function Home() {
 
       <p
         style={{
-          marginTop: "2rem",
+          marginTop: "1.5rem",
           fontSize: "0.95rem",
           color: "var(--atlas-text-placeholder)",
           lineHeight: 1.7,
@@ -48,9 +49,24 @@ export default function Home() {
         Explore regions. Track bottles. Keep a tasting journal.
       </p>
 
+      {/* Hero — France treemap */}
+      <div style={{ marginTop: "3rem", marginBottom: "3rem" }}>
+        <Image
+          src="/journal/france-treemap.png"
+          alt="France rendered as a treemap — Bordeaux, Rh&ocirc;ne Valley, Champagne, each region sized by presence"
+          width={340}
+          height={539}
+          className="home-hero"
+          style={{ width: "100%", height: "auto" }}
+          priority
+        />
+        <span className="journal-caption">
+          Your cellar, rendered as territory
+        </span>
+      </div>
+
       <div
         style={{
-          marginTop: "3rem",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -93,7 +109,7 @@ export default function Home() {
       {/* Decorative separator */}
       <div
         style={{
-          marginTop: "5rem",
+          marginTop: "4rem",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",

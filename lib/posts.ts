@@ -4,7 +4,16 @@ import matter from 'gray-matter'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
-export function getAllPosts() {
+export interface PostMeta {
+  slug: string
+  title: string
+  date: string
+  description: string
+  heroImage?: string
+  heroAlt?: string
+}
+
+export function getAllPosts(): PostMeta[] {
   const fileNames = fs.readdirSync(postsDirectory)
 
   return fileNames.map((fileName) => {
@@ -17,7 +26,7 @@ export function getAllPosts() {
 
     return {
       slug,
-      ...(data as { title: string; date: string; description: string })
+      ...(data as Omit<PostMeta, 'slug'>)
     }
   }).sort((a, b) => (a.date < b.date ? 1 : -1))
 }
@@ -31,6 +40,6 @@ export function getPostBySlug(slug: string) {
   return {
     slug,
     content,
-    ...(data as { title: string; date: string; description: string })
+    ...(data as Omit<PostMeta, 'slug'>)
   }
 }

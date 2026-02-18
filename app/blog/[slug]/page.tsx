@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { remark } from "remark";
 import html from "remark-html";
@@ -82,6 +83,22 @@ export default async function PostPage({
           }}
         />
       </header>
+
+      {post.heroImage && (
+        <figure style={{ marginBottom: "3rem" }}>
+          <Image
+            src={post.heroImage}
+            alt={post.heroAlt || post.title}
+            width={320}
+            height={370}
+            className="journal-hero"
+            style={{ width: "100%", height: "auto" }}
+          />
+          {post.heroAlt && (
+            <figcaption className="journal-caption">{post.heroAlt}</figcaption>
+          )}
+        </figure>
+      )}
 
       <article
         className="prose"

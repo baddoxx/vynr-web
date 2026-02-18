@@ -129,6 +129,50 @@ body {
 }
 
 .prose img {
-  border-radius: 8px;
-  margin: 2rem 0;
+  border-radius: 12px;
+  margin: 2.5rem auto;
+  display: block;
+  max-width: 380px;
+  width: 100%;
+  box-shadow:
+    0 2px 8px rgba(61, 53, 40, 0.08),
+    0 8px 24px rgba(61, 53, 40, 0.06);
+  border: 1px solid var(--atlas-card-stroke);
+}
+
+/* Hero image — larger, centered */
+.journal-hero {
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto 2.5rem;
+  border-radius: 12px;
+  box-shadow:
+    0 2px 8px rgba(61, 53, 40, 0.08),
+    0 8px 24px rgba(61, 53, 40, 0.06);
+  border: 1px solid var(--atlas-card-stroke);
+}
+
+/* Homepage hero — wider treatment */
+.home-hero {
+  display: block;
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow:
+    0 4px 12px rgba(61, 53, 40, 0.10),
+    0 12px 32px rgba(61, 53, 40, 0.08);
+  border: 1px solid var(--atlas-card-stroke);
+}
+
+/* Caption under images */
+.journal-caption {
+  display: block;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--atlas-text-placeholder);
+  margin-top: 0.75rem;
+  font-style: italic;
+  letter-spacing: 0.01em;
 }
