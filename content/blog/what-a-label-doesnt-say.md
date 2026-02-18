@@ -3,7 +3,7 @@ title: What a Label Doesn't Say
 date: 2026-02-18
 description: A wine label holds more than it shows. So does a life.
 heroImage: /journal/savigny-label.png
-heroAlt: A bottle of Savigny-les-Beaune Premier Cru Les Vergelesses
+heroAlt: A bottle of Savigny-les-Beaune
 ---
 
 A label arrives in your hand and .. well, it can be a little unclear.
@@ -16,17 +16,17 @@ And I usually don't.
 
 What we know is the table. The restaurant with the bad lighting and the good bread. February. The person across from us, and what we were talking about, and whether it was the kind of evening we wanted to end.
 
-We know the weight of the glass in our hand. The colour against the tablecloth. The moment someone said something that mattered.
+We know the weight of the glass. The colour against the tablecloth. The moment someone said something that mattered.
 
 The label doesn't hold any of that. It holds geography, classification, a family name. It holds everything except what happened.
 
-We think we'll remember. We always think that. But years compress. The dinners blur together. The details go first — what you ordered, what you said, what the wine actually tasted like. Then the sequence goes. Was that the trip before or after? Did that restaurant close, or did you just stop going? Eventually only fragments remain: a colour, a season, a feeling you can't quite place.
+We think we'll remember. We always think that. But years compress. The dinners blur together. The details go first — what you ordered, what you said, what the wine tasted like. Then the sequence goes. Was that the trip before or after? Did that restaurant close, or did you just stop going? Eventually only fragments remain: a colour, a season, a feeling you can't quite place.
 
 It happens faster than anyone expects.
 
 ## Why wine
 
-Photos capture faces. Calendars capture dates. Music captures mood. But nothing captures atmosphere — the particular texture of an evening, whether the conversation was easy or careful, whether you were happy and knew it or happy and didn't.
+Photos capture faces. Calendars capture dates. But nothing captures atmosphere — the particular texture of an evening, whether the conversation was easy or careful, whether you were happy and knew it or happy and didn't.
 
 Wine is not the only thing present at those moments. But it is one of the few that recurs — at dinners, on trips, at celebrations, at endings — often enough to become a thread through adult life.
 
@@ -40,11 +40,11 @@ Most people have bottles they remember. Not the vintage or the appellation — t
 
 Bordeaux. Rhone Valley. Champagne. Alsace. Regions, sized by something.
 
-Every tile is a period of your life. A large Bordeaux tile is the year you kept going back to that place in the 11th. A small Alsace tile is somewhere you haven't been yet.
+A large Bordeaux tile is the year you kept going back to that place… A small Alsace tile is somewhere you haven't visited much.
 
 ## What sits quietly beneath
 
-Behind every tile, context waits. The grapes that grow in a place. The climate that shapes them. The character of a region, held in a few careful sentences.
+Behind every tile, context waits. The grapes that grow in a place. The climate that shapes them. The character of a region, held in careful sentences.
 
 ![The Loire Valley — France's longest river, its most diverse wine region, drawn in ink](/journal/loire-valley.png)
 
@@ -62,4 +62,4 @@ You didn't plan to explore the Right Bank. But you did — dinner by dinner, bot
 
 Wine won't preserve everything. But it can anchor what remains — a date, a place, a name, a note — so that when you return, the rest comes back.
 
-The bread. The lighting. The person you shared it with...
+The bread. The lighting. The person across the table.
