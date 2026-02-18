@@ -29,13 +29,16 @@ export default async function PostPage({
   const rawHtml = processedContent.toString();
 
   // Wrap inline images in memory-shot containers with alternating layout
+  // Crop positions: 1st=top, 2nd=center (show the map), 3rd=bottom
+  const cropPositions = ["top", "center", "bottom"];
   let imageCount = 0;
   let articleHtml = rawHtml.replace(
     /<p>\s*<img\s+([^>]*?)\/?\s*>\s*<\/p>/g,
     (_match, attrs) => {
+      const parity = imageCount % 2 === 0 ? "odd" : "even";
+      const pos = cropPositions[imageCount] || "center";
       imageCount++;
-      const parity = imageCount % 2 === 1 ? "odd" : "even";
-      return `<div class="memory-shot memory-shot-${parity}"><img ${attrs}></div>`;
+      return `<div class="memory-shot memory-shot-${parity} memory-shot-pos-${pos}"><img ${attrs}></div>`;
     }
   );
 

@@ -173,6 +173,19 @@ body {
   margin-top: 3.5rem;
 }
 
+/* Per-image crop positions */
+.memory-shot-pos-top img {
+  object-position: center top;
+}
+
+.memory-shot-pos-center img {
+  object-position: center center;
+}
+
+.memory-shot-pos-bottom img {
+  object-position: center bottom;
+}
+
 /* Hero image — floated right, text wraps left then below */
 .hero-float {
   float: right;
