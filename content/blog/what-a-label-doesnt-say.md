@@ -42,17 +42,17 @@ Every tile is a period of your life. A large Bordeaux tile is the year you kept 
 
 ## What sits quietly beneath
 
-![The Loire Valley — France's longest river, its most diverse wine region, drawn in ink](/journal/loire-valley.png)
-
 Behind every tile, context waits. The grapes that grow in a place. The climate that shapes them. The character of a region, held in a few careful sentences.
+
+![The Loire Valley — France's longest river, its most diverse wine region, drawn in ink](/journal/loire-valley.png)
 
 You don't need any of this. But when you're curious — when you want to understand why a wine tasted the way it did, or what connects the bottles you keep choosing — it's there. Quietly. Like a reference book that never insists on being read.
 
 ## The shape of where you've been
 
-![Bordeaux's appellations — dozens of places, each one a tile, each tile an evening](/journal/bordeaux-appellations.png)
-
 Tap into Bordeaux and the world opens. Medoc. Graves. Pomerol. Saint-Emilion. Dozens of names, each holding evenings you may have forgotten you had.
+
+![Bordeaux's appellations — dozens of places, each one a tile, each tile an evening](/journal/bordeaux-appellations.png)
 
 You didn't plan to explore the Right Bank. But you did — dinner by dinner, bottle by bottle, without ever consulting a map.
 
