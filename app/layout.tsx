@@ -95,8 +95,6 @@ export default function RootLayout({
             letterSpacing: "0.02em",
           }}
         >
-          <span>Vynr — A quiet atlas for wine</span>
-          <span style={{ margin: "0 0.75rem", opacity: 0.4 }}>·</span>
           <Link
             href="/privacy"
             style={{
