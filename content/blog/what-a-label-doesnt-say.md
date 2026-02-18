@@ -1,49 +1,65 @@
 ---
 title: What a Label Doesn't Say
 date: 2026-02-18
-description: A wine label is a starting point. The atlas is what lies beneath.
+description: A wine label holds more than it shows. So does a life.
 heroImage: /journal/savigny-label.png
-heroAlt: A bottle of Savigny-lès-Beaune Premier Cru Les Vergelesses, caught mid-scan
+heroAlt: A bottle of Savigny-les-Beaune Premier Cru Les Vergelesses, caught mid-scan
 ---
 
 A label arrives in your hand and tells you almost nothing.
 
-Savigny-lès-Beaune. Premier Cru. Les Vergelesses. A name, a rank, a vineyard. Cream paper, serif type, a family crest. It is beautiful in the way that all wine labels are beautiful — it assumes you already know.
+Savigny-les-Beaune. Premier Cru. Les Vergelesses. A name, a rank, a vineyard. Cream paper, serif type, a family crest. It is beautiful in the way that all wine labels are beautiful — it assumes you already know.
 
-![France, rendered as a treemap — Bordeaux, Rhône Valley, Champagne, each region sized by what lives in the cellar](/journal/france-treemap.png)
+But most of us don't. Not really. We know the taste — the memory of the glass, the table, who was there. We know February, and the restaurant with the bad lighting and the good bread. We know the person across the table.
 
-But most of us don't. Not really. We know the taste — the memory of the glass, the table, who was there. We don't always know *where* Savigny sits in the map of Burgundy, or why Les Vergelesses faces east, or what that means for the wine.
+The label doesn't hold any of that.
 
-This is the gap Vynr tries to close.
+## Why wine, specifically
 
-## The atlas beneath
+Photos capture faces. Calendars capture dates. But nothing captures atmosphere — the weight of an evening, the temperature of a conversation, whether it was the kind of night you wanted to last.
 
-When you scan a label, the app doesn't just read the text. It resolves it — geographically, structurally, historically. Every appellation occupies a position in a hierarchy: country, region, sub-region, commune. Every commune has a climate, a soil, a set of grapes that have proven themselves there over centuries.
+Wine does. Not because wine is special, but because wine is *recurring*. It shows up at dinners, on trips, at celebrations, at endings. It is one of the few objects that passes through adult life often enough to become a thread.
 
-![The Alsace education panel — prose description, key grapes, ink outline map](/journal/alsace-atlas.png)
+Most people don't think of themselves as keeping a wine journal. But most people have bottles they remember. Not the vintage or the appellation — the evening.
 
-The treemap makes this visible. Area equals importance — or more precisely, area equals *presence*. A large Bordeaux tile means you've been drinking a lot of Bordeaux. A small Alsace tile is an invitation.
+That is the journal. It already exists. It just isn't written down.
 
-## What you see when you drill in
+## The atlas is not what you think
 
-Tap Bordeaux and the world opens:
+![France, rendered as a treemap — each region sized not by geography, but by presence in a life](/journal/france-treemap.png)
 
-![Bordeaux's appellations — Médoc, Graves, Pomerol, Saint-Émilion, and dozens more, each tile a place](/journal/bordeaux-appellations.png)
+When you look at this, you might see a map of France. Bordeaux, Rhone Valley, Champagne, Alsace — regions, sized by something.
 
-Médoc. Graves. Pomerol. Saint-Émilion Grand Cru. Sauternes. Dozens of appellations, each with its own soil, its own permitted grapes, its own logic. The treemap arranges them spatially — you see the shape of a region through what you've tasted.
+But this is not a geography lesson.
 
-This is what a label doesn't say. It doesn't say that you've been circling the Right Bank for months without realising it. It doesn't say that the Côtes de Bourg sitting quietly in the corner might be worth a closer look.
+Every tile is a period of your life. A large Bordeaux tile is not a statement about Bordeaux. It is a statement about you — the trips, the habits, the phase when you kept reaching for the same thing without knowing why.
 
-## Building the scanner
+A small Alsace tile is not a gap in your knowledge. It is somewhere you haven't been yet.
 
-The hardest part of building a wine app isn't the interface. It's the moment between the camera and the cellar — when OCR text becomes structured knowledge.
+The atlas is a map of time.
 
-A label says "Savigny-lès-Beaune 1er Cru Les Vergelesses." The app must understand that this is France, Burgundy, Côte de Beaune, the commune of Savigny, a Premier Cru vineyard. It must resolve the producer from the remaining text. It must infer Pinot Noir without being told, because Savigny-lès-Beaune is Pinot Noir.
+## What the app quietly knows
 
-None of this is written on the label.
+![The Alsace reference panel — place, grapes, character, drawn in ink](/journal/alsace-atlas.png)
 
-## A quiet ambition
+Behind every tile, the app holds the things a label assumes you already understand. The grapes. The climate. The character of a place. It knows that Savigny-les-Beaune means Pinot Noir without being told, because that is what grows there. It knows where Alsace sits and why Riesling thrives.
 
-Vynr is not trying to rate wines or build a social network. It is trying to make the invisible structure of wine visible — and personal. Your cellar is your atlas. The places you've been, rendered as territory.
+You don't need to learn any of this. But when you're curious — when you want to understand why a wine tasted the way it did, or what connects the bottles you keep choosing — it's there. Quietly. Like a good reference book that never insists on being read.
 
-A label is a starting point. The atlas is what lies beneath.
+## The shape of a place you've been
+
+![Bordeaux's appellations — dozens of places, each one a tile, each tile a memory](/journal/bordeaux-appellations.png)
+
+Tap into Bordeaux and the world opens. Medoc. Graves. Pomerol. Saint-Emilion. Dozens of names, each holding evenings you may have forgotten you had.
+
+You didn't plan to explore the Right Bank. But the atlas shows you that you did — dinner by dinner, bottle by bottle, without ever consulting a map.
+
+This is what a label doesn't say. It doesn't say that your life has a geography. That the wines you choose trace a path through places, and the path has a shape, and the shape means something.
+
+## A quiet record
+
+Vynr is not trying to rate wines or build a social network or teach you to be a sommelier.
+
+It is trying to hold the thing that would otherwise disappear: the evening, the place, the atmosphere. The parts of life that happen over a glass and then are gone.
+
+A label is a starting point. What it doesn't say is everything that matters.
