@@ -3,7 +3,7 @@ title: What a Label Doesn't Say
 date: 2026-02-18
 description: A wine label holds more than it shows. So does a life.
 heroImage: /journal/savigny-label.png
-heroAlt: A bottle of Savigny-les-Beaune
+heroAlt: A Burgundy label.
 ---
 
 A label arrives in your hand and .. well, it can be a little unclear.
