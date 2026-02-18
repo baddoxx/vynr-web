@@ -52,11 +52,11 @@ export default function Home() {
       {/* Hero — wine glass illustration */}
       <div style={{ marginTop: "2.5rem", marginBottom: "2.5rem" }}>
         <Image
-          src="/journal/vynr-glass.jpg"
+          src="/journal/vynr-glass.png"
           alt="A wine glass, ink illustration"
-          width={180}
-          height={180}
-          style={{ width: 180, height: "auto", margin: "0 auto", display: "block" }}
+          width={240}
+          height={240}
+          style={{ width: 240, height: "auto", margin: "0 auto", display: "block" }}
           priority
         />
       </div>
