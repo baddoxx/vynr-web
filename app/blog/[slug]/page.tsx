@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { remark } from "remark";
 import html from "remark-html";
@@ -29,9 +28,9 @@ export default async function PostPage({
   const processedContent = await remark().use(html).process(post.content);
   const rawHtml = processedContent.toString();
 
-  // Wrap inline images in memory-shot containers with alternating triangles
+  // Wrap inline images in memory-shot containers with alternating layout
   let imageCount = 0;
-  const contentHtml = rawHtml.replace(
+  let articleHtml = rawHtml.replace(
     /<p>\s*<img\s+([^>]*?)\/?\s*>\s*<\/p>/g,
     (_match, attrs) => {
       imageCount++;
@@ -39,6 +38,12 @@ export default async function PostPage({
       return `<div class="memory-shot memory-shot-${parity}"><img ${attrs}></div>`;
     }
   );
+
+  // Inject hero image at the start of article content so text wraps around it
+  if (post.heroImage) {
+    const heroHtml = `<figure class="hero-float"><img src="${post.heroImage}" alt="${(post.heroAlt || post.title).replace(/"/g, "&quot;")}" />${post.heroAlt ? `<figcaption class="journal-caption">${post.heroAlt}</figcaption>` : ""}</figure>`;
+    articleHtml = heroHtml + articleHtml;
+  }
 
   return (
     <section
@@ -95,25 +100,9 @@ export default async function PostPage({
         />
       </header>
 
-      {post.heroImage && (
-        <figure style={{ marginTop: "0.5rem", marginBottom: "3.5rem" }}>
-          <Image
-            src={post.heroImage}
-            alt={post.heroAlt || post.title}
-            width={320}
-            height={370}
-            className="journal-hero"
-            style={{ width: "100%", height: "auto" }}
-          />
-          {post.heroAlt && (
-            <figcaption className="journal-caption">{post.heroAlt}</figcaption>
-          )}
-        </figure>
-      )}
-
       <article
         className="prose"
-        dangerouslySetInnerHTML={{ __html: contentHtml }}
+        dangerouslySetInnerHTML={{ __html: articleHtml }}
       />
     </section>
   );
