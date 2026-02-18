@@ -61,46 +61,22 @@ export default function Home() {
         />
       </div>
 
-      <div
+      <Link
+        href="/blog"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "1rem",
+          display: "inline-block",
+          fontSize: "1rem",
+          fontWeight: 600,
+          color: "var(--atlas-text)",
+          textDecoration: "none",
+          borderBottom: "2px solid var(--atlas-tint)",
+          paddingBottom: 3,
+          letterSpacing: "-0.01em",
+          transition: "color 0.15s ease",
         }}
       >
-        <a
-          href="#"
-          style={{
-            display: "inline-block",
-            padding: "12px 28px",
-            backgroundColor: "var(--atlas-text)",
-            color: "var(--atlas-bg)",
-            fontSize: "0.875rem",
-            fontWeight: 600,
-            borderRadius: 10,
-            textDecoration: "none",
-            letterSpacing: "0.01em",
-            transition: "opacity 0.15s ease",
-          }}
-        >
-          Coming soon on the App Store
-        </a>
-
-        <Link
-          href="/blog"
-          style={{
-            fontSize: "0.85rem",
-            color: "var(--atlas-tint)",
-            textDecoration: "none",
-            borderBottom: "1px solid var(--atlas-card-stroke)",
-            paddingBottom: 2,
-            transition: "color 0.15s ease",
-          }}
-        >
-          Read the journal
-        </Link>
-      </div>
+        Read the journal
+      </Link>
 
       {/* Decorative separator */}
       <div
@@ -119,6 +95,24 @@ export default function Home() {
         </span>
         <span style={{ width: 40, height: 1, background: "var(--atlas-separator)", display: "block" }} />
       </div>
+
+      <a
+        href="#"
+        style={{
+          display: "inline-block",
+          marginTop: "2.5rem",
+          padding: "8px 18px",
+          fontSize: "0.75rem",
+          color: "var(--atlas-text-placeholder)",
+          textDecoration: "none",
+          letterSpacing: "0.03em",
+          border: "1px solid var(--atlas-card-stroke)",
+          borderRadius: 8,
+          transition: "color 0.15s ease",
+        }}
+      >
+        Coming soon on the App Store
+      </a>
     </section>
   );
 }
