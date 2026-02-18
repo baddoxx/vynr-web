@@ -22,6 +22,14 @@ export default function Home() {
             Coming soon on the App Store
           </a>
         </div>
+        <div className="mt-6">
+          <a
+            href="/blog"
+            className="text-sm text-neutral-500 hover:text-black underline"
+          >
+            Read the journal
+          </a>
+        </div>
       </section>
     </main>
   );
