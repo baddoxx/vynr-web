@@ -10,7 +10,7 @@ A label arrives in your hand and .. well it can be a little unclear.
 
 Savigny-les-Beaune. Premier Cru. Les Vergelesses. A name, a rank, a vineyard. Cream paper, serif type, a family crest. It is beautiful in the way that all wine labels are beautiful — it assumes you already know.
 
-But most of us don't. Not really.
+But most of us don't. Not really.  At least I didn't.
 
 What we know is the table. The restaurant with the bad lighting and the good bread. February. The person across from us, and what we were talking about, and whether it was the kind of evening we wanted to end.
 
