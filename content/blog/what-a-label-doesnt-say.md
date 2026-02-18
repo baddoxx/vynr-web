@@ -60,4 +60,4 @@ You didn't plan to explore the Right Bank. But you did — dinner by dinner, bot
 
 Wine won't preserve everything. But it can anchor what remains — a date, a place, a name, a note — so that when you return, the rest comes back.
 
-The bread. The lighting. The person who was there.
+The bread. The lighting. The person you shared it with...
