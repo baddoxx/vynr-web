@@ -6,7 +6,7 @@ heroImage: /journal/savigny-label.png
 heroAlt: A bottle of Savigny-les-Beaune Premier Cru Les Vergelesses
 ---
 
-A label arrives in your hand and tells you almost nothing.
+A label arrives in your hand and .. well it can be a little unclear.
 
 Savigny-les-Beaune. Premier Cru. Les Vergelesses. A name, a rank, a vineyard. Cream paper, serif type, a family crest. It is beautiful in the way that all wine labels are beautiful — it assumes you already know.
 
@@ -24,15 +24,13 @@ It happens faster than anyone expects.
 
 ## Why wine
 
-Wine is not the only thing present at important moments. But it is one of the few that recurs.
+Photos capture faces. Calendars capture dates. Music captures mood. But nothing captures atmosphere — the particular texture of an evening, whether the conversation was easy or careful, whether you were happy and knew it or happy and didn't.
 
-It appears at dinners. At celebrations. On trips. At reunions. At endings. It passes through adult life often enough to become a kind of thread — not because we choose it deliberately, but because it is simply there, again and again, at the moments that matter.
+Wine is not the only thing present at those moments. But it is one of the few that recurs — at dinners, on trips, at celebrations, at endings — often enough to become a thread through adult life.
 
-Photos capture faces. Calendars capture dates. Music captures mood. But nothing captures atmosphere — the particular texture of an evening, the emotional weather of a table, whether the conversation was easy or careful.
+A bottle remembered is rarely just a bottle. It is a night. A place. A version of yourself you may not have thought about since.
 
-Wine does. Not perfectly. Not explicitly. But a bottle remembered is rarely just a bottle. It is a night. A place. A version of yourself you may not have thought about since.
-
-Most people don't think of themselves as keeping a wine journal. But most people have bottles they remember — not the vintage or the appellation, but the evening. The journal already exists. It just isn't written down.
+Most people have bottles they remember. Not the vintage or the appellation — the evening. The journal already exists. It just isn't written down.
 
 ## A map of time
 
@@ -42,9 +40,9 @@ When you look at this, you might see a map of France. Bordeaux, Rhone Valley, Ch
 
 But this is not a geography lesson.
 
-Every tile is a period of your life. A large Bordeaux tile is not a statement about Bordeaux. It is a statement about you — the trips, the dinners, the phase when you kept reaching for the same thing without quite knowing why. A small Alsace tile is not a gap in your knowledge. It is somewhere you haven't been yet.
+Every tile is a period of your life. A large Bordeaux tile is not a statement about Bordeaux. It is the year you kept going back to that place in the 11th. A small Alsace tile is somewhere you haven't been yet.
 
-The atlas is autobiographical, not geographical. It shows you where your life has been, rendered as territory.
+You don't see a map of wine. You see where your life has been.
 
 ## What sits quietly beneath
 
@@ -68,8 +66,6 @@ This is what a label doesn't say. It doesn't say that your life has a geography.
 
 ## A quiet record
 
-Wine won't preserve everything. But it can anchor what remains — a date, a place, a name, a note — so that when you return, the rest comes back. The bread. The lighting. The thing someone said.
+Wine won't preserve everything. But it can anchor what remains — a date, a place, a name, a note — so that when you return, the rest comes back.
 
-There are evenings you would like to be able to return to. Most of them, you still can — if something holds the thread.
-
-That is all a journal needs to do. Not capture everything. Just enough that the rest survives.
+You already know which evening you'd go back to.
