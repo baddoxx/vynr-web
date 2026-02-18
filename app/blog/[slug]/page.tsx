@@ -96,7 +96,7 @@ export default async function PostPage({
       </header>
 
       {post.heroImage && (
-        <figure style={{ marginBottom: "3rem" }}>
+        <figure style={{ marginTop: "0.5rem", marginBottom: "3.5rem" }}>
           <Image
             src={post.heroImage}
             alt={post.heroAlt || post.title}
