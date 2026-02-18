@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://vynr.app"),
-  title: "Vynr",
+  title: {
+    default: "Vynr",
+    template: "%s — Vynr",
+  },
   description: "A quiet atlas for wine.",
   openGraph: {
     title: "Vynr",
@@ -43,10 +36,67 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body>
+        <header
+          style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 50,
+            backgroundColor: "var(--chrome-bg)",
+            borderBottom: "1px solid var(--atlas-separator)",
+          }}
+        >
+          <nav
+            style={{
+              maxWidth: 720,
+              margin: "0 auto",
+              padding: "14px 24px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Link
+              href="/"
+              style={{
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                color: "var(--atlas-text)",
+                textDecoration: "none",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Vynr
+            </Link>
+            <Link
+              href="/blog"
+              style={{
+                fontSize: "0.875rem",
+                color: "var(--atlas-text-secondary)",
+                textDecoration: "none",
+                transition: "color 0.15s ease",
+              }}
+              onMouseOver={undefined}
+            >
+              Journal
+            </Link>
+          </nav>
+        </header>
+
+        <main>{children}</main>
+
+        <footer
+          style={{
+            borderTop: "1px solid var(--atlas-separator)",
+            padding: "2rem 1.5rem",
+            textAlign: "center",
+            color: "var(--atlas-text-placeholder)",
+            fontSize: "0.8rem",
+            letterSpacing: "0.02em",
+          }}
+        >
+          Vynr — A quiet atlas for wine
+        </footer>
       </body>
     </html>
   );

@@ -1,23 +1,95 @@
-import Link from 'next/link'
-import { getAllPosts } from '@/lib/posts'
+import Link from "next/link";
+import { getAllPosts } from "@/lib/posts";
+
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 
 export default async function BlogPage() {
-  const posts = getAllPosts()
+  const posts = getAllPosts();
 
   return (
-    <main style={{ maxWidth: 700, margin: '60px auto', padding: 20 }}>
-      <h1>Journal</h1>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {posts.map(post => (
-          <li key={post.slug} style={{ marginBottom: 24 }}>
-            <Link href={`/blog/${post.slug}`}>
-              <h2>{post.title}</h2>
-            </Link>
-            <p>{post.description}</p>
-            <small>{new Date(post.date).toISOString().slice(0,10)}</small>
-          </li>
+    <section
+      style={{
+        maxWidth: 720,
+        margin: "0 auto",
+        padding: "48px 24px 80px",
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "1.8rem",
+          fontWeight: 600,
+          letterSpacing: "-0.02em",
+          color: "var(--atlas-text)",
+          marginBottom: "0.5rem",
+        }}
+      >
+        Journal
+      </h1>
+      <p
+        style={{
+          fontSize: "0.9rem",
+          color: "var(--atlas-text-placeholder)",
+          marginBottom: "3rem",
+        }}
+      >
+        Notes on wine, place, and memory.
+      </p>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
+        {posts.map((post) => (
+          <Link
+            key={post.slug}
+            href={`/blog/${post.slug}`}
+            style={{
+              display: "block",
+              textDecoration: "none",
+              padding: "1.5rem 0",
+              borderBottom: "1px solid var(--atlas-card-stroke)",
+              transition: "background 0.15s ease",
+            }}
+          >
+            <article>
+              <h2
+                style={{
+                  fontSize: "1.15rem",
+                  fontWeight: 600,
+                  color: "var(--atlas-text)",
+                  marginBottom: "0.4rem",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                {post.title}
+              </h2>
+              <p
+                style={{
+                  fontSize: "0.925rem",
+                  color: "var(--atlas-text-secondary)",
+                  lineHeight: 1.5,
+                  marginBottom: "0.5rem",
+                }}
+              >
+                {post.description}
+              </p>
+              <time
+                style={{
+                  fontSize: "0.8rem",
+                  color: "var(--atlas-text-placeholder)",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                {formatDate(post.date)}
+              </time>
+            </article>
+          </Link>
         ))}
-      </ul>
-    </main>
-  )
+      </div>
+    </section>
+  );
 }

@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Atlas Canvas (Papyrus/Sepia) */
+  --atlas-bg: #fdf6e3;
+  --atlas-card: #eee8d5;
+  --atlas-card-stroke: #CEC4B2;
+  --atlas-text: #3D3528;
+  --atlas-text-secondary: #6B614E;
+  --atlas-text-placeholder: #8A7D68;
+  --atlas-separator: #B8AC94;
+  --atlas-tint: #8B7355;
+  --atlas-destructive: #A85040;
+
+  /* Chrome */
+  --chrome-bg: #ffffff;
+
+  --background: var(--atlas-bg);
+  --foreground: var(--atlas-text);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Avenir Next', 'Avenir', 'Nunito Sans', 'Trebuchet MS', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Article prose styling */
+.prose h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--atlas-text);
+  margin-bottom: 0.5rem;
+}
+
+.prose h2 {
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--atlas-text);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose h3 {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--atlas-text);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--atlas-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--atlas-tint);
+  padding-left: 1.25rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--atlas-text-secondary);
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--atlas-text-secondary);
+}
+
+.prose li {
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
+}
+
+.prose a {
+  color: var(--atlas-tint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.prose a:hover {
+  color: var(--atlas-text);
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--atlas-separator);
+  margin: 2.5rem 0;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--atlas-text);
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose code {
+  background: var(--atlas-card);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.prose pre {
+  background: var(--atlas-card);
+  border: 1px solid var(--atlas-card-stroke);
+  border-radius: 8px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.prose img {
+  border-radius: 8px;
+  margin: 2rem 0;
 }
