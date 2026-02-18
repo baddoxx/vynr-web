@@ -107,6 +107,17 @@ export default function RootLayout({
           >
             Privacy
           </Link>
+          <span style={{ margin: "0 0.75rem", opacity: 0.4 }}>·</span>
+          <Link
+            href="/contact"
+            style={{
+              color: "var(--atlas-text-placeholder)",
+              textDecoration: "none",
+              transition: "color 0.15s ease",
+            }}
+          >
+            Contact
+          </Link>
         </footer>
       </body>
     </html>
