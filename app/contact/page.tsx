@@ -40,8 +40,18 @@ export default function ContactPage() {
 
       <article className="prose">
         <p>
-          For questions, feedback, or privacy requests:{" "}
+          For support, feedback, or privacy enquiries, please email:
+          <br />
           <a href="mailto:contact@vynr.app">contact@vynr.app</a>
+        </p>
+        <p>
+          vynr is independently developed and maintained by its author.
+          Messages are typically answered within a few days.
+        </p>
+        <p>
+          If your email bounces or you do not receive a reply, please resend
+          after 24 hours — new domains occasionally take time to propagate
+          across mail providers.
         </p>
       </article>
     </section>
