@@ -51,9 +51,9 @@ Most people have bottles they remember. Not the vintage or the appellation — t
 
 ## A map of time
 
-![France, rendered as a treemap — each region sized not by geography, but by presence in a life](/journal/france-treemap.png)
-
 Bordeaux. Rhone Valley. Champagne. Alsace. Regions, sized by something.
+
+![France, rendered as a treemap — each region sized not by geography, but by presence in a life](/journal/france-treemap.png)
 
 A large Bordeaux tile is the year you kept going back to that place… A small Alsace tile is somewhere you haven't visited much.
 
