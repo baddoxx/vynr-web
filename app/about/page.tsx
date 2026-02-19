@@ -46,11 +46,11 @@ export default function AboutPage() {
         </p>
 
         <p>
-          After a dinner, someone asks what the second bottle was. You can
-          picture the label — cream paper, serif type — but not the name. You
-          remember the colour against the tablecloth. You remember who said
-          something that mattered. The bottle held all of that, and now
-          it&rsquo;s gone.
+          After a dinner, you want to keep the shape of it: the bottle that
+          made the table go quiet, the acidity that cut through the dish, the
+          producer you meant to look up, the way the room felt when the glass
+          was lifted. Not as a score, but as a trace — something you can return
+          to later.
         </p>
 
         <p>
@@ -74,9 +74,10 @@ export default function AboutPage() {
 
         <h2>Who it&rsquo;s for</h2>
         <p>
-          People who don&rsquo;t write things down but wish they remembered.
-          People who want to recall the dinner, not just the vintage. People
-          who appreciate calm, private, beautiful tools.
+          People who enjoy wine and want a calm place to keep it: what they
+          opened, where it came from, and what it meant in the moment. For
+          anyone who prefers private tools over public performance — and who
+          wants their own record, not the internet&rsquo;s opinion.
         </p>
 
         <hr />
