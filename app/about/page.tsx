@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "vynr is a private wine cellar and tasting journal, backed by an interactive atlas of the wine world.",
+    "A private wine cellar and tasting journal. No ratings, no social feeds — just wine, remembered.",
 };
 
 export default function AboutPage() {
@@ -45,16 +45,18 @@ export default function AboutPage() {
           interactive atlas of the wine world.
         </p>
 
-        <h2>Why it exists</h2>
         <p>
-          Wine is overwhelming. Thousands of regions, grape varieties,
-          producers. Every bottle tells a story, but most people forget what
-          they drank last month.
+          After a dinner, someone asks what the second bottle was. You can
+          picture the label — cream paper, serif type — but not the name. You
+          remember the colour against the tablecloth. You remember who said
+          something that mattered. The bottle held all of that, and now
+          it&rsquo;s gone.
         </p>
+
         <p>
-          vynr makes wine memorable and geographic. It places every wine you
-          encounter into an authoritative map, so understanding builds over
-          time instead of starting from scratch.
+          No crowd-sourced ratings. No social feeds. No marketplace. No
+          gamification. No advertising. This is not a limitation. It is the
+          product.
         </p>
 
         <h2>Three things, woven together</h2>
@@ -72,25 +74,10 @@ export default function AboutPage() {
 
         <h2>Who it&rsquo;s for</h2>
         <p>
-          People who keep notes. People who want to remember the dinner, not
-          just the vintage. People who appreciate calm, private, beautiful
-          tools.
+          People who don&rsquo;t write things down but wish they remembered.
+          People who want to recall the dinner, not just the vintage. People
+          who appreciate calm, private, beautiful tools.
         </p>
-        <p>
-          You might scan a label from a Burgundy you brought home and discover
-          it&rsquo;s from Gevrey-Chambertin in C&ocirc;te de Nuits. You
-          write &ldquo;First Burgundy I really loved.&rdquo; Months later, you
-          browse the atlas and notice you keep returning to Northern
-          Rh&ocirc;ne — a preference you didn&rsquo;t know you had until you
-          saw the pattern.
-        </p>
-
-        <h2>What vynr deliberately avoids</h2>
-        <p>
-          No crowd-sourced ratings. No social feeds. No marketplace. No
-          gamification. No algorithmic recommendations. No advertising.
-        </p>
-        <p>This is not a limitation. It is the product.</p>
 
         <hr />
 
