@@ -35,19 +35,8 @@ export default function Home() {
         A quiet atlas for wine.
       </p>
 
-      <p
-        style={{
-          marginTop: "0.75rem",
-          fontSize: "0.95rem",
-          color: "var(--atlas-text-placeholder)",
-          lineHeight: 1.7,
-        }}
-      >
-        A private cellar and tasting journal.
-      </p>
-
       {/* Hero — wine glass illustration */}
-      <div style={{ marginTop: "2.5rem", marginBottom: "2.5rem" }}>
+      <div style={{ marginTop: "2.5rem", marginBottom: "1.5rem" }}>
         <Image
           src="/journal/vynr-glass.png"
           alt="A wine glass, ink illustration"
@@ -58,22 +47,27 @@ export default function Home() {
         />
       </div>
 
-      <a
-        href="#"
+      {/* App preview — treemap */}
+      <div className="home-preview" style={{ marginBottom: "2.5rem" }}>
+        <Image
+          src="/journal/france-treemap.png"
+          alt="France, rendered as a treemap — regions sized by presence in a life"
+          width={300}
+          height={300}
+          style={{ width: "100%", height: "auto", display: "block" }}
+        />
+      </div>
+
+      <p
         style={{
-          display: "inline-block",
           fontSize: "1rem",
           fontWeight: 600,
           color: "var(--atlas-text)",
-          textDecoration: "none",
-          borderBottom: "2px solid var(--atlas-tint)",
-          paddingBottom: 3,
           letterSpacing: "-0.01em",
-          transition: "color 0.15s ease",
         }}
       >
         Coming soon on the App Store
-      </a>
+      </p>
 
       <div style={{ marginTop: "1.5rem" }}>
         <Link
@@ -86,7 +80,7 @@ export default function Home() {
             transition: "color 0.15s ease",
           }}
         >
-          Read the journal
+          Read the blog
         </Link>
       </div>
 

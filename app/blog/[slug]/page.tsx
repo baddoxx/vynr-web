@@ -67,7 +67,7 @@ export default async function PostPage({
           letterSpacing: "0.02em",
         }}
       >
-        &larr; Journal
+        &larr; Blog
       </Link>
 
       <header style={{ marginBottom: "2.5rem" }}>

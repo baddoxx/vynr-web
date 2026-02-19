@@ -30,7 +30,7 @@ export default async function BlogPage() {
           marginBottom: "0.5rem",
         }}
       >
-        Journal
+        Blog
       </h1>
       <p
         style={{

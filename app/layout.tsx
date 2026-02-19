@@ -76,9 +76,8 @@ export default function RootLayout({
                 textDecoration: "none",
                 transition: "color 0.15s ease",
               }}
-              onMouseOver={undefined}
             >
-              Journal
+              Blog
             </Link>
           </nav>
         </header>
