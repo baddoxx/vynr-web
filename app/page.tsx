@@ -36,7 +36,7 @@ export default function Home() {
       </p>
 
       {/* Hero — wine glass illustration */}
-      <div style={{ marginTop: "2.5rem", marginBottom: "1.5rem" }}>
+      <div style={{ marginTop: "2.5rem", marginBottom: "2.5rem" }}>
         <Image
           src="/journal/vynr-glass.png"
           alt="A wine glass, ink illustration"
@@ -44,17 +44,6 @@ export default function Home() {
           height={240}
           style={{ width: 240, height: "auto", margin: "0 auto", display: "block" }}
           priority
-        />
-      </div>
-
-      {/* App preview — treemap */}
-      <div className="home-preview" style={{ marginBottom: "2.5rem" }}>
-        <Image
-          src="/journal/france-treemap.png"
-          alt="France, rendered as a treemap — regions sized by presence in a life"
-          width={300}
-          height={300}
-          style={{ width: "100%", height: "auto", display: "block" }}
         />
       </div>
 
