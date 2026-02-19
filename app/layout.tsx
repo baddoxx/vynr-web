@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     default: "Vynr",
     template: "%s — Vynr",
   },
-  description: "A quiet atlas for wine.",
+  description: "A private wine cellar and tasting journal. Atlas maps, tasting notes, and region education.",
   openGraph: {
-    title: "Vynr",
-    description: "A quiet atlas for wine.",
+    title: "Vynr — Wine Cellar & Journal",
+    description: "A private wine cellar and tasting journal. Atlas maps, tasting notes, and region education.",
     url: "https://vynr.app",
     siteName: "Vynr",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Vynr" }],
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vynr",
-    description: "A quiet atlas for wine.",
+    title: "Vynr — Wine Cellar & Journal",
+    description: "A private wine cellar and tasting journal. Atlas maps, tasting notes, and region education.",
     images: ["/og.png"],
   },
   icons: {

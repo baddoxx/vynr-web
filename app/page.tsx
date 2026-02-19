@@ -25,14 +25,14 @@ export default function Home() {
 
       <p
         style={{
-          marginTop: "1.5rem",
-          fontSize: "1.25rem",
+          marginTop: "1.25rem",
+          fontSize: "1.1rem",
           color: "var(--atlas-text-secondary)",
-          fontStyle: "italic",
+          letterSpacing: "0.02em",
           lineHeight: 1.5,
         }}
       >
-        A quiet atlas for wine.
+        Wine Cellar &amp; Journal
       </p>
 
       {/* Hero — wine glass illustration */}
