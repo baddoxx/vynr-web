@@ -95,6 +95,17 @@ export default function RootLayout({
           }}
         >
           <Link
+            href="/about"
+            style={{
+              color: "var(--atlas-text-placeholder)",
+              textDecoration: "none",
+              transition: "color 0.15s ease",
+            }}
+          >
+            About
+          </Link>
+          <span aria-hidden="true" style={{ margin: "0 0.75rem", opacity: 0.4 }}>·</span>
+          <Link
             href="/privacy"
             style={{
               color: "var(--atlas-text-placeholder)",
