@@ -21,33 +21,13 @@ It should feel like returning to somewhere you once were.
 
 ---
 
-A label arrives in your hand and .. well, it can be a little unclear.
+A label arrives in your hand and .. well, it can be a little unclear. At least to me.
 
-At least to me.
+Savigny-les-Beaune. Premier Cru. Les Vergelesses. A name, a rank, a vineyard. Cream paper, serif type, a family crest. It is beautiful in the way that all wine labels are beautiful — it assumes you already know. And I usually don't.
 
-Savigny-les-Beaune. Premier Cru. Les Vergelesses. A name, a rank, a vineyard. Cream paper, serif type, a family crest. It is beautiful in the way that all wine labels are beautiful — it assumes you already know.
+What we know is the table. The restaurant with the bad lighting and the good bread. The person across from us. The weight of the glass. The colour against the tablecloth. The moment someone said something that mattered. The label holds none of that. It holds geography, classification, a family name. It holds everything except what happened.
 
-And I usually don't.
-
-What we know is the table. The restaurant with the bad lighting and the good bread. February. The person across from us, and what we were talking about, and whether it was the kind of evening we wanted to end.
-
-We know the weight of the glass. The colour against the tablecloth. The moment someone said something that mattered.
-
-The label doesn't hold any of that. It holds geography, classification, a family name. It holds everything except what happened.
-
-We think we'll remember. We always think that. But years compress. The dinners blur together. The details go first — what you ordered, what you said, what the wine tasted like. Then the sequence goes. Was that the trip before or after? Did that restaurant close, or did you just stop going? Eventually only fragments remain: a colour, a season, a feeling you can't quite place.
-
-It happens faster than anyone expects.
-
-## Why wine
-
-Photos capture faces. Calendars capture dates. But nothing captures atmosphere — the particular texture of an evening, whether the conversation was easy or careful, whether you were happy and knew it or happy and didn't.
-
-Wine is not the only thing present at those moments. But it is one of the few that recurs — at dinners, on trips, at celebrations, at endings — often enough to become a thread through adult life.
-
-A bottle remembered is rarely just a bottle. It is a night. A place. A version of yourself you may not have thought about since.
-
-Most people have bottles they remember. Not the vintage or the appellation — the evening. The journal already exists. It just isn't written down.
+And years compress faster than anyone expects — the details go first, then the sequence, until only fragments remain: a colour, a season, a feeling you can't quite place.
 
 ## A map of time
 
@@ -56,6 +36,12 @@ Bordeaux. Rhone Valley. Champagne. Alsace. Regions, sized by something.
 ![France, rendered as a treemap — each region sized not by geography, but by presence in a life](/journal/france-treemap.png)
 
 A large Bordeaux tile is the year you kept going back to that place… A small Alsace tile is somewhere you haven't visited much.
+
+## Why wine
+
+Nothing captures atmosphere — the particular texture of an evening, whether the conversation was easy or careful, whether you were happy and knew it or happy and didn't.
+
+Wine recurs — at dinners, on trips, at celebrations, at endings — often enough to become a thread through adult life. A bottle remembered is never just a bottle. Most people have bottles they remember. Not the vintage or the appellation — the evening. The journal already exists. It just isn't written down.
 
 ## What sits quietly beneath
 
