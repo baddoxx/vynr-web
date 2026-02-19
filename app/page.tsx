@@ -37,16 +37,13 @@ export default function Home() {
 
       <p
         style={{
-          marginTop: "1.5rem",
+          marginTop: "0.75rem",
           fontSize: "0.95rem",
           color: "var(--atlas-text-placeholder)",
           lineHeight: 1.7,
-          maxWidth: 400,
-          marginLeft: "auto",
-          marginRight: "auto",
         }}
       >
-        Explore regions. Track bottles. Keep a tasting journal.
+        A private cellar and tasting journal.
       </p>
 
       {/* Hero — wine glass illustration */}
@@ -61,8 +58,8 @@ export default function Home() {
         />
       </div>
 
-      <Link
-        href="/blog"
+      <a
+        href="#"
         style={{
           display: "inline-block",
           fontSize: "1rem",
@@ -75,8 +72,23 @@ export default function Home() {
           transition: "color 0.15s ease",
         }}
       >
-        Read the journal
-      </Link>
+        Coming soon on the App Store
+      </a>
+
+      <div style={{ marginTop: "1.5rem" }}>
+        <Link
+          href="/blog"
+          style={{
+            fontSize: "0.85rem",
+            color: "var(--atlas-text-placeholder)",
+            textDecoration: "none",
+            letterSpacing: "0.02em",
+            transition: "color 0.15s ease",
+          }}
+        >
+          Read the journal
+        </Link>
+      </div>
 
       {/* Decorative separator */}
       <div
@@ -95,24 +107,6 @@ export default function Home() {
         </span>
         <span style={{ width: 40, height: 1, background: "var(--atlas-separator)", display: "block" }} />
       </div>
-
-      <a
-        href="#"
-        style={{
-          display: "inline-block",
-          marginTop: "2.5rem",
-          padding: "8px 18px",
-          fontSize: "0.75rem",
-          color: "var(--atlas-text-placeholder)",
-          textDecoration: "none",
-          letterSpacing: "0.03em",
-          border: "1px solid var(--atlas-card-stroke)",
-          borderRadius: 8,
-          transition: "color 0.15s ease",
-        }}
-      >
-        Coming soon on the App Store
-      </a>
     </section>
   );
 }
