@@ -40,7 +40,12 @@ export default function ContactPage() {
 
       <article className="prose">
         <p>
-          For support, feedback, or privacy enquiries, please email:
+          For support and feedback:
+          <br />
+          <a href="mailto:support@vynr.app">support@vynr.app</a>
+        </p>
+        <p>
+          For everything else:
           <br />
           <a href="mailto:contact@vynr.app">contact@vynr.app</a>
         </p>
