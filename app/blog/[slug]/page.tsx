@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { remark } from "remark";
@@ -6,6 +7,32 @@ import html from "remark-html";
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  return {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: "article",
+      publishedTime: post.date,
+      ...(post.heroImage && { images: [{ url: post.heroImage }] }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      ...(post.heroImage && { images: [post.heroImage] }),
+    },
+  };
 }
 
 function formatDate(dateStr: string): string {
@@ -67,7 +94,7 @@ export default async function PostPage({
           letterSpacing: "0.02em",
         }}
       >
-        &larr; Blog
+        <span aria-hidden="true">&larr;</span> Blog
       </Link>
 
       <header style={{ marginBottom: "2.5rem" }}>

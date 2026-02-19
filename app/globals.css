@@ -48,6 +48,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Keyboard focus — visible ring on all interactive elements */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--atlas-tint);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Blog post list — hover feedback */
+.blog-post-link {
+  transition: background 0.15s ease;
+}
+
+.blog-post-link:hover {
+  background: var(--atlas-card);
+}
+
 /* Article prose styling */
 .prose h1 {
   font-weight: 600;
@@ -181,6 +198,13 @@ body {
   mask-composite: intersect;
 }
 
+@media (prefers-color-scheme: dark) {
+  .memory-shot img {
+    opacity: 0.92;
+    filter: saturate(0.85) contrast(1.05) brightness(0.95);
+  }
+}
+
 .memory-shot-odd {
   margin-top: 2.5rem;
 }
@@ -207,6 +231,14 @@ body {
   float: right;
   width: 200px;
   margin: 0.25rem 0 1.5rem 1.75rem;
+}
+
+@media (max-width: 480px) {
+  .hero-float {
+    float: none;
+    width: 160px;
+    margin: 0 auto 1.5rem;
+  }
 }
 
 .hero-float img {

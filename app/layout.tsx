@@ -104,7 +104,7 @@ export default function RootLayout({
           >
             Privacy
           </Link>
-          <span style={{ margin: "0 0.75rem", opacity: 0.4 }}>·</span>
+          <span aria-hidden="true" style={{ margin: "0 0.75rem", opacity: 0.4 }}>·</span>
           <Link
             href="/contact"
             style={{

@@ -47,12 +47,12 @@ export default async function BlogPage() {
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
+            className="blog-post-link"
             style={{
               display: "block",
               textDecoration: "none",
               padding: "1.5rem 0",
               borderBottom: "1px solid var(--atlas-card-stroke)",
-              transition: "background 0.15s ease",
             }}
           >
             <article>

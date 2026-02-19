@@ -84,11 +84,11 @@ export default function Home() {
           color: "var(--atlas-separator)",
         }}
       >
-        <span style={{ width: 40, height: 1, background: "var(--atlas-separator)", display: "block" }} />
+        <span aria-hidden="true" style={{ width: 40, height: 1, background: "var(--atlas-separator)", display: "block" }} />
         <span style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase" as const }}>
           est. 2026
         </span>
-        <span style={{ width: 40, height: 1, background: "var(--atlas-separator)", display: "block" }} />
+        <span aria-hidden="true" style={{ width: 40, height: 1, background: "var(--atlas-separator)", display: "block" }} />
       </div>
     </section>
   );
