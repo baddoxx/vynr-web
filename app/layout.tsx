@@ -23,10 +23,36 @@ export const metadata: Metadata = {
     description: "A private wine cellar and tasting journal. Atlas maps, tasting notes, and region education.",
     images: ["/og.png"],
   },
+  verification: {
+    google: "Os1tmEGLUwFxrDqs2qMmOeMx44Qcu6FRGvRerUYxe3U",
+  },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Vynr",
+  description:
+    "A private wine cellar and tasting journal. Atlas maps, tasting notes, and region education — all on-device.",
+  applicationCategory: "LifestyleApplication",
+  operatingSystem: "iOS",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    availability: "https://schema.org/PreOrder",
+  },
+  author: {
+    "@type": "Organization",
+    name: "Vynr",
+    url: "https://vynr.app",
+  },
+  url: "https://vynr.app",
+  image: "https://vynr.app/og.png",
 };
 
 export default function RootLayout({
@@ -37,6 +63,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <header
           style={{
             position: "sticky",
