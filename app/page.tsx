@@ -131,7 +131,7 @@ export default function Home() {
         No spam. One email when the app launches.
       </p>
 
-      <div style={{ marginTop: "1.5rem" }}>
+      <div style={{ marginTop: "2.5rem" }}>
         <Link
           href="/blog"
           style={{
