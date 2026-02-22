@@ -52,7 +52,7 @@ export default async function BlogPage() {
               display: "block",
               textDecoration: "none",
               padding: "1.5rem 0",
-              borderBottom: "1px solid var(--atlas-card-stroke)",
+              borderBottom: "none",
             }}
           >
             <article>
