@@ -4,13 +4,33 @@ import matter from 'gray-matter'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
+export interface WineData {
+  id: string
+  producer?: string
+  wine: string
+  vintage?: string
+  rating?: number
+  notes?: string
+  taste?: {
+    brightness?: number
+    aroma?: number
+    structure?: number
+    grip?: number
+    finish?: number
+  }
+}
+
 export interface PostMeta {
   slug: string
   title: string
   date: string
-  description: string
+  description?: string
+  canonical?: string
   heroImage?: string
   heroAlt?: string
+  location?: string
+  tags?: string[]
+  wines?: WineData[]
 }
 
 export function getAllPosts(): PostMeta[] {
