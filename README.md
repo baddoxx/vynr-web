@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vynr — Wine Atlas, Cellar & Journal for iPhone
 
-## Getting Started
+A private wine cellar and tasting journal. Atlas maps, tasting notes, and region education — all on-device.
 
-First, run the development server:
+**[vynr.app](https://vynr.app)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## What is Vynr?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Vynr is a native iOS app for tracking and exploring wine. Scan a label, build your cellar, and learn about regions — without accounts, social features, or third-party services.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Cellar as Atlas** — Your collection rendered as an interactive treemap, organized by country, region, and appellation
+- **On-Device OCR** — Apple Vision extracts structured data from wine labels. No cloud processing, no data sharing
+- **Region Education** — Contextual information about appellations, grape varieties, and geography as you explore
+- **Journal** — Tasting notes and moments, private by design
+- **Privacy-First** — All data stays on your device. Optional iCloud backup, nothing else leaves your phone
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Status
 
-## Learn More
+Coming soon on the App Store.
 
-To learn more about Next.js, take a look at the following resources:
+## Links
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Blog](https://vynr.app/blog)
+- [About](https://vynr.app/about)
+- [Privacy Policy](https://vynr.app/privacy)
+- [Contact](https://vynr.app/contact)
