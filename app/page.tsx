@@ -130,13 +130,15 @@ export default function Home() {
         No spam. One email when the app launches.
       </p>
 
-      <div style={{ marginTop: "2.5rem" }}>
+      <div style={{ marginTop: "3rem" }}>
         <Link
           href="/blog"
           style={{
             fontSize: "0.85rem",
-            color: "var(--atlas-text-placeholder)",
+            color: "var(--atlas-tint)",
             textDecoration: "none",
+            borderBottom: "1px solid var(--atlas-separator)",
+            paddingBottom: "2px",
             letterSpacing: "0.02em",
             transition: "color 0.15s ease",
           }}
@@ -145,23 +147,17 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* Decorative separator */}
-      <div
+      <p
         style={{
-          marginTop: "4rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "1rem",
+          marginTop: "3rem",
+          fontSize: "0.7rem",
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
           color: "var(--atlas-separator)",
         }}
       >
-        <span aria-hidden="true" style={{ width: 40, height: 1, background: "var(--atlas-separator)", display: "block" }} />
-        <span style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase" as const }}>
-          est. 2026
-        </span>
-        <span aria-hidden="true" style={{ width: 40, height: 1, background: "var(--atlas-separator)", display: "block" }} />
-      </div>
+        est. 2026
+      </p>
     </section>
   );
 }
