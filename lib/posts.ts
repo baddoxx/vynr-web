@@ -24,6 +24,7 @@ export interface PostMeta {
   slug: string
   title: string
   date: string
+  type?: string
   description?: string
   canonical?: string
   heroImage?: string
@@ -34,7 +35,7 @@ export interface PostMeta {
 }
 
 export function getAllPosts(): PostMeta[] {
-  const fileNames = fs.readdirSync(postsDirectory)
+  const fileNames = fs.readdirSync(postsDirectory).filter(f => f.endsWith('.md'))
 
   return fileNames.map((fileName) => {
     const slug = fileName.replace(/\.md$/, '')

@@ -256,6 +256,22 @@ button:focus-visible {
   text-align: center;
 }
 
+/* Journal photos — fill column width, maintain aspect ratio */
+.journal-photo {
+  margin: 2rem 0;
+}
+
+.journal-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid var(--atlas-card-stroke);
+  box-shadow:
+    0 2px 6px rgba(61, 53, 40, 0.06),
+    0 6px 18px rgba(61, 53, 40, 0.04);
+}
+
 /* Clear float before first h2 so rest is single column */
 .prose h2 {
   clear: both;

@@ -55,6 +55,7 @@ export default async function PostPage({
   const post = getPostBySlug(slug);
 
   const wines: WineData[] = (post as { wines?: WineData[] }).wines ?? [];
+  const isJournal = (post as { type?: string }).type === "journal";
 
   // Split content into segments: text and wine placeholders
   const winePattern = /\[WINE:\s*([a-z0-9\-]+)\s*\]/g;
@@ -91,40 +92,54 @@ export default async function PostPage({
     })
   );
 
-  // Wrap inline images in memory-shot containers with alternating layout
-  // Crop positions: 1st=top, 2nd=center (show the map), 3rd=bottom
+  // Wrap inline images — journal posts use full-width style, editorial posts use memory-shot
   const cropPositions = ["top", "center", "bottom"];
   let imageCount = 0;
 
-  // Apply image wrapping to each HTML segment, maintaining imageCount across all
   const processedSegments = renderedSegments.map((seg) => {
     if (seg.type !== "html") return seg;
     const wrapped = seg.html.replace(
       /<p>\s*<img\s+([^>]*?)\/?\s*>\s*<\/p>/g,
       (_match, attrs) => {
-        const parity = imageCount % 2 === 0 ? "odd" : "even";
-        const pos = cropPositions[imageCount] || "center";
         imageCount++;
+        if (isJournal) {
+          return `<div class="journal-photo"><img ${attrs}></div>`;
+        }
+        const parity = (imageCount - 1) % 2 === 0 ? "odd" : "even";
+        const pos = cropPositions[imageCount - 1] || "center";
         return `<div class="memory-shot memory-shot-${parity} memory-shot-pos-${pos}"><img ${attrs}></div>`;
       }
     );
     return { type: "html" as const, html: wrapped };
   });
 
-  // Inject hero image at the start of first HTML segment
+  // Inject hero image at the start of content
   const heroAlt = post.heroAlt || post.title;
   if (post.heroImage && processedSegments.length > 0) {
-    const heroHtml = `<figure class="hero-float"><img src="${post.heroImage}" alt="${heroAlt.replace(/"/g, "&quot;")}" />${post.heroAlt ? `<figcaption class="journal-caption">${post.heroAlt}</figcaption>` : ""}</figure>`;
-    const first = processedSegments[0];
-    if (first.type === "html") {
-      processedSegments[0] = { type: "html", html: heroHtml + first.html };
+    if (isJournal) {
+      // Journal posts: centered block image, same style as inline journal photos
+      const heroHtml = `<div class="journal-photo"><img src="${post.heroImage}" alt="${heroAlt.replace(/"/g, "&quot;")}" /></div>`;
+      const first = processedSegments[0];
+      if (first.type === "html") {
+        processedSegments[0] = { type: "html", html: heroHtml + first.html };
+      } else {
+        // First segment is a wine card — prepend as its own html segment
+        processedSegments.unshift({ type: "html" as const, html: heroHtml });
+      }
+    } else {
+      // Editorial posts: floated right, text wraps around
+      const heroHtml = `<figure class="hero-float"><img src="${post.heroImage}" alt="${heroAlt.replace(/"/g, "&quot;")}" />${post.heroAlt ? `<figcaption class="journal-caption">${post.heroAlt}</figcaption>` : ""}</figure>`;
+      const first = processedSegments[0];
+      if (first.type === "html") {
+        processedSegments[0] = { type: "html", html: heroHtml + first.html };
+      }
     }
   }
 
   return (
     <section
       style={{
-        maxWidth: 720,
+        maxWidth: isJournal ? 480 : 720,
         margin: "0 auto",
         padding: "48px 24px 80px",
       }}

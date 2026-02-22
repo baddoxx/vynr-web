@@ -108,6 +108,8 @@ if (publish) {
 }
 
 // Write final markdown
+// NOTE: --force overwrites post.md unconditionally (no hash check unlike images).
+// If you've hand-edited the imported markdown, re-importing with --force will lose those edits.
 const finalMd = matter.stringify(updatedContent.trim() + '\n', data);
 fs.writeFileSync(destMd, finalMd, 'utf8');
 console.log(`  Written: content/blog/${slug}.md`);
