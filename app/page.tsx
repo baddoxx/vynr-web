@@ -49,14 +49,76 @@ export default function Home() {
 
       <p
         style={{
-          fontSize: "1rem",
+          fontSize: "1.05rem",
           fontWeight: 600,
           color: "var(--atlas-text)",
           letterSpacing: "-0.01em",
         }}
       >
-        Coming soon on the App Store
+        Be the first to map your taste.
       </p>
+
+      <p
+        style={{
+          marginTop: "0.5rem",
+          fontSize: "0.85rem",
+          color: "var(--atlas-text-secondary)",
+          letterSpacing: "0.01em",
+          lineHeight: 1.5,
+        }}
+      >
+        Vynr launches soon on iOS.<br />
+        Join the early list and get notified at release.
+      </p>
+
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/vynr"
+        method="post"
+        target="popupwindow"
+        style={{
+          marginTop: "1.25rem",
+          display: "flex",
+          gap: "0.5rem",
+          justifyContent: "center",
+          maxWidth: 360,
+          margin: "1.25rem auto 0",
+        }}
+      >
+        <input type="hidden" name="embed" value="1" />
+        <input
+          type="email"
+          name="email"
+          placeholder="your@email.com"
+          required
+          style={{
+            flex: 1,
+            padding: "10px 14px",
+            fontSize: "0.875rem",
+            border: "1px solid var(--atlas-separator)",
+            borderRadius: 6,
+            backgroundColor: "var(--atlas-bg)",
+            color: "var(--atlas-text)",
+            outline: "none",
+            letterSpacing: "0.01em",
+          }}
+        />
+        <button
+          type="submit"
+          style={{
+            padding: "10px 20px",
+            fontSize: "0.85rem",
+            fontWeight: 600,
+            letterSpacing: "0.01em",
+            color: "var(--atlas-bg)",
+            backgroundColor: "var(--atlas-text)",
+            border: "none",
+            borderRadius: 6,
+            cursor: "pointer",
+          }}
+        >
+          Notify me
+        </button>
+      </form>
 
       <div style={{ marginTop: "1.5rem" }}>
         <Link
