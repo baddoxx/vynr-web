@@ -120,6 +120,17 @@ export default function Home() {
         </button>
       </form>
 
+      <p
+        style={{
+          marginTop: "0.6rem",
+          fontSize: "0.75rem",
+          color: "var(--atlas-text-placeholder)",
+          letterSpacing: "0.01em",
+        }}
+      >
+        No spam. One email when the app launches.
+      </p>
+
       <div style={{ marginTop: "1.5rem" }}>
         <Link
           href="/blog"
