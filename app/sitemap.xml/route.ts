@@ -9,6 +9,9 @@ export async function GET() {
     ...posts.map(
       p => `<url><loc>https://vynr.app/blog/${p.slug}</loc></url>`
     ),
+    `<url><loc>https://vynr.app/about</loc></url>`,
+    `<url><loc>https://vynr.app/privacy</loc></url>`,
+    `<url><loc>https://vynr.app/contact</loc></url>`,
   ]
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>
