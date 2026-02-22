@@ -67,8 +67,7 @@ export default function Home() {
           lineHeight: 1.5,
         }}
       >
-        Vynr launches soon on iOS.<br />
-        Join the early list and get notified at release.
+        Vynr launches soon on iOS.
       </p>
 
       <form
@@ -116,7 +115,7 @@ export default function Home() {
             cursor: "pointer",
           }}
         >
-          Notify me
+          Join the early list
         </button>
       </form>
 
