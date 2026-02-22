@@ -7,7 +7,7 @@ export default function Home() {
       style={{
         maxWidth: 600,
         margin: "0 auto",
-        padding: "80px 24px 80px",
+        padding: "64px 24px 80px",
         textAlign: "center",
       }}
     >
@@ -36,7 +36,7 @@ export default function Home() {
       </p>
 
       {/* Hero — wine glass illustration */}
-      <div style={{ marginTop: "2.5rem", marginBottom: "2.5rem" }}>
+      <div style={{ marginTop: "3.5rem", marginBottom: "0.75rem" }}>
         <Image
           src="/journal/vynr-glass.png"
           alt="A wine glass, ink illustration"
