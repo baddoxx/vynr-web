@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import type { WineData } from "@/lib/posts";
 import { remark } from "remark";
 import html from "remark-html";
+import WineCard from "@/app/components/WineCard";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -52,27 +54,71 @@ export default async function PostPage({
   const { slug } = await params;
   const post = getPostBySlug(slug);
 
-  const processedContent = await remark().use(html).process(post.content);
-  const rawHtml = processedContent.toString();
+  const wines: WineData[] = (post as { wines?: WineData[] }).wines ?? [];
+
+  // Split content into segments: text and wine placeholders
+  const winePattern = /\[WINE:\s*([a-z0-9\-]+)\s*\]/g;
+  type Segment = { type: "text"; content: string } | { type: "wine"; id: string };
+  const segments: Segment[] = [];
+  let lastIndex = 0;
+
+  const content = post.content;
+  let match: RegExpExecArray | null;
+  while ((match = winePattern.exec(content)) !== null) {
+    if (match.index > lastIndex) {
+      segments.push({ type: "text", content: content.slice(lastIndex, match.index) });
+    }
+    segments.push({ type: "wine", id: match[1] });
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < content.length) {
+    segments.push({ type: "text", content: content.slice(lastIndex) });
+  }
+
+  // If no wine tokens found, treat entire content as a single text segment
+  if (segments.length === 0) {
+    segments.push({ type: "text", content });
+  }
+
+  // Render each text segment through remark
+  const renderedSegments = await Promise.all(
+    segments.map(async (seg) => {
+      if (seg.type === "text") {
+        const processed = await remark().use(html).process(seg.content);
+        return { type: "html" as const, html: processed.toString() };
+      }
+      return { type: "wine" as const, id: seg.id };
+    })
+  );
 
   // Wrap inline images in memory-shot containers with alternating layout
   // Crop positions: 1st=top, 2nd=center (show the map), 3rd=bottom
   const cropPositions = ["top", "center", "bottom"];
   let imageCount = 0;
-  let articleHtml = rawHtml.replace(
-    /<p>\s*<img\s+([^>]*?)\/?\s*>\s*<\/p>/g,
-    (_match, attrs) => {
-      const parity = imageCount % 2 === 0 ? "odd" : "even";
-      const pos = cropPositions[imageCount] || "center";
-      imageCount++;
-      return `<div class="memory-shot memory-shot-${parity} memory-shot-pos-${pos}"><img ${attrs}></div>`;
-    }
-  );
 
-  // Inject hero image at the start of article content so text wraps around it
-  if (post.heroImage) {
-    const heroHtml = `<figure class="hero-float"><img src="${post.heroImage}" alt="${(post.heroAlt || post.title).replace(/"/g, "&quot;")}" />${post.heroAlt ? `<figcaption class="journal-caption">${post.heroAlt}</figcaption>` : ""}</figure>`;
-    articleHtml = heroHtml + articleHtml;
+  // Apply image wrapping to each HTML segment, maintaining imageCount across all
+  const processedSegments = renderedSegments.map((seg) => {
+    if (seg.type !== "html") return seg;
+    const wrapped = seg.html.replace(
+      /<p>\s*<img\s+([^>]*?)\/?\s*>\s*<\/p>/g,
+      (_match, attrs) => {
+        const parity = imageCount % 2 === 0 ? "odd" : "even";
+        const pos = cropPositions[imageCount] || "center";
+        imageCount++;
+        return `<div class="memory-shot memory-shot-${parity} memory-shot-pos-${pos}"><img ${attrs}></div>`;
+      }
+    );
+    return { type: "html" as const, html: wrapped };
+  });
+
+  // Inject hero image at the start of first HTML segment
+  const heroAlt = post.heroAlt || post.title;
+  if (post.heroImage && processedSegments.length > 0) {
+    const heroHtml = `<figure class="hero-float"><img src="${post.heroImage}" alt="${heroAlt.replace(/"/g, "&quot;")}" />${post.heroAlt ? `<figcaption class="journal-caption">${post.heroAlt}</figcaption>` : ""}</figure>`;
+    const first = processedSegments[0];
+    if (first.type === "html") {
+      processedSegments[0] = { type: "html", html: heroHtml + first.html };
+    }
   }
 
   return (
@@ -130,10 +176,16 @@ export default async function PostPage({
         />
       </header>
 
-      <article
-        className="prose"
-        dangerouslySetInnerHTML={{ __html: articleHtml }}
-      />
+      <article className="prose">
+        {processedSegments.map((seg, i) => {
+          if (seg.type === "html") {
+            return <div key={i} dangerouslySetInnerHTML={{ __html: seg.html }} />;
+          }
+          const wine = wines.find((w) => w.id === seg.id);
+          if (!wine) return null;
+          return <WineCard key={i} wine={wine} />;
+        })}
+      </article>
     </section>
   );
 }
