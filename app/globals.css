@@ -279,6 +279,94 @@ button:focus-visible {
   height: auto;
 }
 
+/* Wine Card — blog post tasting cards */
+.wine-card {
+  background: var(--atlas-card);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 24px auto;
+  max-width: 480px;
+}
+.wine-card-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--atlas-text);
+  margin-bottom: 6px;
+}
+.wine-card-rating {
+  font-size: 0.9rem;
+  color: var(--atlas-tint);
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+.wine-card-notes {
+  font-size: 0.82rem;
+  color: var(--atlas-text-secondary);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.wine-card-taste { margin-top: 8px; }
+.wine-card-taste-label {
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--atlas-text-placeholder);
+  margin-bottom: 6px;
+}
+.wine-taste-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.wine-taste-dim {
+  font-size: 0.625rem;
+  color: var(--atlas-text-placeholder);
+  width: 60px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.wine-taste-track {
+  position: relative;
+  width: 100px;
+  height: 8px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.wine-taste-center {
+  position: absolute;
+  left: 50%;
+  top: 1px;
+  width: 1px;
+  height: 6px;
+  background: rgba(0,0,0,0.12);
+}
+.wine-taste-thumb {
+  position: absolute;
+  top: 1px;
+  width: 6px;
+  height: 6px;
+  background: var(--atlas-tint);
+  border-radius: 50%;
+  transform: translateX(-3px);
+}
+.wine-taste-endpoint {
+  font-size: 0.56rem;
+  color: var(--atlas-text-placeholder);
+  width: 40px;
+  flex-shrink: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .wine-taste-track {
+    background: rgba(255,255,255,0.08);
+  }
+  .wine-taste-center {
+    background: rgba(255,255,255,0.15);
+  }
+}
+
 /* Caption under images */
 .journal-caption {
   display: block;
