@@ -156,6 +156,35 @@ export default function RootLayout({
           >
             Contact
           </Link>
+          <span aria-hidden="true" style={{ margin: "0 0.75rem", opacity: 0.4 }}>·</span>
+          <a
+            href="https://www.instagram.com/vynr.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Vynr on Instagram"
+            style={{
+              color: "var(--atlas-text-placeholder)",
+              textDecoration: "none",
+              transition: "color 0.15s ease",
+              verticalAlign: "middle",
+            }}
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ display: "inline-block", verticalAlign: "-0.1em" }}
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
         </footer>
       </body>
     </html>
