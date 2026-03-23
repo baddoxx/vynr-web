@@ -185,6 +185,30 @@ export default function RootLayout({
               <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
             </svg>
           </a>
+          <span aria-hidden="true" style={{ margin: "0 0.75rem", opacity: 0.4 }}>·</span>
+          <a
+            href="https://www.tiktok.com/@vynr.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Vynr on TikTok"
+            style={{
+              color: "var(--atlas-text-placeholder)",
+              textDecoration: "none",
+              transition: "color 0.15s ease",
+              verticalAlign: "middle",
+            }}
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              stroke="none"
+              style={{ display: "inline-block", verticalAlign: "-0.1em" }}
+            >
+              <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.43 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.07 2.49 5.57 5.56 5.57 3.07 0 5.56-2.5 5.56-5.57V9.01a7.3 7.3 0 0 0 4.32 1.4V7.3s-1.98.07-3.6-1.48Z" />
+            </svg>
+          </a>
         </footer>
       </body>
     </html>
