@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Beta",
+  title: "Beta Guide",
   description:
     "Orientation guide for vynr TestFlight testers. How to use the beta, what to expect, and how to give useful feedback.",
   robots: { index: false, follow: false },
