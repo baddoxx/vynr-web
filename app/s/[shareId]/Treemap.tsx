@@ -16,7 +16,7 @@ import {
 interface RegionGroup {
   label: string;
   entries: ShareEntry[];
-  dominantType: string;
+  dominantType: string | undefined;
 }
 
 function groupByRegion(entries: ShareEntry[]): RegionGroup[] {

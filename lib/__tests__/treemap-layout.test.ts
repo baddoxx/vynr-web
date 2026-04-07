@@ -1,6 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { squarify, type TreemapItem } from '../treemap-layout';
+import { dominantWineType } from '../treemap-colors';
 
 describe('squarify', () => {
 
@@ -172,5 +173,35 @@ describe('squarify', () => {
     assert.equal(result[0].y, gap / 2);
     assert.equal(result[0].width, 600 - gap);
     assert.equal(result[0].height, 400 - gap);
+  });
+});
+
+describe('dominantWineType', () => {
+  it('returns the most frequent type', () => {
+    assert.equal(dominantWineType(['red', 'red', 'white']), 'red');
+  });
+  it('returns undefined for even split across 3+ types', () => {
+    assert.equal(dominantWineType(['red', 'white', 'rosé']), undefined);
+  });
+  it('returns undefined for even split across 2 types', () => {
+    assert.equal(dominantWineType(['red', 'white']), undefined);
+  });
+  it('returns the type when one clearly dominates', () => {
+    assert.equal(dominantWineType(['red', 'red', 'red', 'white']), 'red');
+  });
+  it('returns undefined for empty array', () => {
+    assert.equal(dominantWineType([]), undefined);
+  });
+  it('is case-insensitive', () => {
+    assert.equal(dominantWineType(['Red', 'RED', 'red']), 'red');
+  });
+  it('returns the type for single-element array', () => {
+    assert.equal(dominantWineType(['white']), 'white');
+  });
+  it('is deterministic for same input', () => {
+    const input = ['red', 'white', 'rosé', 'red', 'white', 'rosé'];
+    const a = dominantWineType(input);
+    const b = dominantWineType(input);
+    assert.equal(a, b);
   });
 });

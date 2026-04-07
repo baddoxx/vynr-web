@@ -97,10 +97,12 @@ export function wineTypeBorder(wineType: string): string {
 
 /**
  * Determine the dominant wine type from a list of wine type strings.
- * Returns the most frequent type, breaking ties by palette order.
+ * Returns the most frequent type when one clearly dominates.
+ * Returns undefined when the distribution is tied or empty.
+ * Deterministic for a given input.
  */
-export function dominantWineType(wineTypes: string[]): string {
-  if (wineTypes.length === 0) return 'unknown';
+export function dominantWineType(wineTypes: string[]): string | undefined {
+  if (wineTypes.length === 0) return undefined;
 
   const counts = new Map<string, number>();
   for (const t of wineTypes) {
@@ -110,12 +112,16 @@ export function dominantWineType(wineTypes: string[]): string {
 
   let best = '';
   let bestCount = 0;
+  let tied = false;
   for (const [key, count] of counts) {
     if (count > bestCount) {
       best = key;
       bestCount = count;
+      tied = false;
+    } else if (count === bestCount) {
+      tied = true;
     }
   }
 
-  return best || 'unknown';
+  return tied ? undefined : best || undefined;
 }
