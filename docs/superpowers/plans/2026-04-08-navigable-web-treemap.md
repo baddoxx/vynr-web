@@ -44,8 +44,10 @@
 Add to `lib/__tests__/treemap-layout.test.ts`:
 
 ```typescript
+// Add this import at the top of the file (describe/it/assert already imported)
 import { dominantWineType } from '../treemap-colors';
 
+// Add this describe block after the existing squarify tests
 describe('dominantWineType', () => {
   it('returns the most frequent type', () => {
     assert.equal(dominantWineType(['red', 'red', 'white']), 'red');
@@ -569,19 +571,23 @@ export function buildHierarchy(entries: ShareEntry[]): CellarNode[] {
   const root: MutableNode = { id: 'root', label: 'root', kind: 'country', children: new Map(), wines: [] };
 
   for (const entry of entries) {
+    // Trim display labels to avoid visual whitespace artifacts from pack data
+    const countryLabel = entry.country.trim();
     const countryKey = normalizeKey(entry.country);
     const countryId = `country:${countryKey}`;
-    const country = getOrCreateChild(root, countryId, entry.country, 'country');
+    const country = getOrCreateChild(root, countryId, countryLabel, 'country');
 
     if (entry.region) {
+      const regionLabel = entry.region.trim();
       const regionKey = normalizeKey(entry.region);
       const regionId = `region:${countryKey}/${regionKey}`;
-      const region = getOrCreateChild(country, regionId, entry.region, 'region');
+      const region = getOrCreateChild(country, regionId, regionLabel, 'region');
 
       if (entry.appellation) {
+        const appLabel = entry.appellation.trim();
         const appKey = normalizeKey(entry.appellation);
         const appId = `appellation:${countryKey}/${regionKey}/${appKey}`;
-        const appellation = getOrCreateChild(region, appId, entry.appellation, 'appellation');
+        const appellation = getOrCreateChild(region, appId, appLabel, 'appellation');
         appellation.wines.push(entry);
       } else {
         region.wines.push(entry);
@@ -687,6 +693,13 @@ describe('resolveCurrentNode', () => {
   it('returns the node for valid path', () => {
     const roots = buildHierarchy(FIXTURE_ENTRIES);
     const node = resolveCurrentNode(roots, ['country:france']);
+    assert.equal(node?.label, 'France');
+  });
+
+  it('returns last valid node for stale path', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const node = resolveCurrentNode(roots, ['country:france', 'region:france/nonexistent']);
+    // Last valid node is France
     assert.equal(node?.label, 'France');
   });
 });
@@ -2003,7 +2016,9 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
   const [selectedWineId, setSelectedWineId] = useState<string | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
 
-  // Indexes — built once from immutable tree
+  // Indexes — built once per page lifecycle from the immutable tree prop.
+  // Dependency is [tree] which never changes (server-built, passed as prop).
+  // These are NOT rebuilt on navigation, toggle, or selection changes.
   const wineIndex = useMemo(() => buildWineIndex(tree), [tree]);
 
   // Derived state — resolveScope trims stale paths to closest valid ancestor
@@ -2296,6 +2311,7 @@ Open `http://localhost:3000/s/{shareId}` with a known share ID. Verify:
 3. Resize browser across 768px breakpoint — verify pathIds, viewMode, selectedWineId all preserved
 4. Open wine panel, then click breadcrumb to navigate up — verify panel closes
 5. Open wine panel, then drill into a group tile — verify panel closes
+6. Open wine from list view, toggle to treemap view — verify panel stays open (view toggle is not navigation)
 
 - [ ] **Step 6: Test edge cases**
 
