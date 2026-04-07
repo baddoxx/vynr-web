@@ -1,6 +1,7 @@
 import { fetchShare, type SharePack, type ShareEntry } from '@/lib/share-api';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { Treemap } from './Treemap';
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -351,6 +352,13 @@ function ActiveShareView({
           {snapshot.itemCount} {snapshot.itemCount === 1 ? 'wine' : 'wines'}
         </div>
       </header>
+
+      {/* ── Treemap hero ── */}
+      {pack.entries.length > 0 && (
+        <div style={{ marginBottom: 28 }}>
+          <Treemap entries={pack.entries} />
+        </div>
+      )}
 
       {/* ── Divider ── */}
       <hr
