@@ -393,6 +393,22 @@ g:focus-visible .focus-ring {
   display: none;
 }
 
+/* Wine detail panel — mobile bottom sheet */
+@media (max-width: 767px) {
+  .wine-detail-panel {
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-height: 70vh !important;
+    border-radius: 16px 16px 0 0 !important;
+    border-left: none !important;
+    border-top: 1px solid var(--atlas-card-stroke) !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+  }
+}
+
 /* Caption under images */
 .journal-caption {
   display: block;
