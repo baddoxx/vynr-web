@@ -383,6 +383,16 @@ button:focus-visible {
   }
 }
 
+/* SVG treemap focus ring */
+g:focus-visible .focus-ring {
+  opacity: 1 !important;
+}
+
+/* Hide scrollbar on breadcrumb */
+.breadcrumb-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 /* Caption under images */
 .journal-caption {
   display: block;
