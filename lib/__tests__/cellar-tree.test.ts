@@ -1,6 +1,19 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { normalizeKey, buildHierarchy, type CellarNode } from '../cellar-tree';
+import {
+  normalizeKey,
+  buildHierarchy,
+  resolveScope,
+  resolveCurrentNode,
+  breadcrumbSegments,
+  isLeafLevel,
+  isWineNode,
+  canDrill,
+  flattenWines,
+  buildNodeIndex,
+  buildWineIndex,
+  type CellarNode,
+} from '../cellar-tree';
 import type { ShareEntry } from '../share-api';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -241,5 +254,244 @@ describe('buildHierarchy', () => {
     assert.equal(wineNode.weight, 1);
     assert.ok(wineNode.entry);
     assert.equal(wineNode.entry!.externalEntryId, 'z');
+  });
+});
+
+// ─── Traversal fixture ────────────────────────────────────────────────────────
+
+const FIXTURE_ENTRIES = [
+  makeEntry({ externalEntryId: 'a', wineName: 'Volnay 1er', wineType: 'red', country: 'France', region: 'Burgundy', appellation: 'Volnay' }),
+  makeEntry({ externalEntryId: 'b', wineName: 'Pommard', wineType: 'red', country: 'France', region: 'Burgundy', appellation: 'Pommard' }),
+  makeEntry({ externalEntryId: 'c', wineName: 'Barolo', wineType: 'red', country: 'Italy', region: 'Piedmont', appellation: 'Barolo' }),
+  makeEntry({ externalEntryId: 'd', wineName: 'Chianti', wineType: 'red', country: 'Italy', region: 'Tuscany' }),
+];
+
+// ─── resolveScope ─────────────────────────────────────────────────────────────
+
+describe('resolveScope', () => {
+  it('empty path returns roots', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const { children, resolvedPath } = resolveScope(roots, []);
+    assert.equal(children, roots);
+    assert.deepEqual(resolvedPath, []);
+  });
+
+  it('country path returns children of that country', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const franceId = roots.find((n) => n.label === 'France')!.id;
+    const { children, resolvedPath } = resolveScope(roots, [franceId]);
+    assert.ok(children.length > 0);
+    assert.ok(children.every((n) => n.kind === 'region' || n.kind === 'wine'));
+    assert.deepEqual(resolvedPath, [franceId]);
+  });
+
+  it('stale path falls back to closest valid ancestor', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const franceId = roots.find((n) => n.label === 'France')!.id;
+    const { children, resolvedPath } = resolveScope(roots, [franceId, 'region:france/nonexistent']);
+    // France is valid, the child segment is stale — falls back to France's children
+    assert.ok(children.length > 0);
+    assert.deepEqual(resolvedPath, [franceId]);
+  });
+
+  it('completely invalid path returns roots', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const { children, resolvedPath } = resolveScope(roots, ['country:nowhere']);
+    assert.equal(children, roots);
+    assert.deepEqual(resolvedPath, []);
+  });
+});
+
+// ─── resolveCurrentNode ───────────────────────────────────────────────────────
+
+describe('resolveCurrentNode', () => {
+  it('returns null at root (empty path)', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    assert.equal(resolveCurrentNode(roots, []), null);
+  });
+
+  it('valid path returns node', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const france = roots.find((n) => n.label === 'France')!;
+    const node = resolveCurrentNode(roots, [france.id]);
+    assert.ok(node);
+    assert.equal(node!.id, france.id);
+  });
+
+  it('stale path returns last valid node', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const france = roots.find((n) => n.label === 'France')!;
+    const node = resolveCurrentNode(roots, [france.id, 'region:france/nonexistent']);
+    assert.ok(node);
+    assert.equal(node!.id, france.id);
+  });
+});
+
+// ─── breadcrumbSegments ───────────────────────────────────────────────────────
+
+describe('breadcrumbSegments', () => {
+  it('returns empty array at root', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const segs = breadcrumbSegments(roots, []);
+    assert.deepEqual(segs, []);
+  });
+
+  it('returns correct segments for deep path', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const france = roots.find((n) => n.label === 'France')!;
+    const burgundy = france.children.find((n) => n.label === 'Burgundy')!;
+    const volnay = burgundy.children.find((n) => n.label === 'Volnay')!;
+    const segs = breadcrumbSegments(roots, [france.id, burgundy.id, volnay.id]);
+    assert.equal(segs.length, 3);
+    assert.equal(segs[0].label, 'France');
+    assert.equal(segs[1].label, 'Burgundy');
+    assert.equal(segs[2].label, 'Volnay');
+    assert.equal(segs[0].id, france.id);
+  });
+});
+
+// ─── isLeafLevel ─────────────────────────────────────────────────────────────
+
+describe('isLeafLevel', () => {
+  it('true for appellation node with wine children', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const france = roots.find((n) => n.label === 'France')!;
+    const burgundy = france.children.find((n) => n.label === 'Burgundy')!;
+    const volnay = burgundy.children.find((n) => n.label === 'Volnay')!;
+    assert.ok(isLeafLevel(volnay));
+  });
+
+  it('false for country node', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const france = roots.find((n) => n.label === 'France')!;
+    assert.equal(isLeafLevel(france), false);
+  });
+
+  it('false for node with no children', () => {
+    const emptyNode: CellarNode = { id: 'x', label: 'X', kind: 'country', weight: 0, children: [] };
+    assert.equal(isLeafLevel(emptyNode), false);
+  });
+});
+
+// ─── isWineNode ───────────────────────────────────────────────────────────────
+
+describe('isWineNode', () => {
+  it('true for wine kind', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const france = roots.find((n) => n.label === 'France')!;
+    const burgundy = france.children.find((n) => n.label === 'Burgundy')!;
+    const volnay = burgundy.children.find((n) => n.label === 'Volnay')!;
+    const wine = volnay.children[0];
+    assert.ok(isWineNode(wine));
+  });
+
+  it('false for region node', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const france = roots.find((n) => n.label === 'France')!;
+    const burgundy = france.children.find((n) => n.label === 'Burgundy')!;
+    assert.equal(isWineNode(burgundy), false);
+  });
+});
+
+// ─── canDrill ─────────────────────────────────────────────────────────────────
+
+describe('canDrill', () => {
+  it('true for group node with children', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const france = roots.find((n) => n.label === 'France')!;
+    assert.ok(canDrill(france));
+  });
+
+  it('false for wine node', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const france = roots.find((n) => n.label === 'France')!;
+    const burgundy = france.children.find((n) => n.label === 'Burgundy')!;
+    const volnay = burgundy.children.find((n) => n.label === 'Volnay')!;
+    const wine = volnay.children[0];
+    assert.equal(canDrill(wine), false);
+  });
+
+  it('false for empty group', () => {
+    const emptyNode: CellarNode = { id: 'x', label: 'X', kind: 'country', weight: 0, children: [] };
+    assert.equal(canDrill(emptyNode), false);
+  });
+});
+
+// ─── flattenWines ─────────────────────────────────────────────────────────────
+
+describe('flattenWines', () => {
+  it('collects all wine entries recursively', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const france = roots.find((n) => n.label === 'France')!;
+    const wines = flattenWines(france);
+    assert.equal(wines.length, 2); // a (Volnay) and b (Pommard)
+    const ids = wines.map((e) => e.externalEntryId).sort();
+    assert.deepEqual(ids, ['a', 'b']);
+  });
+
+  it('returns empty array for wine node itself', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const france = roots.find((n) => n.label === 'France')!;
+    const burgundy = france.children.find((n) => n.label === 'Burgundy')!;
+    const volnay = burgundy.children.find((n) => n.label === 'Volnay')!;
+    const wine = volnay.children[0];
+    const result = flattenWines(wine);
+    // Wine node has an entry but no children — flattenWines collects entry
+    assert.equal(result.length, 1);
+    assert.equal(result[0].externalEntryId, 'a');
+  });
+});
+
+// ─── buildNodeIndex ───────────────────────────────────────────────────────────
+
+describe('buildNodeIndex', () => {
+  it('indexes all nodes by ID', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const index = buildNodeIndex(roots);
+    assert.ok(index.size > 0);
+    // France should be in the index
+    const france = roots.find((n) => n.label === 'France')!;
+    assert.ok(index.has(france.id));
+    assert.equal(index.get(france.id), france);
+  });
+
+  it('includes wine nodes', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const index = buildNodeIndex(roots);
+    const wineIndex = buildWineIndex(roots);
+    // All wine node IDs should be in the node index
+    for (const id of wineIndex.keys()) {
+      assert.ok(index.has(id), `Wine node ${id} missing from node index`);
+    }
+  });
+});
+
+// ─── buildWineIndex ───────────────────────────────────────────────────────────
+
+describe('buildWineIndex', () => {
+  it('indexes wine entries by wine node ID', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const index = buildWineIndex(roots);
+    // All 4 fixture entries should be indexed
+    assert.equal(index.size, FIXTURE_ENTRIES.length);
+  });
+
+  it('size equals total wine count', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const index = buildWineIndex(roots);
+    assert.equal(index.size, 4);
+  });
+
+  it('entries are retrievable by their wine node ID', () => {
+    const roots = buildHierarchy(FIXTURE_ENTRIES);
+    const index = buildWineIndex(roots);
+    // Find Volnay wine node ID via node index
+    const nodeIndex = buildNodeIndex(roots);
+    for (const [id, node] of nodeIndex) {
+      if (node.kind === 'wine' && node.entry?.externalEntryId === 'a') {
+        assert.ok(index.has(id));
+        assert.equal(index.get(id)!.externalEntryId, 'a');
+      }
+    }
   });
 });

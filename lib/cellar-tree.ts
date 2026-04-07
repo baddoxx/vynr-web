@@ -195,3 +195,159 @@ export function buildHierarchy(entries: ShareEntry[]): CellarNode[] {
 
   return roots;
 }
+
+// ─── Traversal and query functions ───────────────────────────────────────────
+
+/**
+ * Walk the tree by pathIds, returning the children visible at that scope
+ * and the resolved path (which may be shorter than the input if stale).
+ *
+ * Falls back to the closest valid ancestor if any path segment is stale.
+ * Returns roots + empty resolvedPath when the entire path is invalid.
+ */
+export function resolveScope(
+  roots: CellarNode[],
+  pathIds: string[]
+): { children: CellarNode[]; resolvedPath: string[] } {
+  if (pathIds.length === 0) return { children: roots, resolvedPath: [] };
+
+  let current: CellarNode[] = roots;
+  const resolvedPath: string[] = [];
+
+  for (const id of pathIds) {
+    const match = current.find((n) => n.id === id);
+    if (!match) break;
+    resolvedPath.push(id);
+    current = match.children;
+  }
+
+  if (resolvedPath.length === 0) {
+    return { children: roots, resolvedPath: [] };
+  }
+
+  return { children: current, resolvedPath };
+}
+
+/**
+ * Returns the node at the end of pathIds, null at root.
+ * If the path is stale, returns the last valid node rather than null.
+ */
+export function resolveCurrentNode(
+  roots: CellarNode[],
+  pathIds: string[]
+): CellarNode | null {
+  if (pathIds.length === 0) return null;
+
+  let current: CellarNode[] = roots;
+  let lastValid: CellarNode | null = null;
+
+  for (const id of pathIds) {
+    const match = current.find((n) => n.id === id);
+    if (!match) break;
+    lastValid = match;
+    current = match.children;
+  }
+
+  return lastValid;
+}
+
+/**
+ * Returns breadcrumb segments `{ id, label }[]` for the given path.
+ * Each segment corresponds to one node in the resolved path.
+ */
+export function breadcrumbSegments(
+  roots: CellarNode[],
+  pathIds: string[]
+): { id: string; label: string }[] {
+  if (pathIds.length === 0) return [];
+
+  const segments: { id: string; label: string }[] = [];
+  let current: CellarNode[] = roots;
+
+  for (const id of pathIds) {
+    const match = current.find((n) => n.id === id);
+    if (!match) break;
+    segments.push({ id: match.id, label: match.label });
+    current = match.children;
+  }
+
+  return segments;
+}
+
+/**
+ * Returns true if all of node's children are wine leaves (and there is at least one child).
+ * Identifies the deepest drillable geography level.
+ */
+export function isLeafLevel(node: CellarNode): boolean {
+  return node.children.length > 0 && node.children.every((c) => c.kind === 'wine');
+}
+
+/** Returns true if the node is a wine leaf. */
+export function isWineNode(node: CellarNode): boolean {
+  return node.kind === 'wine';
+}
+
+/**
+ * Returns true if the node can be drilled into.
+ * A node can be drilled if it has children and is not itself a wine.
+ */
+export function canDrill(node: CellarNode): boolean {
+  return node.children.length > 0 && node.kind !== 'wine';
+}
+
+/**
+ * Recursively collect all ShareEntry objects from a node and its descendants.
+ * Wine nodes contribute their own entry. Group nodes contribute descendants' entries.
+ */
+export function flattenWines(node: CellarNode): ShareEntry[] {
+  if (node.kind === 'wine' && node.entry) return [node.entry];
+  const results: ShareEntry[] = [];
+  for (const child of node.children) {
+    results.push(...flattenWines(child));
+  }
+  return results;
+}
+
+/**
+ * Build a flat Map<string, CellarNode> by walking the full tree.
+ * Indexes every node (geography and wine) by its ID.
+ */
+export function buildNodeIndex(roots: CellarNode[]): Map<string, CellarNode> {
+  const index = new Map<string, CellarNode>();
+
+  function walk(node: CellarNode): void {
+    index.set(node.id, node);
+    for (const child of node.children) {
+      walk(child);
+    }
+  }
+
+  for (const root of roots) {
+    walk(root);
+  }
+
+  return index;
+}
+
+/**
+ * Build a flat Map<string, ShareEntry> indexing wine entries by their wine node ID.
+ * Only wine-kind nodes are included.
+ */
+export function buildWineIndex(roots: CellarNode[]): Map<string, ShareEntry> {
+  const index = new Map<string, ShareEntry>();
+
+  function walk(node: CellarNode): void {
+    if (node.kind === 'wine' && node.entry) {
+      index.set(node.id, node.entry);
+    }
+    for (const child of node.children) {
+      walk(child);
+    }
+  }
+
+  for (const root of roots) {
+    walk(root);
+  }
+
+  return index;
+}
