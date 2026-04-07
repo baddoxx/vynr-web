@@ -1,91 +1,65 @@
-import type { ShareEntry } from '@/lib/share-api';
-import { wineTypeTint, wineTypeColor, wineTypeBorder } from '@/lib/treemap-colors';
+import type { WineData } from "@/lib/posts";
 
-const WINE_TYPE_LABELS: Record<string, string> = {
-  red: 'Red', white: 'White', rosé: 'Rosé', rose: 'Rosé',
-  sparkling: 'Sparkling', dessert: 'Dessert', fortified: 'Fortified',
-  orange: 'Orange',
-};
-
-function wineTypeStyle(wineType: string) {
-  const key = wineType.toLowerCase();
-  return {
-    label: WINE_TYPE_LABELS[key] ?? wineType,
-    bg: wineTypeTint(key),
-    color: wineTypeColor(key),
-    borderColor: wineTypeBorder(key),
-  };
+function renderStars(rating: number): string {
+  return Array.from({ length: 5 }, (_, i) => (i < rating ? "\u2605" : "\u2606")).join("");
 }
 
-function geographyLine(entry: ShareEntry): string {
-  const parts = [entry.country, entry.region, entry.appellation].filter(Boolean);
-  return parts.join(' \u00B7 ');
+interface TasteBarProps {
+  label: string;
+  left: string;
+  right: string;
+  value: number;
 }
 
-interface WineCardProps {
-  entry: ShareEntry;
-  onClick?: () => void;
-}
-
-export function WineCard({ entry, onClick }: WineCardProps) {
-  const typeStyle = wineTypeStyle(entry.wineType);
-  const geo = geographyLine(entry);
+function TasteBar({ label, left, right, value }: TasteBarProps) {
+  const percentage = ((value + 1) / 2) * 100;
+  const displayLabel = value < 0 ? left : value > 0 ? right : "";
 
   return (
-    <div
-      onClick={onClick}
-      role={onClick ? 'button' : undefined}
-      tabIndex={onClick ? 0 : undefined}
-      onKeyDown={onClick ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(); } } : undefined}
-      style={{
-        background: 'var(--atlas-card)',
-        border: '1px solid var(--atlas-card-stroke)',
-        borderRadius: 10,
-        padding: '16px 18px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 6,
-        cursor: onClick ? 'pointer' : 'default',
-      }}
-    >
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 10 }}>
-        <span style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--atlas-text)', lineHeight: 1.35, flex: 1 }}>
-          {entry.wineName}
-        </span>
-        <span
-          style={{
-            fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' as const,
-            padding: '3px 8px', borderRadius: 20, flexShrink: 0, marginTop: 2,
-            background: typeStyle.bg, color: typeStyle.color, border: `1px solid ${typeStyle.borderColor}`,
-          }}
-        >
-          {typeStyle.label}
-        </span>
+    <div className="wine-taste-row">
+      <span className="wine-taste-dim">{label}</span>
+      <div className="wine-taste-track">
+        <div className="wine-taste-center" />
+        <div className="wine-taste-thumb" style={{ left: `${percentage}%` }} />
       </div>
-      {(entry.producer || entry.vintage) && (
-        <div style={{ fontSize: '0.82rem', color: 'var(--atlas-text-secondary)', lineHeight: 1.4 }}>
-          {[entry.producer, entry.vintage].filter(Boolean).join(' \u00B7 ')}
-        </div>
+      <span className="wine-taste-endpoint">{displayLabel}</span>
+    </div>
+  );
+}
+
+export default function WineCard({ wine }: { wine: WineData }) {
+  const nameParts: string[] = [];
+  if (wine.producer) nameParts.push(wine.producer);
+  nameParts.push(wine.wine);
+  if (wine.vintage) nameParts.push(wine.vintage);
+
+  const taste = wine.taste;
+
+  return (
+    <div className="wine-card">
+      <div className="wine-card-name">{nameParts.join(" \u00B7 ")}</div>
+      {wine.rating != null && wine.rating >= 1 && wine.rating <= 5 && (
+        <div className="wine-card-rating">{renderStars(wine.rating)}</div>
       )}
-      {geo && (
-        <div style={{ fontSize: '0.75rem', color: 'var(--atlas-text-placeholder)', letterSpacing: '0.01em' }}>
-          {geo}
-        </div>
-      )}
-      {entry.varietals && entry.varietals.length > 0 && (
-        <div style={{ fontSize: '0.72rem', color: 'var(--atlas-text-placeholder)' }}>
-          {entry.varietals.join(', ')}
-        </div>
-      )}
-      {entry.providerNote && (
-        <div
-          style={{
-            marginTop: 6, padding: '9px 12px', background: 'var(--atlas-bg)',
-            border: '1px solid var(--atlas-separator)', borderRadius: 6,
-            fontSize: '0.82rem', color: 'var(--atlas-text-secondary)', fontStyle: 'italic', lineHeight: 1.55,
-          }}
-        >
-          {entry.providerNote}
+      {wine.notes && <div className="wine-card-notes">{wine.notes}</div>}
+      {taste && (
+        <div className="wine-card-taste">
+          <div className="wine-card-taste-label">SENSORY IMPRESSIONS</div>
+          {taste.brightness != null && (
+            <TasteBar label="Brightness" left="Dull" right="Bright" value={taste.brightness} />
+          )}
+          {taste.aroma != null && (
+            <TasteBar label="Aroma" left="Savory" right="Fruity" value={taste.aroma} />
+          )}
+          {taste.structure != null && (
+            <TasteBar label="Structure" left="Taut" right="Round" value={taste.structure} />
+          )}
+          {taste.grip != null && (
+            <TasteBar label="Grip" left="Soft" right="Firm" value={taste.grip} />
+          )}
+          {taste.finish != null && (
+            <TasteBar label="Finish" left="Short" right="Long" value={taste.finish} />
+          )}
         </div>
       )}
     </div>
