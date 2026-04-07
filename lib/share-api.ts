@@ -24,6 +24,9 @@ export interface SharePack {
     snapshotDescription?: string;
     shareMode: string;
     scopeKind: string;
+    scopeDescription?: string;
+    filterSummary?: string;
+    sourceCellarName?: string;
     itemCount: number;
     createdAt: string;
   };

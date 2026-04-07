@@ -39,64 +39,25 @@ export async function generateMetadata({
 
 // ─── Wine type colours ────────────────────────────────────────────────────────
 
-const WINE_TYPE_STYLES: Record<
-  string,
-  { label: string; bg: string; color: string; borderColor: string }
-> = {
-  red: {
-    label: 'Red',
-    bg: 'rgba(140, 40, 40, 0.10)',
-    color: '#8B2828',
-    borderColor: 'rgba(140, 40, 40, 0.20)',
-  },
-  white: {
-    label: 'White',
-    bg: 'rgba(160, 140, 60, 0.10)',
-    color: '#7A6820',
-    borderColor: 'rgba(160, 140, 60, 0.20)',
-  },
-  rosé: {
-    label: 'Rosé',
-    bg: 'rgba(180, 90, 100, 0.10)',
-    color: '#A84858',
-    borderColor: 'rgba(180, 90, 100, 0.20)',
-  },
-  rose: {
-    label: 'Rosé',
-    bg: 'rgba(180, 90, 100, 0.10)',
-    color: '#A84858',
-    borderColor: 'rgba(180, 90, 100, 0.20)',
-  },
-  sparkling: {
-    label: 'Sparkling',
-    bg: 'rgba(90, 120, 160, 0.10)',
-    color: '#3A5888',
-    borderColor: 'rgba(90, 120, 160, 0.20)',
-  },
-  dessert: {
-    label: 'Dessert',
-    bg: 'rgba(160, 110, 30, 0.10)',
-    color: '#7A5010',
-    borderColor: 'rgba(160, 110, 30, 0.20)',
-  },
-  fortified: {
-    label: 'Fortified',
-    bg: 'rgba(100, 60, 30, 0.10)',
-    color: '#643C1E',
-    borderColor: 'rgba(100, 60, 30, 0.20)',
-  },
+// Wine type colors — single source of truth in treemap-colors.ts
+import { wineTypeTint, wineTypeColor, wineTypeBorder } from '@/lib/treemap-colors';
+
+const WINE_TYPE_LABELS: Record<string, string> = {
+  red: 'Red', white: 'White', rosé: 'Rosé', rose: 'Rosé',
+  sparkling: 'Sparkling', dessert: 'Dessert', fortified: 'Fortified',
+  orange: 'Orange',
 };
 
 function wineTypeStyle(wineType: string) {
-  return (
-    WINE_TYPE_STYLES[wineType.toLowerCase()] ?? {
-      label: wineType,
-      bg: 'rgba(100, 90, 80, 0.10)',
-      color: 'var(--atlas-text-secondary)',
-      borderColor: 'rgba(100, 90, 80, 0.20)',
-    }
-  );
+  const key = wineType.toLowerCase();
+  return {
+    label: WINE_TYPE_LABELS[key] ?? wineType,
+    bg: wineTypeTint(key),
+    color: wineTypeColor(key),
+    borderColor: wineTypeBorder(key),
+  } as { label: string; bg: string; color: string; borderColor: string };
 }
+
 
 // ─── Geography line ───────────────────────────────────────────────────────────
 
