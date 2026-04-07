@@ -129,11 +129,21 @@ export function dominantWineType(wineTypes: string[]): string | undefined {
 }
 ```
 
-- [ ] **Step 4: Update callers that expect string return**
+- [ ] **Step 4: Fix callers that expect string return**
 
-In `lib/treemap-colors.ts`, the existing `dominantWineType` callers in `Treemap.tsx` use it for `wineType` on `RegionGroup`. Since we're replacing `Treemap.tsx` later, no immediate caller fix is needed — but check the import in the current `Treemap.tsx`:
+The current `Treemap.tsx` imports `dominantWineType` and assigns the result to `dominantType: string` in the `RegionGroup` interface. Update the type to tolerate `undefined` so the build stays clean:
 
-The current `Treemap.tsx:11` imports `dominantWineType`. This usage assigns to `dominantType: string` in `RegionGroup`. Since `Treemap.tsx` will be deleted in Task 10, leave it for now — TypeScript will warn but it won't break at runtime since `undefined` flows through the color functions gracefully (they use fallback).
+In `app/s/[shareId]/Treemap.tsx`, change the `RegionGroup` interface:
+
+```typescript
+interface RegionGroup {
+  label: string;
+  entries: ShareEntry[];
+  dominantType: string | undefined;
+}
+```
+
+Do not leave known type breakage in the tree. The old component is still part of the build until Task 10 removes it.
 
 - [ ] **Step 5: Run tests to verify they pass**
 
@@ -229,6 +239,11 @@ export interface CellarNode {
 /**
  * Normalize a geography string for use in node IDs.
  * Lowercase, trimmed, internal whitespace collapsed.
+ *
+ * Normalization is intentionally NOT ASCII-slugification.
+ * Display-derived keys remain human-legible and deterministic within
+ * the pack. Diacritics are preserved ("côtes du rhône", not "cotes-du-rhone").
+ * Do not "improve" this to strip accents — it would break path determinism.
  */
 export function normalizeKey(raw: string): string {
   return raw.trim().toLowerCase().replace(/\s+/g, ' ');
@@ -422,6 +437,26 @@ describe('buildHierarchy', () => {
     assert.equal(roots[0].wineType, undefined);
   });
 
+  it('handles mixed missing geography within same country', () => {
+    const entries = [
+      makeEntry({ externalEntryId: 'a', wineName: 'Direct', wineType: 'red', country: 'France' }),
+      makeEntry({ externalEntryId: 'b', wineName: 'Regional', wineType: 'white', country: 'France', region: 'Burgundy' }),
+      makeEntry({ externalEntryId: 'c', wineName: 'Full', wineType: 'red', country: 'France', region: 'Burgundy', appellation: 'Volnay' }),
+    ];
+    const roots = buildHierarchy(entries);
+    const france = roots[0];
+    assert.equal(france.weight, 3);
+    // France should have: Burgundy (region, weight 2) + Direct (wine, weight 1)
+    assert.equal(france.children.length, 2);
+    const burgundy = france.children.find(c => c.kind === 'region')!;
+    assert.equal(burgundy.label, 'Burgundy');
+    assert.equal(burgundy.weight, 2);
+    // Burgundy should have: Volnay (appellation, weight 1) + Regional (wine, weight 1)
+    assert.equal(burgundy.children.length, 2);
+    const direct = france.children.find(c => c.kind === 'wine')!;
+    assert.equal(direct.entry?.wineName, 'Direct');
+  });
+
   it('wine leaves have entry and weight 1', () => {
     const entries = [
       makeEntry({ externalEntryId: 'a', wineName: 'Wine A', wineType: 'red', country: 'France' }),
@@ -466,6 +501,9 @@ function getOrCreateChild(parent: MutableNode, id: string, label: string, kind: 
   return child;
 }
 
+// Clarity over optimization: recursive collection is O(n) per node during finalization.
+// For share-sized packs (tens to low hundreds of wines), this is fine.
+// Optimize only if real packs make it necessary.
 function collectWineTypes(node: MutableNode): string[] {
   const types: string[] = [];
   for (const wine of node.wines) {
@@ -499,8 +537,8 @@ function finalize(node: MutableNode): CellarNode[] {
     });
   }
 
-  // Sort: weight descending, then label alphabetical
-  results.sort((a, b) => b.weight - a.weight || a.label.localeCompare(b.label));
+  // Sort: weight descending, then normalized label alphabetical (locale-stable)
+  results.sort((a, b) => b.weight - a.weight || normalizeKey(a.label).localeCompare(normalizeKey(b.label)));
 
   return results;
 }
@@ -1935,7 +1973,7 @@ Create `app/s/[shareId]/CellarBrowser.tsx`:
 ```tsx
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import type { ShareEntry } from '@/lib/share-api';
 import {
   type CellarNode,
@@ -1974,6 +2012,13 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
     [tree, pathIds],
   );
 
+  // Reconcile stale path: if resolveScope trimmed the path, sync state
+  useEffect(() => {
+    if (resolvedPath.length !== pathIds.length || !resolvedPath.every((id, i) => id === pathIds[i])) {
+      setPathIds(resolvedPath);
+    }
+  }, [resolvedPath, pathIds]);
+
   const currentNode = useMemo(
     () => resolveCurrentNode(tree, resolvedPath),
     [tree, resolvedPath],
@@ -1995,9 +2040,12 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
   );
 
   // Central click handler
+  // Rule: drill navigation closes the panel (user is changing context).
+  // Wine selection opens the panel. Panel stays open only for explicit wine taps.
   const handleNodeClick = useCallback((node: CellarNode) => {
     if (canDrill(node)) {
       setPathIds((prev) => [...prev, node.id]);
+      setSelectedWineId(null); // close panel on drill — context is changing
     } else if (isWineNode(node)) {
       setSelectedWineId(node.id);
     }
@@ -2005,6 +2053,7 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
 
   const handleNavigate = useCallback((newPathIds: string[]) => {
     setPathIds(newPathIds);
+    setSelectedWineId(null); // close panel on breadcrumb navigation
   }, []);
 
   const handleDismissPanel = useCallback(() => {
@@ -2207,7 +2256,59 @@ git commit -m "feat: CellarBrowser wired into share page — navigable treemap b
 
 ---
 
-### Task 10: Delete old `Treemap.tsx` and clean up
+### Task 10: Manual verification
+
+- [ ] **Step 1: Start dev server**
+
+Run: `cd /Users/badday/dev/ios/vynr-app/vynr-web && npm run dev`
+
+- [ ] **Step 2: Test with a real shared pack**
+
+Open `http://localhost:3000/s/{shareId}` with a known share ID. Verify:
+
+1. Country-level treemap renders at top level
+2. Click a country tile — drills into regions
+3. Click a region — drills into appellations or wines
+4. Click a wine tile — detail panel opens
+5. Breadcrumb shows path, clicking a segment navigates up
+6. View toggle switches between treemap and list
+7. List shows same nodes as treemap at current level
+8. Detail panel dismiss works (backdrop click, X button, Escape)
+
+- [ ] **Step 3: Test responsive behavior**
+
+1. Resize browser below 768px — panel becomes bottom sheet
+2. Treemap adjusts aspect ratio
+3. No tooltips on mobile viewport
+4. Breadcrumb scrolls horizontally if path is long
+
+- [ ] **Step 4: Test keyboard accessibility**
+
+1. Tab through treemap tiles
+2. Enter/Space activates (drills or opens detail)
+3. Focus ring visible on tiles
+4. Focus moves to panel on open, returns on dismiss
+
+- [ ] **Step 5: Test state continuity**
+
+1. Drill into a deep path (country -> region -> appellation)
+2. Toggle between treemap and list — verify pathIds preserved, same nodes shown
+3. Resize browser across 768px breakpoint — verify pathIds, viewMode, selectedWineId all preserved
+4. Open wine panel, then click breadcrumb to navigate up — verify panel closes
+5. Open wine panel, then drill into a group tile — verify panel closes
+
+- [ ] **Step 6: Test edge cases**
+
+1. Empty pack (0 entries) — no browser rendered
+2. Pack with wines only in one country — single root node
+3. Pack with no regions (country-only geography) — wines under country
+4. Resize across 768px breakpoint while drilled deep with panel open — state preserved
+
+---
+
+### Task 11: Delete old `Treemap.tsx`, clean up, and push
+
+**Gate:** Only proceed after Task 10 manual verification confirms TreemapView matches the current static hero functionality plus drill-down behavior. Do not delete before parity is verified.
 
 **Files:**
 - Delete: `app/s/[shareId]/Treemap.tsx`
@@ -2248,60 +2349,13 @@ Run: `cd /Users/badday/dev/ios/vynr-app/vynr-web && npx tsx --test lib/__tests__
 
 Expected: All PASS.
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 6: Commit and push**
 
 ```bash
 cd /Users/badday/dev/ios/vynr-app/vynr-web
 git add -A app/s/\[shareId\]/
 git commit -m "chore: remove old Treemap.tsx, clean up dead code in page.tsx"
-```
-
----
-
-### Task 11: Manual verification and push
-
-- [ ] **Step 1: Start dev server**
-
-Run: `cd /Users/badday/dev/ios/vynr-app/vynr-web && npm run dev`
-
-- [ ] **Step 2: Test with a real shared pack**
-
-Open `http://localhost:3000/s/{shareId}` with a known share ID. Verify:
-
-1. Country-level treemap renders at top level
-2. Click a country tile — drills into regions
-3. Click a region — drills into appellations or wines
-4. Click a wine tile — detail panel opens
-5. Breadcrumb shows path, clicking a segment navigates up
-6. View toggle switches between treemap and list
-7. List shows same nodes as treemap at current level
-8. Detail panel dismiss works (backdrop click, X button, Escape)
-
-- [ ] **Step 3: Test responsive behavior**
-
-1. Resize browser below 768px — panel becomes bottom sheet
-2. Treemap adjusts aspect ratio
-3. No tooltips on mobile viewport
-4. Breadcrumb scrolls horizontally if path is long
-
-- [ ] **Step 4: Test keyboard accessibility**
-
-1. Tab through treemap tiles
-2. Enter/Space activates (drills or opens detail)
-3. Focus ring visible on tiles
-4. Focus moves to panel on open, returns on dismiss
-
-- [ ] **Step 5: Test edge cases**
-
-1. Empty pack (0 entries) — no browser rendered
-2. Pack with wines only in one country — single root node
-3. Pack with no regions (country-only geography) — wines under country
-4. Resize across 768px breakpoint while drilled deep with panel open — state preserved
-
-- [ ] **Step 6: Push to deploy**
-
-```bash
-cd /Users/badday/dev/ios/vynr-app/vynr-web && git push
+git push
 ```
 
 (Vercel auto-deploys from main.)
