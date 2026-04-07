@@ -69,10 +69,12 @@ interface CellarNode {
    - `country` -> wine (no region, no appellation)
 2. Insert each entry into the tree, creating intermediate nodes as needed.
 3. After all entries are inserted, aggregate weights bottom-up (each group node's weight = sum of descendant wine count).
-4. Compute `wineType` on group nodes via `dominantWineType()` from `treemap-colors.ts`. Set to `undefined` when the dominant type is not meaningful (e.g., even split across 3+ types).
+4. Compute `wineType` on group nodes via `dominantWineType()` from `treemap-colors.ts`. `dominantWineType()` must be deterministic for tied distributions and must return `undefined` rather than arbitrarily selecting a type when the dominant type is not meaningful (e.g., even split across 3+ types).
 5. Sort children at each level: weight descending, then label alphabetical (tie-breaker).
 
 **Missing levels collapse upward gracefully.** If entries have region but no appellation, wines sit directly under region. No synthetic "Unknown Appellation" or "Other" nodes are created.
+
+**`country` is assumed always present** (required field in pack schema v3). The collapse rules handle missing `region` and `appellation`, but not missing `country`. No "Unknown Country" root bucket exists or should be invented.
 
 ### 2.3 Node ID Scheme
 
@@ -96,9 +98,14 @@ IDs are deterministic, normalized, and scoped to parent path.
 ### 2.5 Pure Functions
 
 ```typescript
-// Walk tree by id path. Returns the target node's children, or closest valid ancestor's children
-// if path is invalid. For empty/invalid paths, returns roots. Always returns a usable node list.
-resolveChildren(roots: CellarNode[], pathIds: string[]): { children: CellarNode[]; resolvedPath: string[] }
+// Resolve the current scope from a path. Returns the scoped children for rendering,
+// plus the validated path (trimmed to closest valid ancestor if input path is stale).
+// Empty path returns roots. Always returns a usable result — never fails.
+resolveScope(roots: CellarNode[], pathIds: string[]): { children: CellarNode[]; resolvedPath: string[] }
+
+// Resolve the current node itself (not its children). Returns null only for root (no single node).
+// Used when the caller needs the parent context (e.g., aria-label "4 regions in France").
+resolveCurrentNode(roots: CellarNode[], pathIds: string[]): CellarNode | null
 
 // Path segments for breadcrumb display.
 breadcrumbSegments(roots: CellarNode[], pathIds: string[]): { id: string; label: string }[]
@@ -171,7 +178,8 @@ const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);  // des
 
 - `nodeIndex` — `buildNodeIndex(tree)`, computed once
 - `wineIndex` — `buildWineIndex(tree)`, computed once
-- `{ currentChildren, resolvedPath }` — `resolveChildren(tree, pathIds)` (always valid, closest ancestor fallback)
+- `{ currentChildren, resolvedPath }` — `resolveScope(tree, pathIds)` (always valid, closest ancestor fallback)
+- `currentNode` — `resolveCurrentNode(tree, pathIds)` (null at root level)
 - `breadcrumb` — `breadcrumbSegments(tree, pathIds)`
 - `isTerminalPath` — `currentChildren.length > 0 && currentChildren.every(isWineNode)`
 - `selectedWine` — `wineIndex.get(selectedWineId)` (tree-wide lookup, not path-dependent)
@@ -221,7 +229,7 @@ The tree is immutable for the lifetime of the page. Monitor serialized tree size
 - Fill: `nodeTint(node.wineType)` — neutral fallback when undefined
 - Label: node label, scaled font. Min dimension >= 60px for label visibility.
 - Sub-label: wine count. Min dimension >= 40px.
-- Below 40px: colored tile, no label. Tooltip provides content.
+- Below 40px: colored tile, no label. On desktop, tooltip provides content. On coarse pointers (no tooltip), unlabeled tiles are inspectable via tap (opens detail or drills) or via list view fallback.
 - Cursor: `pointer`
 - Hover: `nodeHoverTint(node.wineType)`, consistent neutral when undefined
 
@@ -265,7 +273,9 @@ The tree is immutable for the lifetime of the page. Monitor serialized tree size
 
 **Sorting:** Same order as treemap — weight descending, alpha tie-breaker. ListView and TreemapView consume the same pre-sorted `currentChildren`.
 
-**Invariant:** ListView is an alternate representation of the current node scope, not a flattened global search/result surface.
+**Invariants:**
+- ListView is an alternate representation of the current node scope, not a flattened global search/result surface.
+- List rows are rendered from `currentChildren` directly. ListView never flattens descendants except when a future feature explicitly requires it.
 
 ### 5.3 Breadcrumb
 
@@ -405,7 +415,7 @@ app/s/[shareId]/page.tsx              -- builds tree, renders CellarBrowser inst
 ### Removed files
 
 ```
-app/s/[shareId]/Treemap.tsx           -- replaced by TreemapView.tsx
+app/s/[shareId]/Treemap.tsx           -- replaced by TreemapView.tsx (remove after TreemapView is verified working)
 ```
 
 ### Unchanged files
@@ -428,9 +438,10 @@ lib/share-api.ts                      -- pack fetching, unchanged
 - Weight aggregation bottom-up
 - Determinism: same input -> same tree
 - Node ID normalization (casing, whitespace)
-- `resolveChildren` with valid path
-- `resolveChildren` with stale/invalid path -> closest valid ancestor's children
-- `resolveChildren` at root (empty path) returns roots
+- `resolveScope` with valid path
+- `resolveScope` with stale/invalid path -> closest valid ancestor's children
+- `resolveScope` at root (empty path) returns roots
+- `resolveCurrentNode` returns correct parent node or null at root
 - `breadcrumbSegments` correctness
 - `isLeafLevel`, `canDrill`, `isWineNode` edge cases
 - Sort: weight descending with alpha tie-breaker
@@ -451,6 +462,7 @@ lib/share-api.ts                      -- pack fetching, unchanged
 - Open wine detail from both treemap and list
 - Test on mobile viewport
 - Keyboard navigation (Tab + Enter)
+- Resize across 768px breakpoint while drilled into a deep path with wine panel open (tests resize invariant)
 
 ---
 
