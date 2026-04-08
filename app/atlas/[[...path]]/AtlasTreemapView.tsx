@@ -11,9 +11,9 @@ const FILL_HOVER = 'rgba(200, 188, 170, 0.25)';
 const BORDER = 'rgba(200, 188, 170, 0.30)';
 const LABEL_COLOR = '#6B614E';
 
-// ─── Font family constant ─────────────────────────────────────────────────
+// ─── Font family ──────────────────────────────────────────────────────────
 
-const FONT_FAMILY = "'Avenir Next', 'Avenir', 'Nunito Sans', 'Trebuchet MS', sans-serif";
+const FONT_FAMILY = 'var(--font-sans)';
 
 // ─── ResizeObserver hook ───────────────────────────────────────────────────
 
@@ -254,7 +254,9 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
             position: 'absolute',
             left: `${(tooltip.x / measuredWidth) * 100}%`,
             top: `${(tooltip.y / computedHeight) * 100}%`,
-            transform: 'translate(-50%, -110%)',
+            transform: tooltip.y / computedHeight < 0.2
+              ? 'translate(-50%, 10%)'
+              : 'translate(-50%, -110%)',
             background: 'var(--atlas-card)',
             border: '1px solid var(--atlas-card-stroke)',
             borderRadius: 8,

@@ -156,3 +156,23 @@ export function resolveUrlPath(segments: string[]): { node: AtlasNode | null; ch
 export function getAllAtlasNodes(): AtlasNode[] {
   return Array.from(nodeIndex.values());
 }
+
+/**
+ * Build the URL path for an atlas node by walking up to root.
+ * Example: Pays d'Oc → "/atlas/europe/france/languedoc-roussillon/pays-doc"
+ */
+export function buildAtlasUrlPath(node: AtlasNode): string {
+  const segments: string[] = [];
+  let current: AtlasNode | undefined = node;
+  while (current && current.level !== 'root') {
+    segments.unshift(current.canonicalKey);
+    current = current.parentId ? nodeIndex.get(current.parentId) : undefined;
+  }
+  return `/atlas/${segments.join('/')}`;
+}
+
+/** Total node count from the atlas dataset. */
+export const atlasNodeCount = (atlasData as { nodeCount: number }).nodeCount;
+
+/** Data epoch from the atlas dataset. */
+export const atlasDataEpoch = (atlasData as { dataEpoch: number }).dataEpoch;

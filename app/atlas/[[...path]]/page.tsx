@@ -1,7 +1,25 @@
 import type { Metadata } from 'next';
-import { resolveUrlPath, getAtlasChildren } from '@/lib/atlas';
-import atlasData from '@/lib/atlas_v1.json';
+import { resolveUrlPath, getAtlasChildren, getAllAtlasNodes, getAtlasNode, buildAtlasUrlPath, atlasNodeCount, atlasDataEpoch, type AtlasNode } from '@/lib/atlas';
 import { AtlasBrowser } from './AtlasBrowser';
+
+export async function generateStaticParams() {
+  return [
+    { path: [] },
+    ...getAllAtlasNodes()
+      .filter(n => n.level !== 'root')
+      .map(n => {
+        const segments: string[] = [];
+        let cur: AtlasNode | undefined = n;
+        while (cur && cur.level !== 'root') {
+          segments.unshift(cur.canonicalKey);
+          cur = cur.parentId ? getAtlasNode(cur.parentId) : undefined;
+        }
+        return { path: segments };
+      }),
+  ];
+}
+
+export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
@@ -13,16 +31,20 @@ export async function generateMetadata({
 
   const children = getAtlasChildren(node?.id ?? null);
   const childCount = children.length;
+  const childLabel = node?.childLevelHint?.toLowerCase() ?? 'region';
   const title = node ? `${node.displayName} — vynr Atlas` : 'Wine Atlas — vynr';
   const description = node
-    ? `${node.displayName}${childCount > 0 ? ` — ${childCount} ${childCount === 1 ? 'region' : 'regions'}` : ''}`
+    ? `${node.displayName}${childCount > 0 ? ` — ${childCount} ${childLabel}${childCount !== 1 ? 's' : ''}` : ''}`
     : 'Explore the world of wine. A geographic atlas of wine regions, from continents to appellations.';
+  const url = `https://vynr.app${path.length > 0 ? `/atlas/${path.join('/')}` : '/atlas'}`;
 
   return {
     title,
     description,
+    alternates: { canonical: url },
     robots: { index: true, follow: true },
-    openGraph: { title, description, type: 'website' },
+    openGraph: { title, description, type: 'website', url },
+    twitter: { card: 'summary', title, description },
   };
 }
 
@@ -46,7 +68,7 @@ export default async function AtlasPage({
           fontSize: '0.68rem', color: 'var(--atlas-text-placeholder)',
           letterSpacing: '0.02em',
         }}>
-          {(atlasData as { nodeCount: number }).nodeCount} regions &middot; epoch {(atlasData as { dataEpoch: number }).dataEpoch}
+          {atlasNodeCount} regions &middot; epoch {atlasDataEpoch}
         </span>
       </header>
 

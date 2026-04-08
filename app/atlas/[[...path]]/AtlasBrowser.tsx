@@ -74,6 +74,8 @@ export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
     setSelectedLeafId(null);
   }, []);
 
+  const infoPanelKey = selectedGrape ?? selectedLeafNode?.id ?? currentNode?.id ?? 'root';
+
   return (
     <div className="atlas-layout">
       <div className="atlas-main">
@@ -98,6 +100,7 @@ export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
       {/* Info panel -- shows selected leaf or current node education */}
       <div className="atlas-sidebar">
         <AtlasInfoPanel
+          key={infoPanelKey}
           currentNode={selectedLeafNode ?? currentNode}
           childCount={selectedLeafNode ? selectedLeafNode.childIds.length : children.length}
           selectedGrape={selectedGrape}

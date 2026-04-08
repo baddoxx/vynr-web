@@ -1,22 +1,9 @@
 import { getAllPosts } from '@/lib/posts'
-import { getAllAtlasNodes, getAtlasNode } from '@/lib/atlas'
-import type { AtlasNode } from '@/lib/atlas'
+import { getAllAtlasNodes, buildAtlasUrlPath } from '@/lib/atlas'
 
 const BASE = 'https://vynr.app'
 
-/** Walk from a node up to root, collecting canonicalKeys to build the URL path. */
-function buildAtlasUrlPath(node: AtlasNode): string {
-  const segments: string[] = []
-  let current: AtlasNode | undefined = node
-  while (current && current.level !== 'root') {
-    segments.push(current.canonicalKey)
-    current = current.parentId ? getAtlasNode(current.parentId) : undefined
-  }
-  segments.reverse()
-  return `/atlas/${segments.join('/')}`
-}
-
-export async function GET() {
+export function GET() {
   const posts = getAllPosts()
 
   const staticUrls = [
