@@ -13,6 +13,7 @@ import {
   buildNodeIndex,
   buildWineIndex,
 } from '@/lib/cellar-tree';
+import { getEducation } from '@/lib/education';
 import { Breadcrumb } from './Breadcrumb';
 import { ViewToggle } from './ViewToggle';
 import { TreemapView } from './TreemapView';
@@ -57,6 +58,12 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
   const breadcrumb = useMemo(
     () => breadcrumbSegments(tree, resolvedPath),
     [tree, resolvedPath],
+  );
+
+  // Education content for the current navigation node (atlas-backed nodes use atlas IDs)
+  const education = useMemo(
+    () => currentNode ? getEducation(currentNode.id) : undefined,
+    [currentNode],
   );
 
   const isTerminalPath = useMemo(
@@ -166,6 +173,48 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
           onNavigate={handleNavigate}
         />
       </div>
+
+      {/* Education panel for current geography node */}
+      {education && (
+        <div style={{
+          background: 'var(--atlas-card)',
+          border: '1px solid var(--atlas-card-stroke)',
+          borderRadius: 10,
+          padding: '14px 18px',
+          marginTop: 10,
+        }}>
+          <p style={{
+            fontSize: '0.85rem',
+            color: 'var(--atlas-text-secondary)',
+            lineHeight: 1.65,
+            margin: 0,
+          }}>
+            {education.description}
+          </p>
+          {education.keyGrapes.length > 0 && (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginTop: 10 }}>
+              {education.keyGrapes.map((grape) => (
+                <span
+                  key={grape}
+                  style={{
+                    display: 'inline-block',
+                    fontSize: '0.68rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.03em',
+                    padding: '2px 8px',
+                    borderRadius: 20,
+                    background: 'rgba(200, 188, 170, 0.15)',
+                    color: 'var(--atlas-text-secondary)',
+                    border: '1px solid rgba(200, 188, 170, 0.30)',
+                  }}
+                >
+                  {grape}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Wine detail panel */}
       <WineDetailPanel
