@@ -21,6 +21,7 @@ export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
       const segments = window.location.pathname.replace(/^\/atlas\/?/, '').split('/').filter(Boolean);
       setPathKeys(segments);
       setSelectedLeafId(null);
+      setSelectedGrape(null);
     };
     window.addEventListener('popstate', handler);
     return () => window.removeEventListener('popstate', handler);
