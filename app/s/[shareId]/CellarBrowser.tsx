@@ -8,6 +8,7 @@ import {
   resolveCurrentNode,
   breadcrumbSegments,
   isWineNode,
+  isLeafLevel,
   canDrill,
   buildNodeIndex,
   buildWineIndex,
@@ -61,6 +62,16 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
   const isTerminalPath = useMemo(
     () => currentChildren.length > 0 && currentChildren.every(isWineNode),
     [currentChildren],
+  );
+
+  // Detect when treemap adds no proportional information:
+  // all children are leaf-level (their children are all wines) and each has weight 1.
+  // A treemap of equal-sized single-wine nodes is just a meaningless grid of names.
+  const shouldAutoList = useMemo(
+    () => !isTerminalPath &&
+      currentChildren.length > 0 &&
+      currentChildren.every(n => isLeafLevel(n) && n.weight === 1),
+    [currentChildren, isTerminalPath],
   );
 
   const selectedWine = useMemo(
@@ -122,8 +133,8 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
         <ViewToggle viewMode={viewMode} onToggle={setViewMode} />
       </div>
 
-      {/* Main view */}
-      {viewMode === 'treemap' ? (
+      {/* Main view — auto-list when treemap adds no proportional value */}
+      {viewMode === 'treemap' && !shouldAutoList && !isTerminalPath ? (
         <TreemapView
           nodes={currentChildren}
           isTerminalPath={isTerminalPath}
