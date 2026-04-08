@@ -35,7 +35,7 @@ export default async function AtlasPage({
   return (
     <div className="share-page-light" style={{ maxWidth: 1100, margin: '0 auto', padding: '20px 20px 60px' }}>
       {/* Atlas header */}
-      <header style={{ marginBottom: 12, display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+      <header style={{ marginBottom: 12 }}>
         <h1 style={{
           fontSize: '1.1rem', fontWeight: 600, letterSpacing: '-0.01em',
           color: 'var(--atlas-text)', margin: 0,
