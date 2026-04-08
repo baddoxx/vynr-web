@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useMemo, useCallback } from 'react';
-import { resolveUrlPath, getAtlasChildren, getAtlasNode, type AtlasNode } from '@/lib/atlas';
+import { resolveUrlPath, getAtlasChildren, type AtlasNode } from '@/lib/atlas';
 import { Breadcrumb } from '@/app/s/[shareId]/Breadcrumb';
 import { AtlasTreemapView } from './AtlasTreemapView';
-import { AtlasDetailPanel } from './AtlasDetailPanel';
+import { AtlasInfoPanel } from './AtlasInfoPanel';
 
 interface AtlasBrowserProps {
   initialPath: string[];
@@ -12,7 +12,6 @@ interface AtlasBrowserProps {
 
 export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
   const [pathKeys, setPathKeys] = useState<string[]>(initialPath);
-  const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
 
   const { node: currentNode, chain } = useMemo(() => resolveUrlPath(pathKeys), [pathKeys]);
 
@@ -26,34 +25,17 @@ export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
     [chain],
   );
 
-  const selectedNode = useMemo(
-    () => selectedNodeId ? getAtlasNode(selectedNodeId) ?? null : null,
-    [selectedNodeId],
-  );
-
   const handleNodeClick = useCallback((node: AtlasNode) => {
-    if (node.childIds.length > 0) {
-      // Drill down
-      const newKeys = [...pathKeys, node.canonicalKey];
-      setPathKeys(newKeys);
-      setSelectedNodeId(null);
-      const newPath = `/atlas/${newKeys.join('/')}`;
-      window.history.pushState(null, '', newPath);
-    } else {
-      // Leaf -- show detail panel
-      setSelectedNodeId(node.id);
-    }
+    const newKeys = [...pathKeys, node.canonicalKey];
+    setPathKeys(newKeys);
+    const newPath = `/atlas/${newKeys.join('/')}`;
+    window.history.pushState(null, '', newPath);
   }, [pathKeys]);
 
   const handleNavigate = useCallback((newPathIds: string[]) => {
     setPathKeys(newPathIds);
-    setSelectedNodeId(null);
     const newPath = newPathIds.length > 0 ? `/atlas/${newPathIds.join('/')}` : '/atlas';
     window.history.pushState(null, '', newPath);
-  }, []);
-
-  const handleDismiss = useCallback(() => {
-    setSelectedNodeId(null);
   }, []);
 
   return (
@@ -75,8 +57,8 @@ export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
         />
       </div>
 
-      {/* Detail panel for leaf nodes */}
-      <AtlasDetailPanel node={selectedNode} onDismiss={handleDismiss} />
+      {/* Info panel -- always visible, shows current node education */}
+      <AtlasInfoPanel currentNode={currentNode} childCount={children.length} />
     </div>
   );
 }
