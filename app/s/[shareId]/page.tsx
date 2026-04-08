@@ -52,7 +52,7 @@ function ActiveShareView({
   const rootLabel = snapshot.snapshotTitle || 'Cellar';
 
   return (
-    <div style={{ maxWidth: 640, margin: '0 auto', padding: '40px 20px 80px' }}>
+    <div className="share-page-light" style={{ maxWidth: 640, margin: '0 auto', padding: '40px 20px 80px' }}>
       {/* ── Header ── */}
       <header style={{ marginBottom: 32 }}>
         <h1 style={{
@@ -155,6 +155,7 @@ function UnavailableView({
 }) {
   return (
     <div
+      className="share-page-light"
       style={{
         maxWidth: 480,
         margin: '80px auto',
