@@ -52,8 +52,18 @@ export default async function AtlasPage({
 
       <AtlasBrowser initialPath={path} />
 
+      {/* Attribution — content footnote, close to the atlas */}
+      <div style={{
+        marginTop: 16, fontSize: '0.65rem',
+        color: 'var(--atlas-text-placeholder)', letterSpacing: '0.02em',
+        lineHeight: 1.5,
+      }}>
+        Content is generated and curated by vynr using multiple sources and internal models. It is intended as a guide, not a definitive reference.
+      </div>
+
+      {/* Sign-off — separated CTA */}
       <footer style={{
-        marginTop: 32, textAlign: 'center', fontSize: '0.68rem',
+        marginTop: 48, textAlign: 'center', fontSize: '0.68rem',
         color: 'var(--atlas-text-placeholder)', letterSpacing: '0.02em',
         lineHeight: 1.6,
       }}>
@@ -65,10 +75,7 @@ export default async function AtlasPage({
         >
           Explore in vynr for iOS
         </a>
-        <div style={{ marginTop: 6 }}>vynr Atlas</div>
-        <div style={{ marginTop: 6 }}>
-          Content is generated and curated by vynr using multiple sources and internal models. It is intended as a guide, not a definitive reference.
-        </div>
+        <div style={{ marginTop: 6, opacity: 0.6 }}>vynr Atlas</div>
       </footer>
     </div>
   );
