@@ -49,6 +49,9 @@ export interface ShareEntry {
   region?: string;
   appellation?: string;
   varietals?: string[];
+  atlasCountryId?: string;
+  atlasRegionId?: string;
+  atlasAppellationId?: string;
   providerNote?: string;
 }
 

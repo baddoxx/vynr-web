@@ -5,6 +5,7 @@
  */
 import type { ShareEntry } from './share-api';
 import { dominantWineType } from './treemap-colors';
+import { resolveWineAtlasPath, type AtlasPathStep } from './atlas';
 
 /** Wine-type composition breakdown for a group node. Sorted by fraction descending. */
 export interface WineTypeSegment {
@@ -157,63 +158,89 @@ function finalize(node: MutableNode, parentPath: string): CellarNode {
 }
 
 /**
+ * Insert a wine entry into the mutable tree using its atlas path.
+ * Creates all intermediate nodes (sub-regions, etc.) from the atlas.
+ */
+function insertViaAtlasPath(root: MutableNode, entry: ShareEntry, atlasPath: AtlasPathStep[]): void {
+  let parent = root;
+
+  for (const step of atlasPath) {
+    // Determine kind from atlas level
+    const kind: CellarNode['kind'] = step.level === 'country' ? 'country' : 'region';
+    const node = getOrCreateChild(parent, step.id, step.displayName, kind);
+    parent = node;
+  }
+
+  // Attach wine to the deepest atlas node
+  parent.wines.push(entry);
+}
+
+/**
+ * Insert a wine entry using flat pack geography strings (fallback when no atlas IDs).
+ */
+function insertViaFlatGeography(root: MutableNode, entry: ShareEntry): void {
+  const countryLabel = entry.country.trim();
+  const regionLabel = entry.region?.trim();
+  const appellationLabel = entry.appellation?.trim();
+
+  const countryKey = normalizeKey(countryLabel);
+  const countryId = `country:${countryKey}`;
+  const countryNode = getOrCreateChild(root, countryId, countryLabel, 'country');
+
+  if (!regionLabel) {
+    countryNode.wines.push(entry);
+    return;
+  }
+
+  const regionKey = normalizeKey(regionLabel);
+  const regionId = `region:${countryKey}/${regionKey}`;
+  const regionNode = getOrCreateChild(countryNode, regionId, regionLabel, 'region');
+
+  if (!appellationLabel) {
+    regionNode.wines.push(entry);
+    return;
+  }
+
+  const appellationKey = normalizeKey(appellationLabel);
+  const appellationId = `appellation:${countryKey}/${regionKey}/${appellationKey}`;
+  const appellationNode = getOrCreateChild(regionNode, appellationId, appellationLabel, 'appellation');
+  appellationNode.wines.push(entry);
+}
+
+/**
  * Build a navigable geography hierarchy from flat ShareEntry[] pack data.
  *
- * Hierarchy: country → region → appellation → wine
- * Missing intermediate levels are collapsed: if a wine has no region,
- * it nests directly under its country node; if it has a region but no
- * appellation, it nests directly under its region node.
+ * Two paths:
+ * - **Atlas-backed** (preferred): When pack entries carry atlas IDs, resolves
+ *   the full geographic chain from the bundled atlas_v1.json. This produces
+ *   the same hierarchy depth as the iOS app (e.g., Burgundy → Côte de Beaune → Aloxe-Corton).
+ * - **Flat fallback**: When atlas IDs are absent, uses the pack's country/region/appellation
+ *   strings to build a simpler 3-level hierarchy.
  *
- * Node IDs:
- *   country:   `country:{normalizedCountry}`
- *   region:    `region:{normalizedCountry}/{normalizedRegion}`
- *   appellation: `appellation:{normalizedCountry}/{normalizedRegion}/{normalizedAppellation}`
- *   wine:      `wine:{parentPath}/{externalEntryId}`
- *
- * Returned roots are sorted by weight desc, then label alpha asc.
+ * ADR-0072: hierarchy alignment is a product requirement. Same cellar
+ * must browse the same way on iOS and web.
  */
 export function buildHierarchy(entries: ShareEntry[]): CellarNode[] {
-  // Root-level virtual container — its children are the top-level countries
   const root: MutableNode = makeMutableNode('__root__', '__root__', 'country');
 
   for (const entry of entries) {
-    const countryLabel = entry.country.trim();
-    const regionLabel = entry.region?.trim();
-    const appellationLabel = entry.appellation?.trim();
-
-    const countryKey = normalizeKey(countryLabel);
-    const countryId = `country:${countryKey}`;
-
-    const countryNode = getOrCreateChild(root, countryId, countryLabel, 'country');
-
-    if (!regionLabel) {
-      // No region — wine nests directly under country
-      countryNode.wines.push(entry);
-      continue;
+    // Try atlas-backed path first
+    const atlasPath = resolveWineAtlasPath(entry);
+    if (atlasPath && atlasPath.length > 0) {
+      insertViaAtlasPath(root, entry, atlasPath);
+    } else {
+      // Fallback to flat geography strings
+      insertViaFlatGeography(root, entry);
     }
-
-    const regionKey = normalizeKey(regionLabel);
-    const regionId = `region:${countryKey}/${regionKey}`;
-    const regionNode = getOrCreateChild(countryNode, regionId, regionLabel, 'region');
-
-    if (!appellationLabel) {
-      // No appellation — wine nests directly under region
-      regionNode.wines.push(entry);
-      continue;
-    }
-
-    const appellationKey = normalizeKey(appellationLabel);
-    const appellationId = `appellation:${countryKey}/${regionKey}/${appellationKey}`;
-    const appellationNode = getOrCreateChild(regionNode, appellationId, appellationLabel, 'appellation');
-
-    appellationNode.wines.push(entry);
   }
 
   // Finalize root children (countries)
   const roots: CellarNode[] = [];
   for (const countryMutable of root.children.values()) {
-    const countryKey = normalizeKey(countryMutable.label);
-    roots.push(finalize(countryMutable, countryKey));
+    const idSuffix = countryMutable.id.includes(':')
+      ? countryMutable.id.split(':').slice(1).join(':')
+      : normalizeKey(countryMutable.label);
+    roots.push(finalize(countryMutable, idSuffix));
   }
 
   // Sort roots
