@@ -8,7 +8,6 @@ import {
   wineTypeColor,
   wineTypeBorder,
 } from '@/lib/treemap-colors';
-import { classifyLabel, generateMonogram } from '@/lib/tile-labels';
 import { type CellarNode, type WineTypeSegment, isWineNode, canDrill } from '@/lib/cellar-tree';
 
 // ─── Tint helpers (tolerate undefined wineType) ─────────────────────────────
@@ -58,10 +57,6 @@ interface TooltipData {
 // ─── Font family constant ───────────────────────────────────────────────────
 
 const FONT_FAMILY = "'Avenir Next', 'Avenir', 'Nunito Sans', 'Trebuchet MS', sans-serif";
-
-// ─── Sub-label threshold ────────────────────────────────────────────────────
-
-const MIN_SUB_DIM = 40;
 
 // ─── ResizeObserver hook ────────────────────────────────────────────────────
 
@@ -117,13 +112,13 @@ export function TreemapView({
     setCanHover(window.matchMedia('(hover: hover)').matches);
   }, []);
 
-  // Height policy: 3:2 desktop, 4:3 mobile, scales with node count for dense views
+  // Height policy: square-ish on mobile, 3:2 on desktop, scales with node count
   const isMobile = measuredWidth > 0 && measuredWidth < 480;
-  const ratio = isMobile ? 4 / 3 : 3 / 2;
+  const ratio = isMobile ? 1 : 3 / 2;
   const rawHeight = measuredWidth / ratio;
-  const minH = isMobile ? 200 : 250;
-  const baseMaxH = isMobile ? 400 : 500;
-  const nodeBonus = Math.min(300, Math.max(0, (nodes.length - 10) * 15));
+  const minH = isMobile ? 300 : 300;
+  const baseMaxH = isMobile ? 550 : 650;
+  const nodeBonus = Math.min(350, Math.max(0, (nodes.length - 8) * 20));
   const maxH = baseMaxH + nodeBonus;
   const computedHeight = Math.max(minH, Math.min(maxH, rawHeight));
 
@@ -217,8 +212,7 @@ export function TreemapView({
         height={computedHeight}
         style={{
           display: 'block',
-          borderRadius: 10,
-          border: '1px solid var(--atlas-card-stroke)',
+          borderRadius: 6,
           background: 'var(--atlas-bg)',
           overflow: 'hidden',
         }}
@@ -230,19 +224,16 @@ export function TreemapView({
           const wt = r.item.wineType;
           const isWine = isTerminalPath;
 
-          const labelSize = Math.max(10, Math.min(14, Math.sqrt(r.width * r.height) / 8));
+          const labelSize = Math.max(10, Math.min(16, Math.sqrt(r.width * r.height) / 7));
           const subSize = Math.max(8, labelSize - 2);
           const cx = r.x + r.width / 2;
           const cy = r.y + r.height / 2;
+          const hideLabel = Math.min(r.width, r.height) < 18;
 
           // For wine tiles, use the formatter
           const node = nodeMap.get(r.item.id);
           const labels = isWine ? wineTileLabel(node!) : { primary: r.item.label, secondary: `${r.item.weight} ${r.item.weight === 1 ? 'wine' : 'wines'}` };
 
-          // Three-tier label classification
-          const mode = classifyLabel(r.width, r.height, labels.primary.length);
-          const showSub = Math.min(r.width, r.height) >= MIN_SUB_DIM && mode === 'full';
-          const monogram = mode === 'monogram' ? generateMonogram(labels.primary) : '';
           const composition = node?.composition ?? [];
           const hasComposition = !isWine && composition.length > 0;
           // Unique clip-path id for rounded composition bands
@@ -340,70 +331,39 @@ export function TreemapView({
                 style={{ pointerEvents: 'none' }}
               />
 
-              {/* Three-tier label rendering */}
-              {mode === 'full' && (
-                <text
-                  x={cx}
-                  y={cy - (showSub && labels.secondary ? subSize * 0.4 : 0)}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  fill={nodeColor(wt ?? (composition.length > 0 ? composition[0].type : undefined))}
-                  fontSize={labelSize}
-                  fontWeight={500}
-                  fontFamily={FONT_FAMILY}
-                  style={{ pointerEvents: 'none', userSelect: 'none' }}
-                >
-                  {labels.primary}
-                </text>
-              )}
-              {mode === 'vertical' && (
-                <text
-                  x={cx}
-                  y={cy}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  fill={nodeColor(wt ?? (composition.length > 0 ? composition[0].type : undefined))}
-                  fontSize={Math.max(9, labelSize - 1)}
-                  fontWeight={500}
-                  fontFamily={FONT_FAMILY}
-                  transform={`rotate(-90 ${cx} ${cy})`}
-                  style={{ pointerEvents: 'none', userSelect: 'none' }}
-                >
-                  {labels.primary}
-                </text>
-              )}
-              {mode === 'monogram' && (
-                <text
-                  x={cx}
-                  y={cy}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  fill={nodeColor(wt ?? (composition.length > 0 ? composition[0].type : undefined))}
-                  fontSize={Math.max(9, labelSize - 2)}
-                  fontWeight={700}
-                  fontFamily={FONT_FAMILY}
-                  style={{ pointerEvents: 'none', userSelect: 'none' }}
-                >
-                  {monogram}
-                </text>
-              )}
-
-              {/* Sub-label (only in full mode) */}
-              {showSub && labels.secondary && (
-                <text
-                  x={cx}
-                  y={cy + labelSize * 0.7}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  fill={nodeColor(wt)}
-                  fontSize={subSize}
-                  fontWeight={400}
-                  fontFamily={FONT_FAMILY}
-                  opacity={0.6}
-                  style={{ pointerEvents: 'none', userSelect: 'none' }}
-                >
-                  {labels.secondary}
-                </text>
+              {/* foreignObject label with CSS word-wrapping */}
+              {!hideLabel && (
+                <foreignObject x={r.x + 2} y={r.y + 2} width={r.width - 4} height={r.height - 4}>
+                  <div style={{
+                    width: '100%', height: '100%',
+                    display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', justifyContent: 'center',
+                    padding: '2px 4px',
+                    textAlign: 'center', overflow: 'hidden',
+                    pointerEvents: 'none', userSelect: 'none',
+                    boxSizing: 'border-box' as const,
+                  }}>
+                    <div style={{
+                      fontSize: `${labelSize}px`, fontWeight: 500,
+                      fontFamily: FONT_FAMILY,
+                      color: nodeColor(wt ?? (composition.length > 0 ? composition[0].type : undefined)),
+                      wordWrap: 'break-word', overflowWrap: 'break-word',
+                      lineHeight: '1.2', maxWidth: '100%',
+                    }}>
+                      {labels.primary}
+                    </div>
+                    {labels.secondary && r.height > 50 && (
+                      <div style={{
+                        fontSize: `${subSize}px`, fontWeight: 400,
+                        fontFamily: FONT_FAMILY,
+                        color: nodeColor(wt),
+                        opacity: 0.6, marginTop: 2,
+                      }}>
+                        {labels.secondary}
+                      </div>
+                    )}
+                  </div>
+                </foreignObject>
               )}
             </g>
           );
