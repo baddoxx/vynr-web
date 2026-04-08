@@ -14,6 +14,7 @@ import {
   buildWineIndex,
 } from '@/lib/cellar-tree';
 import { getEducation } from '@/lib/education';
+import { grapePillTint } from '@/lib/grape-colors';
 import { Breadcrumb } from '@/app/components/Breadcrumb';
 import { ViewToggle } from './ViewToggle';
 import { TreemapView } from './TreemapView';
@@ -193,24 +194,27 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
           </p>
           {education.keyGrapes.length > 0 && (
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginTop: 10 }}>
-              {education.keyGrapes.map((grape) => (
-                <span
-                  key={grape}
-                  style={{
-                    display: 'inline-block',
-                    fontSize: '0.68rem',
-                    fontWeight: 500,
-                    letterSpacing: '0.03em',
-                    padding: '2px 8px',
-                    borderRadius: 20,
-                    background: 'rgba(200, 180, 140, 0.25)',
-                    color: 'var(--atlas-text)',
-                    border: '1px solid rgba(180, 160, 120, 0.35)',
-                  }}
-                >
-                  {grape}
-                </span>
-              ))}
+              {education.keyGrapes.map((grape) => {
+                const tint = grapePillTint(grape);
+                return (
+                  <span
+                    key={grape}
+                    style={{
+                      display: 'inline-block',
+                      fontSize: '0.68rem',
+                      fontWeight: 500,
+                      letterSpacing: '0.03em',
+                      padding: '2px 8px',
+                      borderRadius: 20,
+                      background: tint.fill,
+                      color: tint.text,
+                      border: `1px solid ${tint.border}`,
+                    }}
+                  >
+                    {grape}
+                  </span>
+                );
+              })}
             </div>
           )}
         </div>

@@ -344,7 +344,7 @@ export function TreemapView({
                     boxSizing: 'border-box' as const,
                   }}>
                     <div style={{
-                      fontSize: `${labelSize}px`, fontWeight: 500,
+                      fontSize: `${labelSize}px`, fontWeight: isWine ? 400 : 600,
                       fontFamily: FONT_FAMILY,
                       color: nodeColor(wt ?? (composition.length > 0 ? composition[0].type : undefined)),
                       wordWrap: 'break-word', overflowWrap: 'break-word',

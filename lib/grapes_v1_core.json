@@ -1,0 +1,1014 @@
+{
+  "$schema": "../../schemas/grapes.schema.json",
+  "version": "1.0",
+  "description": "Core grape variety dataset - commonly encountered varieties with aliases",
+  "count": 74,
+  "provenance": {
+    "source_name": "Manual curation",
+    "license": "Proprietary - vynr app data",
+    "last_updated": "2026-03-14",
+    "curator": "vynr team"
+  },
+  "grapes": [
+    {
+      "canonical_name": "Cabernet Sauvignon",
+      "color": "red",
+      "aliases": [
+        "cab sav",
+        "cabernet",
+        "cab",
+        "赤霞珠",
+        "カベルネ・ソーヴィニヨン",
+        "カベルネソーヴィニヨン"
+      ],
+      "tokens": [
+        "cabernet",
+        "cab",
+        "sav"
+      ],
+      "style_hint": "Full-bodied, tannic"
+    },
+    {
+      "canonical_name": "Merlot",
+      "color": "red",
+      "aliases": [
+        "merlô",
+        "メルロー",
+        "メルロ"
+      ],
+      "tokens": [
+        "merlot"
+      ],
+      "style_hint": "Medium to full-bodied, soft"
+    },
+    {
+      "canonical_name": "Pinot Noir",
+      "color": "red",
+      "aliases": [
+        "pinot",
+        "spatburgunder",
+        "spätburgunder",
+        "blauburgunder",
+        "黑比诺",
+        "ピノ・ノワール",
+        "ピノ･ノワール",
+        "ピノノワール"
+      ],
+      "tokens": [
+        "pinot",
+        "noir",
+        "spatburgunder",
+        "blauburgunder"
+      ],
+      "style_hint": "Light to medium-bodied, elegant"
+    },
+    {
+      "canonical_name": "Syrah",
+      "color": "red",
+      "aliases": [
+        "shiraz"
+      ],
+      "tokens": [
+        "syrah",
+        "shiraz"
+      ],
+      "style_hint": "Full-bodied, spicy"
+    },
+    {
+      "canonical_name": "Cabernet Franc",
+      "color": "red",
+      "aliases": [
+        "cab franc",
+        "bouchet",
+        "breton"
+      ],
+      "tokens": [
+        "cabernet",
+        "franc",
+        "bouchet",
+        "breton"
+      ],
+      "style_hint": "Medium-bodied, herbaceous"
+    },
+    {
+      "canonical_name": "Malbec",
+      "color": "red",
+      "aliases": [
+        "cot",
+        "auxerrois"
+      ],
+      "tokens": [
+        "malbec",
+        "cot",
+        "auxerrois"
+      ],
+      "style_hint": "Full-bodied, fruity"
+    },
+    {
+      "canonical_name": "Grenache",
+      "color": "red",
+      "aliases": [
+        "garnacha",
+        "garnatxa",
+        "cannonau"
+      ],
+      "tokens": [
+        "grenache",
+        "garnacha",
+        "garnatxa",
+        "cannonau"
+      ],
+      "style_hint": "Medium to full-bodied, fruity"
+    },
+    {
+      "canonical_name": "Tempranillo",
+      "color": "red",
+      "aliases": [
+        "tinto fino",
+        "tinta roriz",
+        "aragonez",
+        "cencibel",
+        "tinta de toro"
+      ],
+      "tokens": [
+        "tempranillo",
+        "tinto",
+        "fino",
+        "tinta",
+        "aragonez",
+        "cencibel"
+      ],
+      "style_hint": "Medium to full-bodied"
+    },
+    {
+      "canonical_name": "Sangiovese",
+      "color": "red",
+      "aliases": [
+        "brunello",
+        "prugnolo gentile",
+        "morellino"
+      ],
+      "tokens": [
+        "sangiovese",
+        "brunello",
+        "prugnolo",
+        "morellino"
+      ],
+      "style_hint": "Medium to full-bodied, high acid"
+    },
+    {
+      "canonical_name": "Nebbiolo",
+      "color": "red",
+      "aliases": [
+        "spanna",
+        "chiavennasca"
+      ],
+      "tokens": [
+        "nebbiolo",
+        "spanna",
+        "chiavennasca"
+      ],
+      "style_hint": "Full-bodied, tannic, high acid"
+    },
+    {
+      "canonical_name": "Barbera",
+      "color": "red",
+      "aliases": [
+        "barbera d'asti",
+        "barbera d'alba"
+      ],
+      "tokens": [
+        "barbera",
+        "asti",
+        "alba"
+      ],
+      "style_hint": "Medium to full-bodied, high acid"
+    },
+    {
+      "canonical_name": "Dolcetto",
+      "color": "red",
+      "aliases": [
+        "dolcetto d'alba",
+        "dolcetto d'asti"
+      ],
+      "tokens": [
+        "dolcetto",
+        "alba",
+        "asti"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Mourvèdre",
+      "color": "red",
+      "aliases": [
+        "mourvedre",
+        "monastrell",
+        "mataro"
+      ],
+      "tokens": [
+        "mourvedre",
+        "monastrell",
+        "mataro"
+      ],
+      "style_hint": "Full-bodied, tannic"
+    },
+    {
+      "canonical_name": "Zinfandel",
+      "color": "red",
+      "aliases": [
+        "primitivo",
+        "zin"
+      ],
+      "tokens": [
+        "zinfandel",
+        "primitivo",
+        "zin"
+      ],
+      "style_hint": "Full-bodied, fruit-forward"
+    },
+    {
+      "canonical_name": "Petit Verdot",
+      "color": "red",
+      "aliases": [
+        "petit verdô",
+        "verdot"
+      ],
+      "tokens": [
+        "verdot"
+      ],
+      "style_hint": "Full-bodied, tannic"
+    },
+    {
+      "canonical_name": "Carménère",
+      "color": "red",
+      "aliases": [
+        "carmenere"
+      ],
+      "tokens": [
+        "carmenere"
+      ],
+      "style_hint": "Medium to full-bodied, herbaceous"
+    },
+    {
+      "canonical_name": "Carignan",
+      "color": "red",
+      "aliases": [
+        "carignane",
+        "carinena",
+        "mazuelo"
+      ],
+      "tokens": [
+        "carignan",
+        "carignane",
+        "carinena",
+        "mazuelo"
+      ],
+      "style_hint": "Full-bodied, tannic"
+    },
+    {
+      "canonical_name": "Cinsault",
+      "color": "red",
+      "aliases": [
+        "cinsaut"
+      ],
+      "tokens": [
+        "cinsault",
+        "cinsaut"
+      ],
+      "style_hint": "Light-bodied, fruity"
+    },
+    {
+      "canonical_name": "Gamay",
+      "color": "red",
+      "aliases": [
+        "gamay noir"
+      ],
+      "tokens": [
+        "gamay"
+      ],
+      "style_hint": "Light-bodied, fruity"
+    },
+    {
+      "canonical_name": "Corvina",
+      "color": "red",
+      "aliases": [
+        "corvina veronese"
+      ],
+      "tokens": [
+        "corvina"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Nero d'Avola",
+      "color": "red",
+      "aliases": [
+        "calabrese"
+      ],
+      "tokens": [
+        "nero",
+        "avola",
+        "calabrese"
+      ],
+      "style_hint": "Full-bodied"
+    },
+    {
+      "canonical_name": "Aglianico",
+      "color": "red",
+      "aliases": [
+        "aglianico del vulture"
+      ],
+      "tokens": [
+        "aglianico",
+        "vulture"
+      ],
+      "style_hint": "Full-bodied, tannic"
+    },
+    {
+      "canonical_name": "Montepulciano",
+      "color": "red",
+      "aliases": [
+        "montepulciano d'abruzzo"
+      ],
+      "tokens": [
+        "montepulciano",
+        "abruzzo"
+      ],
+      "style_hint": "Medium to full-bodied"
+    },
+    {
+      "canonical_name": "Negroamaro",
+      "color": "red",
+      "aliases": [
+        "negro amaro"
+      ],
+      "tokens": [
+        "negroamaro",
+        "negro",
+        "amaro"
+      ],
+      "style_hint": "Full-bodied"
+    },
+    {
+      "canonical_name": "Zweigelt",
+      "color": "red",
+      "aliases": [
+        "rotburger",
+        "Zweigeltrebe"
+      ],
+      "tokens": [
+        "zweigelt",
+        "rotburger"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Blaufränkisch",
+      "color": "red",
+      "aliases": [
+        "blaufrankisch",
+        "lemberger",
+        "kekfrankos"
+      ],
+      "tokens": [
+        "blaufrankisch",
+        "lemberger",
+        "kekfrankos"
+      ],
+      "style_hint": "Medium-bodied, spicy"
+    },
+    {
+      "canonical_name": "Tannat",
+      "color": "red",
+      "aliases": [
+        "harriague",
+        "tanat"
+      ],
+      "tokens": [
+        "tannat",
+        "harriague",
+        "tanat"
+      ],
+      "style_hint": "Full-bodied, very tannic"
+    },
+    {
+      "canonical_name": "Mencía",
+      "color": "red",
+      "aliases": [
+        "mencia"
+      ],
+      "tokens": [
+        "mencia"
+      ],
+      "style_hint": "Medium-bodied"
+    },
+    {
+      "canonical_name": "Touriga Nacional",
+      "color": "red",
+      "aliases": [
+        "touriga",
+        "touriga nacional"
+      ],
+      "tokens": [
+        "touriga",
+        "nacional"
+      ],
+      "style_hint": "Full-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Pinotage",
+      "color": "red",
+      "aliases": [
+        "pinotaj"
+      ],
+      "tokens": [
+        "pinotage"
+      ],
+      "style_hint": "Medium to full-bodied"
+    },
+    {
+      "canonical_name": "Xinomavro",
+      "color": "red",
+      "aliases": [
+        "xynomavro",
+        "ξινόμαυρο"
+      ],
+      "tokens": [
+        "xinomavro",
+        "xynomavro"
+      ],
+      "style_hint": "Full-bodied, tannic, high acid"
+    },
+    {
+      "canonical_name": "Petite Sirah",
+      "color": "red",
+      "aliases": [
+        "durif",
+        "petite syrah"
+      ],
+      "tokens": [
+        "petite",
+        "sirah",
+        "durif"
+      ],
+      "style_hint": "Full-bodied, very tannic"
+    },
+    {
+      "canonical_name": "Nerello Mascalese",
+      "color": "red",
+      "aliases": [
+        "nerello",
+        "mascalese"
+      ],
+      "tokens": [
+        "nerello",
+        "mascalese"
+      ],
+      "style_hint": "Medium-bodied, elegant"
+    },
+    {
+      "canonical_name": "Chardonnay",
+      "color": "white",
+      "aliases": [
+        "morillon",
+        "chardonnas",
+        "霞多丽",
+        "シャルドネ"
+      ],
+      "tokens": [
+        "chardonnay",
+        "morillon",
+        "chardonnas"
+      ],
+      "style_hint": "Full-bodied"
+    },
+    {
+      "canonical_name": "Sauvignon Blanc",
+      "color": "white",
+      "aliases": [
+        "fume blanc",
+        "ソーヴィニヨン・ブラン",
+        "ソーヴィニヨンブラン"
+      ],
+      "tokens": [
+        "sauvignon",
+        "blanc",
+        "fume"
+      ],
+      "style_hint": "Light to medium-bodied, crisp"
+    },
+    {
+      "canonical_name": "Riesling",
+      "color": "white",
+      "aliases": [
+        "rheinriesling",
+        "weisser riesling",
+        "雷司令",
+        "リースリング"
+      ],
+      "tokens": [
+        "riesling",
+        "rheinriesling"
+      ],
+      "style_hint": "Light-bodied, high acid"
+    },
+    {
+      "canonical_name": "Pinot Grigio",
+      "color": "white",
+      "aliases": [
+        "pinot gris",
+        "grauburgunder",
+        "rulander"
+      ],
+      "tokens": [
+        "pinot",
+        "grigio",
+        "gris",
+        "grauburgunder",
+        "rulander"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Pinot Blanc",
+      "color": "white",
+      "aliases": [
+        "pinot bianco",
+        "weissburgunder"
+      ],
+      "tokens": [
+        "pinot",
+        "blanc",
+        "bianco",
+        "weissburgunder"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Gewürztraminer",
+      "color": "white",
+      "aliases": [
+        "gewurztraminer",
+        "traminer"
+      ],
+      "tokens": [
+        "gewurztraminer",
+        "traminer"
+      ],
+      "style_hint": "Full-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Viognier",
+      "color": "white",
+      "aliases": [
+        "viognié",
+        "vionier",
+        "vioniér"
+      ],
+      "tokens": [
+        "viognier"
+      ],
+      "style_hint": "Full-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Chenin Blanc",
+      "color": "white",
+      "aliases": [
+        "pineau de la loire",
+        "steen"
+      ],
+      "tokens": [
+        "chenin",
+        "blanc",
+        "pineau",
+        "loire",
+        "steen"
+      ],
+      "style_hint": "Light to full-bodied, versatile"
+    },
+    {
+      "canonical_name": "Sémillon",
+      "color": "white",
+      "aliases": [
+        "semillon"
+      ],
+      "tokens": [
+        "semillon"
+      ],
+      "style_hint": "Full-bodied, rich"
+    },
+    {
+      "canonical_name": "Melon de Bourgogne",
+      "color": "white",
+      "aliases": [
+        "muscadet",
+        "melon"
+      ],
+      "tokens": [
+        "melon",
+        "muscadet"
+      ],
+      "style_hint": "Light-bodied, crisp"
+    },
+    {
+      "canonical_name": "Albariño",
+      "color": "white",
+      "aliases": [
+        "albarino",
+        "alvarinho"
+      ],
+      "tokens": [
+        "albarino",
+        "alvarinho"
+      ],
+      "style_hint": "Light to medium-bodied, crisp"
+    },
+    {
+      "canonical_name": "Verdejo",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "verdejo"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Grüner Veltliner",
+      "color": "white",
+      "aliases": [
+        "gruner veltliner",
+        "gv"
+      ],
+      "tokens": [
+        "gruner",
+        "veltliner",
+        "gv"
+      ],
+      "style_hint": "Light to medium-bodied, crisp"
+    },
+    {
+      "canonical_name": "Torrontés",
+      "color": "white",
+      "aliases": [
+        "torrontes"
+      ],
+      "tokens": [
+        "torrontes"
+      ],
+      "style_hint": "Light to medium-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Vermentino",
+      "color": "white",
+      "aliases": [
+        "rolle",
+        "pigato"
+      ],
+      "tokens": [
+        "vermentino",
+        "rolle",
+        "pigato"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Trebbiano",
+      "color": "white",
+      "aliases": [
+        "ugni blanc"
+      ],
+      "tokens": [
+        "trebbiano",
+        "ugni",
+        "blanc"
+      ],
+      "style_hint": "Light-bodied, neutral"
+    },
+    {
+      "canonical_name": "Garganega",
+      "color": "white",
+      "aliases": [
+        "grecanico"
+      ],
+      "tokens": [
+        "garganega",
+        "grecanico"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Glera",
+      "color": "white",
+      "aliases": [
+        "prosecco"
+      ],
+      "tokens": [
+        "glera",
+        "prosecco"
+      ],
+      "style_hint": "Light-bodied, sparkling"
+    },
+    {
+      "canonical_name": "Cortese",
+      "color": "white",
+      "aliases": [
+        "cortese di gavi"
+      ],
+      "tokens": [
+        "cortese",
+        "gavi"
+      ],
+      "style_hint": "Light to medium-bodied, crisp"
+    },
+    {
+      "canonical_name": "Arneis",
+      "color": "white",
+      "aliases": [
+        "arnéis",
+        "arneïs"
+      ],
+      "tokens": [
+        "arneis"
+      ],
+      "style_hint": "Medium-bodied"
+    },
+    {
+      "canonical_name": "Fiano",
+      "color": "white",
+      "aliases": [
+        "fiano di avellino"
+      ],
+      "tokens": [
+        "fiano",
+        "avellino"
+      ],
+      "style_hint": "Medium-bodied"
+    },
+    {
+      "canonical_name": "Greco",
+      "color": "white",
+      "aliases": [
+        "greco di tufo"
+      ],
+      "tokens": [
+        "greco",
+        "tufo"
+      ],
+      "style_hint": "Medium-bodied"
+    },
+    {
+      "canonical_name": "Falanghina",
+      "color": "white",
+      "aliases": [
+        "falanghina del sannio",
+        "falanghina beneventana"
+      ],
+      "tokens": [
+        "falanghina",
+        "sannio",
+        "beneventana"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Friulano",
+      "color": "white",
+      "aliases": [
+        "tocai friulano",
+        "sauvignonasse"
+      ],
+      "tokens": [
+        "friulano",
+        "tocai",
+        "sauvignonasse"
+      ],
+      "style_hint": "Medium-bodied"
+    },
+    {
+      "canonical_name": "Verdicchio",
+      "color": "white",
+      "aliases": [
+        "verdicchio dei castelli di jesi",
+        "verdicchio di matelica"
+      ],
+      "tokens": [
+        "verdicchio",
+        "jesi",
+        "matelica"
+      ],
+      "style_hint": "Light to medium-bodied, crisp"
+    },
+    {
+      "canonical_name": "Marsanne",
+      "color": "white",
+      "aliases": [
+        "marsane",
+        "ermitage blanc"
+      ],
+      "tokens": [
+        "marsanne",
+        "ermitage"
+      ],
+      "style_hint": "Full-bodied"
+    },
+    {
+      "canonical_name": "Roussanne",
+      "color": "white",
+      "aliases": [
+        "roussane",
+        "bergeron"
+      ],
+      "tokens": [
+        "roussanne",
+        "bergeron"
+      ],
+      "style_hint": "Full-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Picpoul",
+      "color": "white",
+      "aliases": [
+        "piquepoul"
+      ],
+      "tokens": [
+        "picpoul",
+        "piquepoul"
+      ],
+      "style_hint": "Light-bodied, crisp"
+    },
+    {
+      "canonical_name": "Grenache Blanc",
+      "color": "white",
+      "aliases": [
+        "garnacha blanca"
+      ],
+      "tokens": [
+        "grenache",
+        "blanc",
+        "garnacha",
+        "blanca"
+      ],
+      "style_hint": "Full-bodied"
+    },
+    {
+      "canonical_name": "Macabeo",
+      "color": "white",
+      "aliases": [
+        "viura"
+      ],
+      "tokens": [
+        "macabeo",
+        "viura"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Godello",
+      "color": "white",
+      "aliases": [
+        "gouveio"
+      ],
+      "tokens": [
+        "godello",
+        "gouveio"
+      ],
+      "style_hint": "Medium-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Assyrtiko",
+      "color": "white",
+      "aliases": [
+        "assyrtico",
+        "ασύρτικο",
+        "assyrtiko"
+      ],
+      "tokens": [
+        "assyrtiko",
+        "assyrtico"
+      ],
+      "style_hint": "Medium-bodied, high acid"
+    },
+    {
+      "canonical_name": "Furmint",
+      "color": "white",
+      "aliases": [
+        "tokaji furmint",
+        "sipon"
+      ],
+      "tokens": [
+        "furmint",
+        "tokaji",
+        "sipon"
+      ],
+      "style_hint": "Full-bodied, high acid"
+    },
+    {
+      "canonical_name": "Muscat",
+      "color": "white",
+      "aliases": [
+        "moscato",
+        "muscat blanc",
+        "moscatel",
+        "muskateller"
+      ],
+      "tokens": [
+        "muscat",
+        "moscato",
+        "moscatel",
+        "muskateller"
+      ],
+      "style_hint": "Light to medium-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Savagnin",
+      "color": "white",
+      "aliases": [
+        "traminer",
+        "savagnin blanc",
+        "heida"
+      ],
+      "tokens": [
+        "savagnin",
+        "traminer",
+        "heida"
+      ],
+      "style_hint": "Full-bodied, oxidative"
+    },
+    {
+      "canonical_name": "Aligoté",
+      "color": "white",
+      "aliases": [
+        "aligote"
+      ],
+      "tokens": [
+        "aligote"
+      ],
+      "style_hint": "Light to medium-bodied, crisp"
+    },
+    {
+      "canonical_name": "Müller-Thurgau",
+      "color": "white",
+      "aliases": [
+        "muller-thurgau",
+        "rivaner"
+      ],
+      "tokens": [
+        "muller",
+        "thurgau",
+        "rivaner"
+      ],
+      "style_hint": "Light-bodied"
+    },
+    {
+      "canonical_name": "Silvaner",
+      "color": "white",
+      "aliases": [
+        "sylvaner"
+      ],
+      "tokens": [
+        "silvaner",
+        "sylvaner"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Palomino",
+      "color": "white",
+      "aliases": [
+        "listan blanco"
+      ],
+      "tokens": [
+        "palomino",
+        "listan"
+      ],
+      "style_hint": "Light-bodied, neutral"
+    },
+    {
+      "canonical_name": "Pedro Ximénez",
+      "color": "white",
+      "aliases": [
+        "pedro ximenez",
+        "px"
+      ],
+      "tokens": [
+        "pedro",
+        "ximenez",
+        "px"
+      ],
+      "style_hint": "Full-bodied, sweet"
+    },
+    {
+      "canonical_name": "Pinot Meunier",
+      "color": "red",
+      "aliases": [
+        "meunier"
+      ],
+      "tokens": [
+        "pinot",
+        "meunier"
+      ],
+      "style_hint": "Light-bodied, fruity"
+    }
+  ]
+}

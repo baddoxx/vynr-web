@@ -1,0 +1,921 @@
+{
+  "$schema": "../../schemas/grapes.schema.json",
+  "version": "1.0",
+  "description": "Extended grape variety dataset - valid but less commonly encountered varieties",
+  "count": 85,
+  "provenance": {
+    "source_name": "Manual curation",
+    "license": "Proprietary - vynr app data",
+    "last_updated": "2026-03-14",
+    "curator": "vynr team"
+  },
+  "grapes": [
+    {
+      "canonical_name": "Sagrantino",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "sagrantino"
+      ],
+      "style_hint": "Full-bodied, very tannic"
+    },
+    {
+      "canonical_name": "Lagrein",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "lagrein"
+      ],
+      "style_hint": "Medium to full-bodied"
+    },
+    {
+      "canonical_name": "Teroldego",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "teroldego"
+      ],
+      "style_hint": "Medium to full-bodied"
+    },
+    {
+      "canonical_name": "Rondinella",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "rondinella"
+      ],
+      "style_hint": "Blending grape"
+    },
+    {
+      "canonical_name": "Molinara",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "molinara"
+      ],
+      "style_hint": "Blending grape"
+    },
+    {
+      "canonical_name": "Graciano",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "graciano"
+      ],
+      "style_hint": "Full-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Bobal",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "bobal"
+      ],
+      "style_hint": "Full-bodied"
+    },
+    {
+      "canonical_name": "Touriga Franca",
+      "color": "red",
+      "aliases": [
+        "touriga francesa"
+      ],
+      "tokens": [
+        "touriga",
+        "franca",
+        "francesa"
+      ],
+      "style_hint": "Medium to full-bodied"
+    },
+    {
+      "canonical_name": "Baga",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "baga"
+      ],
+      "style_hint": "Full-bodied, tannic"
+    },
+    {
+      "canonical_name": "Agiorgitiko",
+      "color": "red",
+      "aliases": [
+        "st. george"
+      ],
+      "tokens": [
+        "agiorgitiko",
+        "george"
+      ],
+      "style_hint": "Medium to full-bodied"
+    },
+    {
+      "canonical_name": "Kadarka",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "kadarka"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "St. Laurent",
+      "color": "red",
+      "aliases": [
+        "saint laurent"
+      ],
+      "tokens": [
+        "laurent"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Frappato",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "frappato"
+      ],
+      "style_hint": "Light-bodied, fruity"
+    },
+    {
+      "canonical_name": "Schioppettino",
+      "color": "red",
+      "aliases": [
+        "ribolla nera"
+      ],
+      "tokens": [
+        "schioppettino",
+        "ribolla",
+        "nera"
+      ],
+      "style_hint": "Medium-bodied, peppery"
+    },
+    {
+      "canonical_name": "Refosco",
+      "color": "red",
+      "aliases": [
+        "refosco dal peduncolo rosso"
+      ],
+      "tokens": [
+        "refosco",
+        "peduncolo"
+      ],
+      "style_hint": "Medium to full-bodied"
+    },
+    {
+      "canonical_name": "Bonarda",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "bonarda"
+      ],
+      "style_hint": "Medium-bodied"
+    },
+    {
+      "canonical_name": "Plavac Mali",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "plavac",
+        "mali"
+      ],
+      "style_hint": "Full-bodied"
+    },
+    {
+      "canonical_name": "Mavrud",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "mavrud"
+      ],
+      "style_hint": "Full-bodied"
+    },
+    {
+      "canonical_name": "Saperavi",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "saperavi"
+      ],
+      "style_hint": "Full-bodied, tannic"
+    },
+    {
+      "canonical_name": "Grignolino",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "grignolino"
+      ],
+      "style_hint": "Light-bodied"
+    },
+    {
+      "canonical_name": "Freisa",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "freisa"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Ruché",
+      "color": "red",
+      "aliases": [
+        "ruche"
+      ],
+      "tokens": [
+        "ruche"
+      ],
+      "style_hint": "Medium-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Pelaverga",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "pelaverga"
+      ],
+      "style_hint": "Light-bodied"
+    },
+    {
+      "canonical_name": "Cesanese",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "cesanese"
+      ],
+      "style_hint": "Medium-bodied"
+    },
+    {
+      "canonical_name": "Canaiolo",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "canaiolo"
+      ],
+      "style_hint": "Light-bodied, blending"
+    },
+    {
+      "canonical_name": "Colorino",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "colorino"
+      ],
+      "style_hint": "Blending grape"
+    },
+    {
+      "canonical_name": "Mammolo",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "mammolo"
+      ],
+      "style_hint": "Blending grape"
+    },
+    {
+      "canonical_name": "Ribolla Gialla",
+      "color": "white",
+      "aliases": [
+        "rebula"
+      ],
+      "tokens": [
+        "ribolla",
+        "gialla",
+        "rebula"
+      ],
+      "style_hint": "Light to medium-bodied, crisp"
+    },
+    {
+      "canonical_name": "Pecorino",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "pecorino"
+      ],
+      "style_hint": "Medium-bodied"
+    },
+    {
+      "canonical_name": "Carricante",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "carricante"
+      ],
+      "style_hint": "Light to medium-bodied, crisp"
+    },
+    {
+      "canonical_name": "Catarratto",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "catarratto"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Grillo",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "grillo"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Inzolia",
+      "color": "white",
+      "aliases": [
+        "ansonica"
+      ],
+      "tokens": [
+        "inzolia",
+        "ansonica"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Clairette",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "clairette"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Xarel·lo",
+      "color": "white",
+      "aliases": [
+        "xarello",
+        "xarel-lo"
+      ],
+      "tokens": [
+        "xarello"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Parellada",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "parellada"
+      ],
+      "style_hint": "Light-bodied"
+    },
+    {
+      "canonical_name": "Encruzado",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "encruzado"
+      ],
+      "style_hint": "Medium to full-bodied"
+    },
+    {
+      "canonical_name": "Loureiro",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "loureiro"
+      ],
+      "style_hint": "Light-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Arinto",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "arinto"
+      ],
+      "style_hint": "Light to medium-bodied, crisp"
+    },
+    {
+      "canonical_name": "Scheurebe",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "scheurebe"
+      ],
+      "style_hint": "Light to medium-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Kerner",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "kerner"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Bacchus",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "bacchus"
+      ],
+      "style_hint": "Aromatic, floral, Muscat-like"
+    },
+    {
+      "canonical_name": "Welschriesling",
+      "color": "white",
+      "aliases": [
+        "olasz rizling",
+        "laski rizling",
+        "riesling italico"
+      ],
+      "tokens": [
+        "welschriesling",
+        "olasz",
+        "rizling",
+        "laski",
+        "italico"
+      ],
+      "style_hint": "Light-bodied"
+    },
+    {
+      "canonical_name": "Moschofilero",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "moschofilero"
+      ],
+      "style_hint": "Light-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Roditis",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "roditis"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Malagousia",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "malagousia"
+      ],
+      "style_hint": "Medium-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Hárslevelű",
+      "color": "white",
+      "aliases": [
+        "harslevelu"
+      ],
+      "tokens": [
+        "harslevelu"
+      ],
+      "style_hint": "Medium to full-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Jacquère",
+      "color": "white",
+      "aliases": [
+        "jacquere"
+      ],
+      "tokens": [
+        "jacquere"
+      ],
+      "style_hint": "Light-bodied, crisp"
+    },
+    {
+      "canonical_name": "Altesse",
+      "color": "white",
+      "aliases": [
+        "roussette"
+      ],
+      "tokens": [
+        "altesse",
+        "roussette"
+      ],
+      "style_hint": "Medium-bodied"
+    },
+    {
+      "canonical_name": "Colombard",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "colombard"
+      ],
+      "style_hint": "Light-bodied, crisp"
+    },
+    {
+      "canonical_name": "Erbaluce",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "erbaluce"
+      ],
+      "style_hint": "Light to medium-bodied, crisp"
+    },
+    {
+      "canonical_name": "Timorasso",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "timorasso"
+      ],
+      "style_hint": "Full-bodied"
+    },
+    {
+      "canonical_name": "Nascetta",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "nascetta"
+      ],
+      "style_hint": "Medium-bodied"
+    },
+    {
+      "canonical_name": "Nosiola",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "nosiola"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Rkatsiteli",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "rkatsiteli"
+      ],
+      "style_hint": "Medium-bodied"
+    },
+    {
+      "canonical_name": "Mtsvane",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "mtsvane"
+      ],
+      "style_hint": "Medium-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Fernão Pires",
+      "color": "white",
+      "aliases": [
+        "Maria Gomes"
+      ],
+      "tokens": [
+        "fernao",
+        "pires",
+        "maria",
+        "gomes"
+      ],
+      "style_hint": "Light-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Vital",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "vital"
+      ],
+      "style_hint": "Light to medium-bodied"
+    },
+    {
+      "canonical_name": "Trincadeira",
+      "color": "red",
+      "aliases": [
+        "Tinta Amarela"
+      ],
+      "tokens": [
+        "trincadeira",
+        "tinta",
+        "amarela"
+      ],
+      "style_hint": "Medium to full-bodied, spicy"
+    },
+    {
+      "canonical_name": "Castelão",
+      "color": "red",
+      "aliases": [
+        "Periquita"
+      ],
+      "tokens": [
+        "castelao",
+        "periquita"
+      ],
+      "style_hint": "Medium-bodied, fruity"
+    },
+    {
+      "canonical_name": "Verdelho",
+      "color": "white",
+      "aliases": [
+        "verdelho"
+      ],
+      "tokens": [
+        "verdelho"
+      ],
+      "style_hint": "Medium-bodied, tropical"
+    },
+    {
+      "canonical_name": "Gros Manseng",
+      "color": "white",
+      "aliases": [
+        "gros manseng"
+      ],
+      "tokens": [
+        "manseng"
+      ],
+      "style_hint": "Full-bodied, aromatic"
+    },
+    {
+      "canonical_name": "Petit Manseng",
+      "color": "white",
+      "aliases": [
+        "petit manseng"
+      ],
+      "tokens": [
+        "manseng"
+      ],
+      "style_hint": "Rich, sweet potential"
+    },
+    {
+      "canonical_name": "Tinta Negra",
+      "color": "red",
+      "aliases": [
+        "tinta negra mole",
+        "negra mole"
+      ],
+      "tokens": [
+        "tinta",
+        "negra"
+      ],
+      "style_hint": "Medium-bodied, versatile"
+    },
+    {
+      "canonical_name": "Sercial",
+      "color": "white",
+      "aliases": [
+        "esgana cão"
+      ],
+      "tokens": [
+        "sercial"
+      ],
+      "style_hint": "High-acid, dry"
+    },
+    {
+      "canonical_name": "Malvasia",
+      "color": "white",
+      "aliases": [
+        "malvasia bianca",
+        "malvasía",
+        "malmsey"
+      ],
+      "tokens": [
+        "malvasia",
+        "malmsey"
+      ],
+      "style_hint": "Aromatic, rich"
+    },
+    {
+      "canonical_name": "Grechetto",
+      "color": "white",
+      "aliases": [
+        "grechetto di orvieto",
+        "grechetto bianco"
+      ],
+      "tokens": [
+        "grechetto"
+      ],
+      "style_hint": "Medium-bodied, fresh"
+    },
+    {
+      "canonical_name": "Lambrusco",
+      "color": "red",
+      "aliases": [
+        "lambrusco di sorbara",
+        "lambrusco grasparossa",
+        "lambrusco salamino"
+      ],
+      "tokens": [
+        "lambrusco"
+      ],
+      "style_hint": "Light, fizzy"
+    },
+    {
+      "canonical_name": "Vernaccia",
+      "color": "white",
+      "aliases": [
+        "vernaccia di san gimignano"
+      ],
+      "tokens": [
+        "vernaccia"
+      ],
+      "style_hint": "Crisp, mineral"
+    },
+    {
+      "canonical_name": "Chasselas",
+      "color": "white",
+      "aliases": [
+        "fendant",
+        "gutedel",
+        "perlan",
+        "dorin"
+      ],
+      "tokens": [
+        "chasselas",
+        "fendant",
+        "gutedel",
+        "perlan",
+        "dorin"
+      ],
+      "style_hint": "Light-bodied, neutral"
+    },
+    {
+      "canonical_name": "Romorantin",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "romorantin"
+      ],
+      "style_hint": "Medium-bodied, mineral"
+    },
+    {
+      "canonical_name": "Négrette",
+      "color": "red",
+      "aliases": [
+        "negrette"
+      ],
+      "tokens": [
+        "negrette"
+      ],
+      "style_hint": "Medium-bodied, fruity, violet"
+    },
+    {
+      "canonical_name": "Fer Servadou",
+      "color": "red",
+      "aliases": [
+        "fer",
+        "mansois",
+        "braucol",
+        "pinenc"
+      ],
+      "tokens": [
+        "fer",
+        "servadou",
+        "mansois",
+        "braucol",
+        "pinenc"
+      ],
+      "style_hint": "Medium-bodied, rustic, tannic"
+    },
+    {
+      "canonical_name": "Brachetto",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "brachetto"
+      ],
+      "style_hint": "Light-bodied, aromatic, sweet"
+    },
+    {
+      "canonical_name": "Durella",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "durella",
+        "durello"
+      ],
+      "style_hint": "Light-bodied, high-acid, sparkling"
+    },
+    {
+      "canonical_name": "Gaglioppo",
+      "color": "red",
+      "aliases": [
+        "galloppo"
+      ],
+      "tokens": [
+        "gaglioppo",
+        "galloppo"
+      ],
+      "style_hint": "Medium to full-bodied, tannic"
+    },
+    {
+      "canonical_name": "Nero di Troia",
+      "color": "red",
+      "aliases": [
+        "uva di troia",
+        "sumarello"
+      ],
+      "tokens": [
+        "nero",
+        "troia",
+        "uva",
+        "sumarello"
+      ],
+      "style_hint": "Full-bodied, tannic"
+    },
+    {
+      "canonical_name": "Hondarrabi Zuri",
+      "color": "white",
+      "aliases": [
+        "hondarribi zuri",
+        "ondarrabi zuri",
+        "hondarrabi zuria"
+      ],
+      "tokens": [
+        "hondarrabi",
+        "hondarribi",
+        "ondarrabi",
+        "zuri",
+        "zuria"
+      ],
+      "style_hint": "Light-bodied, high-acid, crisp"
+    },
+    {
+      "canonical_name": "Trollinger",
+      "color": "red",
+      "aliases": [
+        "schiava grossa",
+        "vernatsch"
+      ],
+      "tokens": [
+        "trollinger",
+        "schiava",
+        "schiava grossa",
+        "vernatsch"
+      ],
+      "style_hint": "Light-bodied, fruity"
+    },
+    {
+      "canonical_name": "Muscat Bailey A",
+      "color": "red",
+      "aliases": [
+        "Muscat Bailey",
+        "マスカット・ベーリーA",
+        "MBA",
+        "マスカット・ベーリーＡ"
+      ],
+      "tokens": [
+        "muscat",
+        "bailey"
+      ],
+      "style_hint": "Light-bodied, fruity, strawberry"
+    },
+    {
+      "canonical_name": "Koshu",
+      "color": "white",
+      "aliases": [
+        "甲州"
+      ],
+      "tokens": [
+        "koshu"
+      ],
+      "style_hint": "Light, delicate, citrus"
+    },
+    {
+      "canonical_name": "Yama Sauvignon",
+      "color": "red",
+      "aliases": [
+        "ヤマ・ソーヴィニヨン"
+      ],
+      "tokens": [
+        "yama",
+        "sauvignon"
+      ],
+      "style_hint": "Medium-bodied, herbaceous"
+    },
+    {
+      "canonical_name": "Delaware",
+      "color": "white",
+      "aliases": [
+        "デラウェア"
+      ],
+      "tokens": [
+        "delaware"
+      ],
+      "style_hint": "Light, fruity, sweet"
+    },
+    {
+      "canonical_name": "Tempranillo Blanco",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "tempranillo",
+        "blanco"
+      ],
+      "style_hint": "Medium-bodied, aromatic white; natural mutation of Tempranillo discovered in Rioja (1988)"
+    },
+    {
+      "canonical_name": "Marselan",
+      "color": "red",
+      "aliases": [
+        "马瑟兰"
+      ],
+      "tokens": [
+        "marselan"
+      ],
+      "style_hint": "full-bodied"
+    }
+  ]
+}

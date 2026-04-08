@@ -156,6 +156,8 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
           const cx = r.x + r.width / 2;
           const cy = r.y + r.height / 2;
           const hideLabel = Math.min(r.width, r.height) < 18;
+          const node = nodeMap.get(r.item.id);
+          const isContainer = node != null && node.childIds.length > 0;
 
           return (
             <g
@@ -222,7 +224,7 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
                       justifyContent: 'center',
                       padding: '2px 4px',
                       fontSize: `${Math.max(10, Math.min(16, Math.sqrt(r.width * r.height) / 7))}px`,
-                      fontWeight: 500,
+                      fontWeight: isContainer ? 600 : 400,
                       fontFamily: FONT_FAMILY,
                       color: LABEL_COLOR,
                       textAlign: 'center',

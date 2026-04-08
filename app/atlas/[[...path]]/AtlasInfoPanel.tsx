@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import type { AtlasNode } from '@/lib/atlas';
 import { getEducation } from '@/lib/education';
+import { grapePillTint } from '@/lib/grape-colors';
 
 interface AtlasInfoPanelProps {
   currentNode: AtlasNode | null;
@@ -59,24 +60,27 @@ export function AtlasInfoPanel({ currentNode, childCount }: AtlasInfoPanelProps)
         {/* Key grapes */}
         {education.keyGrapes.length > 0 && (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 12 }}>
-            {education.keyGrapes.map((grape) => (
-              <span
-                key={grape}
-                style={{
-                  display: 'inline-block',
-                  fontSize: '0.7rem',
-                  fontWeight: 500,
-                  letterSpacing: '0.03em',
-                  padding: '3px 10px',
-                  borderRadius: 20,
-                  background: 'rgba(200, 180, 140, 0.25)',
-                  color: 'var(--atlas-text)',
-                  border: '1px solid rgba(180, 160, 120, 0.35)',
-                }}
-              >
-                {grape}
-              </span>
-            ))}
+            {education.keyGrapes.map((grape) => {
+              const tint = grapePillTint(grape);
+              return (
+                <span
+                  key={grape}
+                  style={{
+                    display: 'inline-block',
+                    fontSize: '0.7rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.03em',
+                    padding: '3px 10px',
+                    borderRadius: 20,
+                    background: tint.fill,
+                    color: tint.text,
+                    border: `1px solid ${tint.border}`,
+                  }}
+                >
+                  {grape}
+                </span>
+              );
+            })}
           </div>
         )}
 
