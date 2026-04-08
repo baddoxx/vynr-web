@@ -95,20 +95,12 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
 
   return (
     <div>
-      {/* Breadcrumb row */}
+      {/* View toggle — top right */}
       <div style={{
         display: 'flex',
-        alignItems: 'center',
-        gap: 12,
-        marginBottom: 12,
-        flexWrap: 'wrap',
+        justifyContent: 'flex-end',
+        marginBottom: 8,
       }}>
-        <Breadcrumb
-          rootLabel={rootLabel}
-          segments={breadcrumb}
-          pathIds={resolvedPath}
-          onNavigate={handleNavigate}
-        />
         <ViewToggle viewMode={viewMode} onToggle={setViewMode} />
       </div>
 
@@ -129,6 +121,22 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
           onNodeClick={handleNodeClick}
         />
       )}
+
+      {/* Breadcrumb — below treemap, matching app's Atlas Location Bar position */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 12,
+        marginTop: 10,
+        flexWrap: 'wrap',
+      }}>
+        <Breadcrumb
+          rootLabel={rootLabel}
+          segments={breadcrumb}
+          pathIds={resolvedPath}
+          onNavigate={handleNavigate}
+        />
+      </div>
 
       {/* Wine detail panel */}
       <WineDetailPanel

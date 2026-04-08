@@ -14,14 +14,14 @@ import { type CellarNode, isWineNode, canDrill } from '@/lib/cellar-tree';
 
 const NEUTRAL = { r: 0x8a, g: 0x7d, b: 0x68 };
 
-function nodeTint(wineType: string | undefined, opacity: number = 0.10): string {
-  if (!wineType) return `rgba(${NEUTRAL.r}, ${NEUTRAL.g}, ${NEUTRAL.b}, ${opacity})`;
+function nodeTint(wineType: string | undefined, opacity: number = 0.35): string {
+  if (!wineType) return `rgba(${NEUTRAL.r}, ${NEUTRAL.g}, ${NEUTRAL.b}, 0.08)`;
   return wineTypeTint(wineType, opacity);
 }
 
 function nodeHoverTint(wineType: string | undefined): string {
-  if (!wineType) return `rgba(${NEUTRAL.r}, ${NEUTRAL.g}, ${NEUTRAL.b}, 0.20)`;
-  return wineTypeHoverTint(wineType);
+  if (!wineType) return `rgba(${NEUTRAL.r}, ${NEUTRAL.g}, ${NEUTRAL.b}, 0.15)`;
+  return wineTypeTint(wineType, 0.45);
 }
 
 function nodeColor(wineType: string | undefined): string {
