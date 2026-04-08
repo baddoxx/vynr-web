@@ -26,6 +26,8 @@ interface AtlasInfoPanelProps {
 }
 
 export function AtlasInfoPanel({ currentNode, childCount, selectedGrape, onGrapeTap }: AtlasInfoPanelProps) {
+  const panelKey = selectedGrape ?? currentNode?.id ?? 'root';
+
   // If a grape is selected, show grape education instead
   const grapeEdu = useMemo(
     () => selectedGrape ? getEducation(grapeEducationId(selectedGrape)) : undefined,
@@ -41,7 +43,7 @@ export function AtlasInfoPanel({ currentNode, childCount, selectedGrape, onGrape
   if (selectedGrape && grapeEdu) {
     const tint = grapePillTint(selectedGrape);
     return (
-      <div style={panelStyle}>
+      <div key={panelKey} className="atlas-panel-fade" style={panelStyle}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
           <span style={{
             display: 'inline-block', fontSize: '0.7rem', fontWeight: 500,
@@ -66,7 +68,7 @@ export function AtlasInfoPanel({ currentNode, childCount, selectedGrape, onGrape
   // Root level — welcome message
   if (!currentNode) {
     return (
-      <div style={panelStyle}>
+      <div key={panelKey} className="atlas-panel-fade" style={panelStyle}>
         <p style={{
           fontSize: '0.95rem',
           color: 'var(--atlas-text-secondary)',
@@ -83,7 +85,7 @@ export function AtlasInfoPanel({ currentNode, childCount, selectedGrape, onGrape
   // Node with education content
   if (education) {
     return (
-      <div style={panelStyle}>
+      <div key={panelKey} className="atlas-panel-fade" style={panelStyle}>
         <h2 style={{
           fontSize: '1.2rem',
           fontWeight: 600,
@@ -152,7 +154,7 @@ export function AtlasInfoPanel({ currentNode, childCount, selectedGrape, onGrape
 
   // Node without education — show name and child hint
   return (
-    <div style={panelStyle}>
+    <div key={panelKey} className="atlas-panel-fade" style={panelStyle}>
       <h2 style={{
         fontSize: '1.2rem',
         fontWeight: 600,

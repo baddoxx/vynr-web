@@ -439,6 +439,16 @@ g:focus-visible .focus-ring {
   letter-spacing: 0.01em;
 }
 
+/* Atlas info panel — fade in on content change */
+@keyframes atlas-panel-enter {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.atlas-panel-fade {
+  animation: atlas-panel-enter 0.25s ease-out;
+}
+
 /* Atlas layout — stacked on mobile, side panel on desktop */
 .atlas-layout {
   display: flex;
