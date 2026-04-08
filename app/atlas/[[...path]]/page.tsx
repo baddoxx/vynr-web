@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { resolveUrlPath, getAtlasChildren } from '@/lib/atlas';
+import atlasData from '@/lib/atlas_v1.json';
 import { AtlasBrowser } from './AtlasBrowser';
 
 export async function generateMetadata({
@@ -33,6 +34,23 @@ export default async function AtlasPage({
   const { path = [] } = await params;
   return (
     <div className="share-page-light" style={{ maxWidth: 800, margin: '0 auto', padding: '40px 20px 80px' }}>
+      {/* Atlas header */}
+      <header style={{ marginBottom: 20 }}>
+        <h1 style={{
+          fontSize: '1.6rem', fontWeight: 600, letterSpacing: '-0.02em',
+          color: 'var(--atlas-text)', margin: 0, lineHeight: 1.2,
+        }}>
+          Wine Atlas
+        </h1>
+        <div style={{
+          marginTop: 6, fontSize: '0.72rem', color: 'var(--atlas-text-placeholder)',
+          letterSpacing: '0.02em',
+        }}>
+          {(atlasData as { nodeCount: number }).nodeCount} regions and appellations
+          <span style={{ opacity: 0.5 }}> · epoch {(atlasData as { dataEpoch: number }).dataEpoch}</span>
+        </div>
+      </header>
+
       <AtlasBrowser initialPath={path} />
 
       <div style={{
