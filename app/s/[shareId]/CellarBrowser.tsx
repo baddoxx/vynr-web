@@ -71,10 +71,28 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
   // Central click handler
   // Rule: drill navigation closes the panel (user is changing context).
   // Wine selection opens the panel. Panel stays open only for explicit wine taps.
+  //
+  // Leaf-level optimization (matching app behavior):
+  // - If drilling into a node with exactly 1 wine child, open the wine detail directly
+  // - If drilling into a node where all children are wines, drill but auto-switch to list view
+  //   (a treemap of single-wine tiles is not useful)
   const handleNodeClick = useCallback((node: CellarNode) => {
     if (canDrill(node)) {
-      setPathIds((prev) => [...prev, node.id]);
-      setSelectedWineId(null); // close panel on drill — context is changing
+      const allChildrenAreWines = node.children.length > 0 && node.children.every(isWineNode);
+
+      if (allChildrenAreWines && node.children.length === 1 && node.children[0].entry) {
+        // Single wine — open detail directly, no need to drill
+        setPathIds((prev) => [...prev, node.id]);
+        setSelectedWineId(node.children[0].id);
+      } else if (allChildrenAreWines) {
+        // Multiple wines — drill and show as list (treemap of single-wine tiles is wasteful)
+        setPathIds((prev) => [...prev, node.id]);
+        setViewMode('list');
+        setSelectedWineId(null);
+      } else {
+        setPathIds((prev) => [...prev, node.id]);
+        setSelectedWineId(null);
+      }
     } else if (isWineNode(node)) {
       setSelectedWineId(node.id);
     }
