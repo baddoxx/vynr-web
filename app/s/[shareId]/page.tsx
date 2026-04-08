@@ -102,21 +102,17 @@ function ActiveShareView({
         <CellarBrowser tree={tree} rootLabel={rootLabel} shareId={shareId} />
       )}
 
-      {/* ── CTAs ── */}
+      {/* ── Footer — quiet, subordinate ── */}
       <div style={{
-        marginTop: 48, padding: '24px 20px', background: 'var(--atlas-card)',
-        border: '1px solid var(--atlas-card-stroke)', borderRadius: 12,
-        textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12,
+        marginTop: 48, textAlign: 'center', fontSize: '0.72rem',
+        color: 'var(--atlas-text-placeholder)', letterSpacing: '0.02em',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
       }}>
-        <p style={{ fontSize: '0.82rem', color: 'var(--atlas-text-secondary)', margin: 0, lineHeight: 1.5 }}>
-          View this cellar in vynr for the full atlas experience.
-        </p>
         <a
           href={`vynr://share?id=${shareId}`}
           style={{
-            display: 'inline-block', padding: '11px 28px', fontSize: '0.88rem', fontWeight: 600,
-            letterSpacing: '0.01em', color: 'var(--atlas-bg)', background: 'var(--atlas-text)',
-            borderRadius: 8, textDecoration: 'none', transition: 'opacity 0.15s ease',
+            color: 'var(--atlas-tint)', textDecoration: 'none',
+            borderBottom: '1px solid var(--atlas-separator)', paddingBottom: '1px',
           }}
         >
           Open in vynr
@@ -126,17 +122,12 @@ function ActiveShareView({
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            fontSize: '0.8rem', color: 'var(--atlas-tint)', textDecoration: 'none',
-            borderBottom: '1px solid var(--atlas-separator)', paddingBottom: '1px',
-            transition: 'color 0.15s ease',
+            color: 'var(--atlas-text-placeholder)', textDecoration: 'none',
           }}
         >
           Get vynr for iOS
         </a>
-      </div>
-
-      <div style={{ marginTop: 40, textAlign: 'center', fontSize: '0.72rem', color: 'var(--atlas-text-placeholder)', letterSpacing: '0.04em' }}>
-        <span style={{ opacity: 0.6 }}>Shared via vynr</span>
+        <span style={{ opacity: 0.5, marginTop: 4 }}>Shared via vynr</span>
       </div>
     </div>
   );
