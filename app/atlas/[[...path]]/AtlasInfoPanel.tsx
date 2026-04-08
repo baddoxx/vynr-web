@@ -5,16 +5,55 @@ import type { AtlasNode } from '@/lib/atlas';
 import { getEducation } from '@/lib/education';
 import { grapePillTint } from '@/lib/grape-colors';
 
+/** Build a var:{slug} education ID from a grape name. Matches iOS AtlasIdGenerator.varietalId. */
+function grapeEducationId(grape: string): string {
+  return `var:${grape.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+}
+
 interface AtlasInfoPanelProps {
   currentNode: AtlasNode | null;
   childCount: number;
+  selectedGrape?: string | null;
+  onGrapeTap?: (grape: string) => void;
 }
 
-export function AtlasInfoPanel({ currentNode, childCount }: AtlasInfoPanelProps) {
+export function AtlasInfoPanel({ currentNode, childCount, selectedGrape, onGrapeTap }: AtlasInfoPanelProps) {
+  // If a grape is selected, show grape education instead
+  const grapeEdu = useMemo(
+    () => selectedGrape ? getEducation(grapeEducationId(selectedGrape)) : undefined,
+    [selectedGrape],
+  );
+
   const education = useMemo(
     () => currentNode ? getEducation(currentNode.id) : undefined,
     [currentNode],
   );
+
+  // Grape education — shown when a grape pill is tapped
+  if (selectedGrape && grapeEdu) {
+    const tint = grapePillTint(selectedGrape);
+    return (
+      <div style={panelStyle}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+          <span style={{
+            display: 'inline-block', fontSize: '0.7rem', fontWeight: 500,
+            padding: '3px 10px', borderRadius: 20,
+            background: tint.fill, color: tint.text, border: `1px solid ${tint.border}`,
+          }}>
+            {selectedGrape}
+          </span>
+        </div>
+        <p style={{ fontSize: '0.88rem', color: 'var(--atlas-text-secondary)', lineHeight: 1.7, margin: '0 0 10px' }}>
+          {grapeEdu.description}
+        </p>
+        {grapeEdu.style && (
+          <p style={{ fontSize: '0.8rem', color: 'var(--atlas-text-placeholder)', fontStyle: 'italic', margin: 0, lineHeight: 1.5 }}>
+            {grapeEdu.style}
+          </p>
+        )}
+      </div>
+    );
+  }
 
   // Root level — welcome message
   if (!currentNode) {
@@ -63,8 +102,9 @@ export function AtlasInfoPanel({ currentNode, childCount }: AtlasInfoPanelProps)
             {education.keyGrapes.map((grape) => {
               const tint = grapePillTint(grape);
               return (
-                <span
+                <button
                   key={grape}
+                  onClick={onGrapeTap ? () => onGrapeTap(grape) : undefined}
                   style={{
                     display: 'inline-block',
                     fontSize: '0.7rem',
@@ -75,10 +115,12 @@ export function AtlasInfoPanel({ currentNode, childCount }: AtlasInfoPanelProps)
                     background: tint.fill,
                     color: tint.text,
                     border: `1px solid ${tint.border}`,
+                    cursor: onGrapeTap ? 'pointer' : 'default',
+                    fontFamily: 'inherit',
                   }}
                 >
                   {grape}
-                </span>
+                </button>
               );
             })}
           </div>

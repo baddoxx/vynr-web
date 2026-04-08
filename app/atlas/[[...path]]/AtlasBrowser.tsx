@@ -13,6 +13,7 @@ interface AtlasBrowserProps {
 export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
   const [pathKeys, setPathKeys] = useState<string[]>(initialPath);
   const [selectedLeafId, setSelectedLeafId] = useState<string | null>(null);
+  const [selectedGrape, setSelectedGrape] = useState<string | null>(null);
 
   // Sync pathKeys from URL on browser back/forward navigation
   useEffect(() => {
@@ -49,19 +50,27 @@ export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
       const newKeys = [...pathKeys, node.canonicalKey];
       setPathKeys(newKeys);
       setSelectedLeafId(null);
+      setSelectedGrape(null);
       const newPath = `/atlas/${newKeys.join('/')}`;
       window.history.pushState(null, '', newPath);
     } else {
       // Leaf — show education in info panel, don't drill
       setSelectedLeafId(node.id);
+      setSelectedGrape(null);
     }
   }, [pathKeys]);
 
   const handleNavigate = useCallback((newPathIds: string[]) => {
     setPathKeys(newPathIds);
     setSelectedLeafId(null);
+    setSelectedGrape(null);
     const newPath = newPathIds.length > 0 ? `/atlas/${newPathIds.join('/')}` : '/atlas';
     window.history.pushState(null, '', newPath);
+  }, []);
+
+  const handleGrapeTap = useCallback((grape: string) => {
+    setSelectedGrape(grape);
+    setSelectedLeafId(null);
   }, []);
 
   return (
@@ -87,6 +96,8 @@ export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
       <AtlasInfoPanel
         currentNode={selectedLeafNode ?? currentNode}
         childCount={selectedLeafNode ? selectedLeafNode.childIds.length : children.length}
+        selectedGrape={selectedGrape}
+        onGrapeTap={handleGrapeTap}
       />
     </div>
   );
