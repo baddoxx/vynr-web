@@ -53,6 +53,7 @@ interface TooltipData {
   hint: string;
   x: number;
   y: number;
+  labelHidden: boolean;
 }
 
 export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreemapViewProps) {
@@ -96,7 +97,7 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
     return m;
   }, [nodes]);
 
-  const handleMouseEnter = useCallback((id: string, svgX: number, svgY: number) => {
+  const handleMouseEnter = useCallback((id: string, svgX: number, svgY: number, labelHidden: boolean) => {
     if (!canHover) return;
     setHoveredId(id);
     const node = nodeMap.get(id);
@@ -105,7 +106,7 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
     const hint = childCount > 0
       ? `${childCount} ${node.childLevelHint ? node.childLevelHint.toLowerCase() + (childCount !== 1 ? 's' : '') : 'regions'}`
       : 'Appellation';
-    setTooltip({ label: node.displayName, hint, x: svgX, y: svgY });
+    setTooltip({ label: node.displayName, hint, x: svgX, y: svgY, labelHidden });
   }, [canHover, nodeMap]);
 
   const handleMouseLeave = useCallback(() => {
@@ -163,7 +164,7 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
             <g
               key={r.item.id}
               onClick={() => handleClick(r.item.id)}
-              onMouseEnter={() => handleMouseEnter(r.item.id, cx, cy)}
+              onMouseEnter={() => handleMouseEnter(r.item.id, cx, cy, hideLabel)}
               onMouseLeave={handleMouseLeave}
               onKeyDown={(e) => handleKeyDown(e, r.item.id)}
               tabIndex={0}
@@ -264,10 +265,12 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
             boxShadow: '0 2px 8px rgba(61, 53, 40, 0.10)',
           }}
         >
-          <div style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--atlas-text)' }}>
-            {tooltip.label}
-          </div>
-          <div style={{ fontSize: '0.68rem', color: 'var(--atlas-text-placeholder)', marginTop: 2 }}>
+          {tooltip.labelHidden && (
+            <div style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--atlas-text)' }}>
+              {tooltip.label}
+            </div>
+          )}
+          <div style={{ fontSize: '0.68rem', color: 'var(--atlas-text-placeholder)', marginTop: tooltip.labelHidden ? 2 : 0 }}>
             {tooltip.hint}
           </div>
         </div>
