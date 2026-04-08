@@ -438,3 +438,34 @@ g:focus-visible .focus-ring {
   font-style: italic;
   letter-spacing: 0.01em;
 }
+
+/* Atlas layout — stacked on mobile, side panel on desktop */
+.atlas-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.atlas-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.atlas-sidebar {
+  margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+  .atlas-layout {
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .atlas-sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+  }
+}

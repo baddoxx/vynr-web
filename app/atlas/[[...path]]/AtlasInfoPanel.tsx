@@ -182,7 +182,5 @@ const panelStyle: React.CSSProperties = {
   border: '1px solid var(--atlas-card-stroke)',
   borderRadius: 10,
   padding: '18px 22px',
-  marginTop: 12,
-  maxHeight: 300,
   overflowY: 'auto',
 };

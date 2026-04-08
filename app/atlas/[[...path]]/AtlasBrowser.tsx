@@ -75,31 +75,35 @@ export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
   }, []);
 
   return (
-    <div>
-      {/* Atlas treemap */}
-      <AtlasTreemapView
-        nodes={children}
-        onNodeClick={handleNodeClick}
-        currentNode={currentNode}
-      />
-
-      {/* Breadcrumb -- below treemap */}
-      <div style={{ marginTop: 10 }}>
-        <Breadcrumb
-          rootLabel="Atlas"
-          segments={breadcrumbSegments}
-          pathIds={pathKeys}
-          onNavigate={handleNavigate}
+    <div className="atlas-layout">
+      <div className="atlas-main">
+        {/* Atlas treemap */}
+        <AtlasTreemapView
+          nodes={children}
+          onNodeClick={handleNodeClick}
+          currentNode={currentNode}
         />
+
+        {/* Breadcrumb -- below treemap */}
+        <div style={{ marginTop: 10 }}>
+          <Breadcrumb
+            rootLabel="Atlas"
+            segments={breadcrumbSegments}
+            pathIds={pathKeys}
+            onNavigate={handleNavigate}
+          />
+        </div>
       </div>
 
       {/* Info panel -- shows selected leaf or current node education */}
-      <AtlasInfoPanel
-        currentNode={selectedLeafNode ?? currentNode}
-        childCount={selectedLeafNode ? selectedLeafNode.childIds.length : children.length}
-        selectedGrape={selectedGrape}
-        onGrapeTap={handleGrapeTap}
-      />
+      <div className="atlas-sidebar">
+        <AtlasInfoPanel
+          currentNode={selectedLeafNode ?? currentNode}
+          childCount={selectedLeafNode ? selectedLeafNode.childIds.length : children.length}
+          selectedGrape={selectedGrape}
+          onGrapeTap={handleGrapeTap}
+        />
+      </div>
     </div>
   );
 }
