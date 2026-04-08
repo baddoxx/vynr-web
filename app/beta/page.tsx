@@ -197,9 +197,75 @@ export default function BetaPage() {
 
         <hr />
 
-        <h2>Where to push the system</h2>
+        <h2>This build: sharing &amp; the web atlas</h2>
         <p>
-          Beyond normal use, actively stress these areas:
+          This release introduces <strong>cellar sharing</strong> and a
+          public <strong>web atlas</strong>. These are the areas we need
+          tested most right now.
+        </p>
+
+        <h3>Share your cellar</h3>
+        <ol>
+          <li>
+            Open your cellar and tap the share action. Choose
+            &ldquo;Share Cellar Snapshot&rdquo;.
+          </li>
+          <li>
+            A shareable link and QR code are generated. Try both:
+            <ul>
+              <li>Send the link to someone (or yourself) and open it in Safari.</li>
+              <li>Save or screenshot the QR code, then scan it with your phone&rsquo;s camera.</li>
+            </ul>
+          </li>
+          <li>
+            The shared cellar should open as a web page at
+            {" "}<strong>vynr.app</strong> &mdash; a read-only treemap of your
+            collection. Verify that the wines, regions, and hierarchy
+            look correct.
+          </li>
+        </ol>
+        <p>
+          Try sharing cellars of different sizes &mdash; small (3&ndash;5 wines),
+          medium (20+), and large (50+). Check that the treemap renders
+          cleanly and that navigation into regions works.
+        </p>
+
+        <h3>Web atlas pages</h3>
+        <p>
+          The atlas is now browsable on the web at{" "}
+          <a href="https://vynr.app/atlas" style={{ color: "var(--atlas-tint)" }}>vynr.app/atlas</a>.
+          Explore regions, drill into countries and appellations, and
+          check that education content appears correctly. Report any
+          missing or incorrect information using the feedback channels
+          below.
+        </p>
+
+        <h3>What to look for</h3>
+        <ul>
+          <li>
+            Does the shared cellar link work in Safari, Chrome, and
+            other browsers?
+          </li>
+          <li>
+            Does the QR code scan correctly and open the right page?
+          </li>
+          <li>
+            Is the treemap on the shared page readable and navigable?
+          </li>
+          <li>
+            Does the web atlas show education content (description,
+            grapes, style) when you tap into a region?
+          </li>
+          <li>
+            Any layout or rendering issues on mobile vs desktop?
+          </li>
+        </ul>
+
+        <hr />
+
+        <h2>Where else to push the system</h2>
+        <p>
+          Beyond sharing, actively stress these areas:
         </p>
 
         <h3>Ingestion edge cases</h3>
