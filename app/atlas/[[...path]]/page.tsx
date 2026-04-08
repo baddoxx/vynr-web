@@ -33,22 +33,21 @@ export default async function AtlasPage({
 }) {
   const { path = [] } = await params;
   return (
-    <div className="share-page-light" style={{ maxWidth: 800, margin: '0 auto', padding: '40px 20px 80px' }}>
+    <div className="share-page-light" style={{ maxWidth: 1100, margin: '0 auto', padding: '20px 20px 60px' }}>
       {/* Atlas header */}
-      <header style={{ marginBottom: 20 }}>
+      <header style={{ marginBottom: 12, display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
         <h1 style={{
-          fontSize: '1.6rem', fontWeight: 600, letterSpacing: '-0.02em',
-          color: 'var(--atlas-text)', margin: 0, lineHeight: 1.2,
+          fontSize: '1.1rem', fontWeight: 600, letterSpacing: '-0.01em',
+          color: 'var(--atlas-text)', margin: 0,
         }}>
           Wine Atlas
         </h1>
-        <div style={{
-          marginTop: 6, fontSize: '0.72rem', color: 'var(--atlas-text-placeholder)',
+        <span style={{
+          fontSize: '0.68rem', color: 'var(--atlas-text-placeholder)',
           letterSpacing: '0.02em',
         }}>
-          {(atlasData as { nodeCount: number }).nodeCount} regions and appellations
-          <span style={{ opacity: 0.5 }}> · epoch {(atlasData as { dataEpoch: number }).dataEpoch}</span>
-        </div>
+          {(atlasData as { nodeCount: number }).nodeCount} regions &middot; epoch {(atlasData as { dataEpoch: number }).dataEpoch}
+        </span>
       </header>
 
       <AtlasBrowser initialPath={path} />
