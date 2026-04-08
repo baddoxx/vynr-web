@@ -2,7 +2,6 @@
 
 import { useRef, useState, useEffect, useCallback, useMemo } from 'react';
 import { squarify, type TreemapItem } from '@/lib/treemap-layout';
-import { classifyLabel, generateMonogram } from '@/lib/tile-labels';
 import type { AtlasNode } from '@/lib/atlas';
 
 // ─── Neutral limestone palette ─────────────────────────────────────────────
@@ -67,13 +66,13 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
     setCanHover(window.matchMedia('(hover: hover)').matches);
   }, []);
 
-  // Height policy: 3:2 desktop, 4:3 mobile, scales with node count for dense views
+  // Height policy: square-ish on mobile, 3:2 on desktop, scales with node count
   const isMobile = measuredWidth > 0 && measuredWidth < 480;
-  const ratio = isMobile ? 4 / 3 : 3 / 2;
+  const ratio = isMobile ? 1 : 3 / 2;
   const rawHeight = measuredWidth / ratio;
-  const minH = isMobile ? 200 : 250;
-  const baseMaxH = isMobile ? 400 : 500;
-  const nodeBonus = Math.min(300, Math.max(0, (nodes.length - 10) * 15));
+  const minH = isMobile ? 300 : 300;
+  const baseMaxH = isMobile ? 550 : 650;
+  const nodeBonus = Math.min(350, Math.max(0, (nodes.length - 8) * 20));
   const maxH = baseMaxH + nodeBonus;
   const computedHeight = Math.max(minH, Math.min(maxH, rawHeight));
 
@@ -145,8 +144,7 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
         height={computedHeight}
         style={{
           display: 'block',
-          borderRadius: 10,
-          border: '1px solid var(--atlas-card-stroke)',
+          borderRadius: 6,
           background: 'var(--atlas-bg)',
           overflow: 'hidden',
         }}
@@ -155,11 +153,9 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
       >
         {rects.map((r) => {
           const isHovered = hoveredId === r.item.id;
-          const labelSize = Math.max(10, Math.min(14, Math.sqrt(r.width * r.height) / 8));
           const cx = r.x + r.width / 2;
           const cy = r.y + r.height / 2;
-          const mode = classifyLabel(r.width, r.height, r.item.label.length);
-          const monogram = mode === 'monogram' ? generateMonogram(r.item.label) : '';
+          const hideLabel = Math.min(r.width, r.height) < 18;
 
           return (
             <g
@@ -214,52 +210,34 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
                 style={{ pointerEvents: 'none' }}
               />
 
-              {/* Three-tier label rendering */}
-              {mode === 'full' && (
-                <text
-                  x={cx}
-                  y={cy}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  fill={LABEL_COLOR}
-                  fontSize={labelSize}
-                  fontWeight={500}
-                  fontFamily={FONT_FAMILY}
-                  style={{ pointerEvents: 'none', userSelect: 'none' }}
-                >
-                  {r.item.label}
-                </text>
-              )}
-              {mode === 'vertical' && (
-                <text
-                  x={cx}
-                  y={cy}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  fill={LABEL_COLOR}
-                  fontSize={Math.max(9, labelSize - 1)}
-                  fontWeight={500}
-                  fontFamily={FONT_FAMILY}
-                  transform={`rotate(-90 ${cx} ${cy})`}
-                  style={{ pointerEvents: 'none', userSelect: 'none' }}
-                >
-                  {r.item.label}
-                </text>
-              )}
-              {mode === 'monogram' && (
-                <text
-                  x={cx}
-                  y={cy}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  fill={LABEL_COLOR}
-                  fontSize={Math.max(9, labelSize - 2)}
-                  fontWeight={700}
-                  fontFamily={FONT_FAMILY}
-                  style={{ pointerEvents: 'none', userSelect: 'none' }}
-                >
-                  {monogram}
-                </text>
+              {/* foreignObject label with CSS word-wrapping */}
+              {!hideLabel && (
+                <foreignObject x={r.x + 2} y={r.y + 2} width={r.width - 4} height={r.height - 4}>
+                  <div
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: '2px 4px',
+                      fontSize: `${Math.max(10, Math.min(16, Math.sqrt(r.width * r.height) / 7))}px`,
+                      fontWeight: 500,
+                      fontFamily: FONT_FAMILY,
+                      color: LABEL_COLOR,
+                      textAlign: 'center',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      overflow: 'hidden',
+                      lineHeight: '1.2',
+                      pointerEvents: 'none',
+                      userSelect: 'none',
+                      boxSizing: 'border-box' as const,
+                    }}
+                  >
+                    {r.item.label}
+                  </div>
+                </foreignObject>
               )}
             </g>
           );
