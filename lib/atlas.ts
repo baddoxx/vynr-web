@@ -26,6 +26,11 @@ export interface AtlasNode {
   childIds: string[];
   typicalWineType?: string;
   countryCode?: string;
+  childLevelHint?: string;
+  leafCount?: number;
+  treemapWeight?: number;
+  role?: string;
+  classification?: string;
 }
 
 /** A step in the path from a leaf node up to root, excluding root and continents. */
@@ -106,4 +111,48 @@ export function resolveWineAtlasPath(entry: {
     if (path) return path;
   }
   return null;
+}
+
+// ─── Atlas Browser Helpers (ADR-0072 Phase 2: Atlas Reference Pages) ───────
+
+/**
+ * Get children of an atlas node. Returns root's children (continents) when nodeId is null.
+ */
+export function getAtlasChildren(nodeId: string | null): AtlasNode[] {
+  if (!nodeId) {
+    const root = nodeIndex.get('atr:root');
+    if (!root) return [];
+    return root.childIds.map(id => nodeIndex.get(id)).filter((n): n is AtlasNode => !!n);
+  }
+  const node = nodeIndex.get(nodeId);
+  if (!node) return [];
+  return node.childIds.map(id => nodeIndex.get(id)).filter((n): n is AtlasNode => !!n);
+}
+
+/**
+ * Resolve a URL path array (e.g., ['europe', 'france', 'burgundy']) to an atlas node chain.
+ * Walks from root, matching each segment against children's canonicalKey.
+ * Returns { node, chain } where chain is the full path from root's child down to the matched node.
+ */
+export function resolveUrlPath(segments: string[]): { node: AtlasNode | null; chain: AtlasNode[] } {
+  if (segments.length === 0) return { node: null, chain: [] };
+
+  const chain: AtlasNode[] = [];
+  let currentChildren = getAtlasChildren(null); // start from root's children (continents)
+
+  for (const seg of segments) {
+    const match = currentChildren.find(n => n.canonicalKey === seg);
+    if (!match) break;
+    chain.push(match);
+    currentChildren = getAtlasChildren(match.id);
+  }
+
+  return { node: chain.length > 0 ? chain[chain.length - 1] : null, chain };
+}
+
+/**
+ * Get all atlas nodes (for generateStaticParams).
+ */
+export function getAllAtlasNodes(): AtlasNode[] {
+  return Array.from(nodeIndex.values());
 }
