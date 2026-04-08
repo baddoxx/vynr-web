@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { resolveUrlPath, getAtlasChildren, type AtlasNode } from '@/lib/atlas';
-import { Breadcrumb } from '@/app/s/[shareId]/Breadcrumb';
+import { Breadcrumb } from '@/app/components/Breadcrumb';
 import { AtlasTreemapView } from './AtlasTreemapView';
 import { AtlasInfoPanel } from './AtlasInfoPanel';
 
@@ -13,6 +13,17 @@ interface AtlasBrowserProps {
 export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
   const [pathKeys, setPathKeys] = useState<string[]>(initialPath);
   const [selectedLeafId, setSelectedLeafId] = useState<string | null>(null);
+
+  // Sync pathKeys from URL on browser back/forward navigation
+  useEffect(() => {
+    const handler = () => {
+      const segments = window.location.pathname.replace(/^\/atlas\/?/, '').split('/').filter(Boolean);
+      setPathKeys(segments);
+      setSelectedLeafId(null);
+    };
+    window.addEventListener('popstate', handler);
+    return () => window.removeEventListener('popstate', handler);
+  }, []);
 
   const { node: currentNode, chain } = useMemo(() => resolveUrlPath(pathKeys), [pathKeys]);
 

@@ -69,9 +69,9 @@ export function AtlasInfoPanel({ currentNode, childCount }: AtlasInfoPanelProps)
                   letterSpacing: '0.03em',
                   padding: '3px 10px',
                   borderRadius: 20,
-                  background: 'rgba(200, 188, 170, 0.15)',
-                  color: 'var(--atlas-text-secondary)',
-                  border: '1px solid rgba(200, 188, 170, 0.30)',
+                  background: 'rgba(200, 180, 140, 0.25)',
+                  color: 'var(--atlas-text)',
+                  border: '1px solid rgba(180, 160, 120, 0.35)',
                 }}
               >
                 {grape}

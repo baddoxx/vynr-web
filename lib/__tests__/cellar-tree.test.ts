@@ -368,7 +368,7 @@ describe('isLeafLevel', () => {
   });
 
   it('false for node with no children', () => {
-    const emptyNode: CellarNode = { id: 'x', label: 'X', kind: 'country', weight: 0, children: [] };
+    const emptyNode: CellarNode = { id: 'x', label: 'X', kind: 'country', weight: 0, children: [], composition: [] };
     assert.equal(isLeafLevel(emptyNode), false);
   });
 });
@@ -412,7 +412,7 @@ describe('canDrill', () => {
   });
 
   it('false for empty group', () => {
-    const emptyNode: CellarNode = { id: 'x', label: 'X', kind: 'country', weight: 0, children: [] };
+    const emptyNode: CellarNode = { id: 'x', label: 'X', kind: 'country', weight: 0, children: [], composition: [] };
     assert.equal(canDrill(emptyNode), false);
   });
 });

@@ -14,7 +14,7 @@ import {
   buildWineIndex,
 } from '@/lib/cellar-tree';
 import { getEducation } from '@/lib/education';
-import { Breadcrumb } from './Breadcrumb';
+import { Breadcrumb } from '@/app/components/Breadcrumb';
 import { ViewToggle } from './ViewToggle';
 import { TreemapView } from './TreemapView';
 import { ListView } from './ListView';
@@ -203,9 +203,9 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
                     letterSpacing: '0.03em',
                     padding: '2px 8px',
                     borderRadius: 20,
-                    background: 'rgba(200, 188, 170, 0.15)',
-                    color: 'var(--atlas-text-secondary)',
-                    border: '1px solid rgba(200, 188, 170, 0.30)',
+                    background: 'rgba(200, 180, 140, 0.25)',
+                    color: 'var(--atlas-text)',
+                    border: '1px solid rgba(180, 160, 120, 0.35)',
                   }}
                 >
                   {grape}
