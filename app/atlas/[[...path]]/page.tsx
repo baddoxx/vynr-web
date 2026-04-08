@@ -65,8 +65,8 @@ export default async function AtlasPage({
           Explore in vynr for iOS
         </a>
         <div style={{ marginTop: 6, opacity: 0.5 }}>vynr Atlas</div>
-        <div style={{ marginTop: 12, fontSize: '0.65rem', opacity: 0.5, lineHeight: 1.5 }}>
-          This information is generated and curated by vynr from multiple sources and internal models.
+        <div style={{ marginTop: 8, fontSize: '0.65rem', opacity: 0.7, lineHeight: 1.5 }}>
+          Content is generated and curated by vynr using multiple sources and internal models. It is intended as a guide, not a definitive reference.
         </div>
       </div>
     </div>
