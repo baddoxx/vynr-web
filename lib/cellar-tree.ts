@@ -6,6 +6,13 @@
 import type { ShareEntry } from './share-api';
 import { dominantWineType } from './treemap-colors';
 
+/** Wine-type composition breakdown for a group node. Sorted by fraction descending. */
+export interface WineTypeSegment {
+  type: string;   // lowercase wine type key
+  count: number;
+  fraction: number; // 0..1
+}
+
 export interface CellarNode {
   id: string;
   label: string;
@@ -14,6 +21,8 @@ export interface CellarNode {
   weight: number;
   children: CellarNode[];
   entry?: ShareEntry;
+  /** Wine-type composition for group nodes. Empty for wine leaves. */
+  composition: WineTypeSegment[];
 }
 
 /**
@@ -69,6 +78,23 @@ function collectWineTypes(node: MutableNode): string[] {
   return types;
 }
 
+/** Compute wine-type composition segments from a list of wine types. Sorted by fraction desc. */
+function computeComposition(wineTypes: string[]): WineTypeSegment[] {
+  if (wineTypes.length === 0) return [];
+  const counts = new Map<string, number>();
+  for (const t of wineTypes) {
+    const key = t.toLowerCase();
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  const total = wineTypes.length;
+  const segments: WineTypeSegment[] = [];
+  for (const [type, count] of counts) {
+    segments.push({ type, count, fraction: count / total });
+  }
+  segments.sort((a, b) => b.fraction - a.fraction || a.type.localeCompare(b.type));
+  return segments;
+}
+
 /** Recursively collect wine types from a finalized CellarNode (used after finalization). */
 function collectWineTypesFromNode(node: CellarNode): string[] {
   if (node.kind === 'wine') return node.wineType ? [node.wineType] : [];
@@ -102,6 +128,7 @@ function finalize(node: MutableNode, parentPath: string): CellarNode {
       weight: 1,
       children: [],
       entry,
+      composition: [],
     };
   });
 
@@ -116,6 +143,7 @@ function finalize(node: MutableNode, parentPath: string): CellarNode {
   const weight = allChildren.reduce((sum, c) => sum + c.weight, 0);
   const wineTypes = collectWineTypes(node);
   const wineType = dominantWineType(wineTypes);
+  const composition = computeComposition(wineTypes);
 
   return {
     id: node.id,
@@ -124,6 +152,7 @@ function finalize(node: MutableNode, parentPath: string): CellarNode {
     wineType,
     weight,
     children: allChildren,
+    composition,
   };
 }
 

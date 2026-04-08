@@ -8,7 +8,7 @@ import {
   wineTypeColor,
   wineTypeBorder,
 } from '@/lib/treemap-colors';
-import { type CellarNode, isWineNode, canDrill } from '@/lib/cellar-tree';
+import { type CellarNode, type WineTypeSegment, isWineNode, canDrill } from '@/lib/cellar-tree';
 
 // ─── Tint helpers (tolerate undefined wineType) ─────────────────────────────
 
@@ -231,7 +231,12 @@ export function TreemapView({
           const subSize = Math.max(8, labelSize - 2);
 
           // For wine tiles, use the formatter
-          const labels = isWine ? wineTileLabel(nodeMap.get(r.item.id)!) : { primary: r.item.label, secondary: `${r.item.weight} ${r.item.weight === 1 ? 'wine' : 'wines'}` };
+          const node = nodeMap.get(r.item.id);
+          const labels = isWine ? wineTileLabel(node!) : { primary: r.item.label, secondary: `${r.item.weight} ${r.item.weight === 1 ? 'wine' : 'wines'}` };
+          const composition = node?.composition ?? [];
+          const hasComposition = !isWine && composition.length > 0;
+          // Unique clip-path id for rounded composition bands
+          const clipId = `clip-${r.item.id.replace(/[^a-zA-Z0-9]/g, '_')}`;
 
           return (
             <g
@@ -245,7 +250,57 @@ export function TreemapView({
               aria-label={isWine ? labels.primary : `${labels.primary}, ${r.item.weight} wines`}
               style={{ cursor: 'pointer', outline: 'none' }}
             >
-              {/* Tile fill */}
+              {/* Clip path for rounded corners on composition bands */}
+              {hasComposition && (
+                <defs>
+                  <clipPath id={clipId}>
+                    <rect x={r.x} y={r.y} width={r.width} height={r.height} rx={4} ry={4} />
+                  </clipPath>
+                </defs>
+              )}
+
+              {/* Tile fill — composition sub-rects for group tiles, solid for wine tiles */}
+              {hasComposition ? (
+                <g clipPath={`url(#${clipId})`}>
+                  {/* Base fill */}
+                  <rect x={r.x} y={r.y} width={r.width} height={r.height} fill="var(--atlas-bg)" />
+                  {/* Nested squarified sub-rects showing wine-type composition */}
+                  {(() => {
+                    const compItems = composition.map((seg: WineTypeSegment) => ({
+                      id: seg.type,
+                      label: seg.type,
+                      weight: seg.count,
+                      wineType: seg.type,
+                    }));
+                    const compRects = squarify(compItems, r.width, r.height, 0.5);
+                    const opacity = isHovered ? 0.38 : 0.28;
+                    return compRects.map((cr) => (
+                      <rect
+                        key={cr.item.id}
+                        x={r.x + cr.x}
+                        y={r.y + cr.y}
+                        width={cr.width}
+                        height={cr.height}
+                        fill={wineTypeTint(cr.item.wineType ?? 'unknown', opacity)}
+                        style={{ transition: 'fill 0.12s ease' }}
+                      />
+                    ));
+                  })()}
+                </g>
+              ) : (
+                <rect
+                  x={r.x}
+                  y={r.y}
+                  width={r.width}
+                  height={r.height}
+                  rx={4}
+                  ry={4}
+                  fill={isHovered ? nodeHoverTint(wt) : nodeTint(wt)}
+                  style={{ transition: 'fill 0.12s ease' }}
+                />
+              )}
+
+              {/* Tile border */}
               <rect
                 x={r.x}
                 y={r.y}
@@ -253,10 +308,10 @@ export function TreemapView({
                 height={r.height}
                 rx={4}
                 ry={4}
-                fill={isHovered ? nodeHoverTint(wt) : nodeTint(wt)}
+                fill="none"
                 stroke={isHovered && isWine ? nodeColor(wt) : nodeBorder(wt)}
                 strokeWidth={isHovered && isWine ? 1.5 : 1}
-                style={{ transition: 'fill 0.12s ease, stroke-width 0.12s ease' }}
+                style={{ transition: 'stroke-width 0.12s ease' }}
               />
 
               {/* Focus ring */}
@@ -275,14 +330,14 @@ export function TreemapView({
                 style={{ pointerEvents: 'none' }}
               />
 
-              {/* Primary label */}
+              {/* Primary label — use dominant composition type for color when available */}
               {showLabel && (
                 <text
                   x={r.x + r.width / 2}
                   y={r.y + r.height / 2 - (showSub && labels.secondary ? subSize * 0.4 : 0)}
                   textAnchor="middle"
                   dominantBaseline="central"
-                  fill={nodeColor(wt)}
+                  fill={nodeColor(wt ?? (composition.length > 0 ? composition[0].type : undefined))}
                   fontSize={labelSize}
                   fontWeight={500}
                   fontFamily="'Avenir Next', 'Avenir', 'Nunito Sans', 'Trebuchet MS', sans-serif"
