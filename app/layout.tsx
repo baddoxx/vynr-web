@@ -98,17 +98,30 @@ export default function RootLayout({
             >
               Vynr
             </Link>
-            <Link
-              href="/blog"
-              style={{
-                fontSize: "0.875rem",
-                color: "var(--atlas-text-secondary)",
-                textDecoration: "none",
-                transition: "color 0.15s ease",
-              }}
-            >
-              Blog
-            </Link>
+            <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
+              <Link
+                href="/atlas"
+                style={{
+                  fontSize: "0.875rem",
+                  color: "var(--atlas-text-secondary)",
+                  textDecoration: "none",
+                  transition: "color 0.15s ease",
+                }}
+              >
+                Atlas
+              </Link>
+              <Link
+                href="/blog"
+                style={{
+                  fontSize: "0.875rem",
+                  color: "var(--atlas-text-secondary)",
+                  textDecoration: "none",
+                  transition: "color 0.15s ease",
+                }}
+              >
+                Blog
+              </Link>
+            </div>
           </nav>
         </header>
 
