@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect, useCallback, useMemo } from 'react';
 import { squarify, type TreemapItem } from '@/lib/treemap-layout';
+import { classifyLabel, generateMonogram } from '@/lib/tile-labels';
 import type { AtlasNode } from '@/lib/atlas';
 
 // ─── Neutral limestone palette ─────────────────────────────────────────────
@@ -11,9 +12,9 @@ const FILL_HOVER = 'rgba(200, 188, 170, 0.25)';
 const BORDER = 'rgba(200, 188, 170, 0.30)';
 const LABEL_COLOR = '#6B614E';
 
-// ─── Label thresholds ──────────────────────────────────────────────────────
+// ─── Font family constant ─────────────────────────────────────────────────
 
-const MIN_LABEL_DIM = 50;
+const FONT_FAMILY = "'Avenir Next', 'Avenir', 'Nunito Sans', 'Trebuchet MS', sans-serif";
 
 // ─── ResizeObserver hook ───────────────────────────────────────────────────
 
@@ -66,12 +67,14 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
     setCanHover(window.matchMedia('(hover: hover)').matches);
   }, []);
 
-  // Height policy: 3:2 desktop, 4:3 mobile, clamped
+  // Height policy: 3:2 desktop, 4:3 mobile, scales with node count for dense views
   const isMobile = measuredWidth > 0 && measuredWidth < 480;
   const ratio = isMobile ? 4 / 3 : 3 / 2;
   const rawHeight = measuredWidth / ratio;
   const minH = isMobile ? 200 : 250;
-  const maxH = isMobile ? 400 : 500;
+  const baseMaxH = isMobile ? 400 : 500;
+  const nodeBonus = Math.min(300, Math.max(0, (nodes.length - 10) * 15));
+  const maxH = baseMaxH + nodeBonus;
   const computedHeight = Math.max(minH, Math.min(maxH, rawHeight));
 
   const items: TreemapItem[] = useMemo(
@@ -152,15 +155,17 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
       >
         {rects.map((r) => {
           const isHovered = hoveredId === r.item.id;
-          const minDim = Math.min(r.width, r.height);
-          const showLabel = minDim >= MIN_LABEL_DIM;
           const labelSize = Math.max(10, Math.min(14, Math.sqrt(r.width * r.height) / 8));
+          const cx = r.x + r.width / 2;
+          const cy = r.y + r.height / 2;
+          const mode = classifyLabel(r.width, r.height, r.item.label.length);
+          const monogram = mode === 'monogram' ? generateMonogram(r.item.label) : '';
 
           return (
             <g
               key={r.item.id}
               onClick={() => handleClick(r.item.id)}
-              onMouseEnter={() => handleMouseEnter(r.item.id, r.x + r.width / 2, r.y + r.height / 2)}
+              onMouseEnter={() => handleMouseEnter(r.item.id, cx, cy)}
               onMouseLeave={handleMouseLeave}
               onKeyDown={(e) => handleKeyDown(e, r.item.id)}
               tabIndex={0}
@@ -209,20 +214,51 @@ export function AtlasTreemapView({ nodes, onNodeClick, currentNode }: AtlasTreem
                 style={{ pointerEvents: 'none' }}
               />
 
-              {/* Label — name only, no counts */}
-              {showLabel && (
+              {/* Three-tier label rendering */}
+              {mode === 'full' && (
                 <text
-                  x={r.x + r.width / 2}
-                  y={r.y + r.height / 2}
+                  x={cx}
+                  y={cy}
                   textAnchor="middle"
                   dominantBaseline="central"
                   fill={LABEL_COLOR}
                   fontSize={labelSize}
                   fontWeight={500}
-                  fontFamily="'Avenir Next', 'Avenir', 'Nunito Sans', 'Trebuchet MS', sans-serif"
+                  fontFamily={FONT_FAMILY}
                   style={{ pointerEvents: 'none', userSelect: 'none' }}
                 >
                   {r.item.label}
+                </text>
+              )}
+              {mode === 'vertical' && (
+                <text
+                  x={cx}
+                  y={cy}
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  fill={LABEL_COLOR}
+                  fontSize={Math.max(9, labelSize - 1)}
+                  fontWeight={500}
+                  fontFamily={FONT_FAMILY}
+                  transform={`rotate(-90 ${cx} ${cy})`}
+                  style={{ pointerEvents: 'none', userSelect: 'none' }}
+                >
+                  {r.item.label}
+                </text>
+              )}
+              {mode === 'monogram' && (
+                <text
+                  x={cx}
+                  y={cy}
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  fill={LABEL_COLOR}
+                  fontSize={Math.max(9, labelSize - 2)}
+                  fontWeight={700}
+                  fontFamily={FONT_FAMILY}
+                  style={{ pointerEvents: 'none', userSelect: 'none' }}
+                >
+                  {monogram}
                 </text>
               )}
             </g>

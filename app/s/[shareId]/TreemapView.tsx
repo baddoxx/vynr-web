@@ -8,6 +8,7 @@ import {
   wineTypeColor,
   wineTypeBorder,
 } from '@/lib/treemap-colors';
+import { classifyLabel, generateMonogram } from '@/lib/tile-labels';
 import { type CellarNode, type WineTypeSegment, isWineNode, canDrill } from '@/lib/cellar-tree';
 
 // ─── Tint helpers (tolerate undefined wineType) ─────────────────────────────
@@ -54,9 +55,12 @@ interface TooltipData {
   y: number;
 }
 
-// ─── Label thresholds ───────────────────────────────────────────────────────
+// ─── Font family constant ───────────────────────────────────────────────────
 
-const MIN_LABEL_DIM = 60;
+const FONT_FAMILY = "'Avenir Next', 'Avenir', 'Nunito Sans', 'Trebuchet MS', sans-serif";
+
+// ─── Sub-label threshold ────────────────────────────────────────────────────
+
 const MIN_SUB_DIM = 40;
 
 // ─── ResizeObserver hook ────────────────────────────────────────────────────
@@ -113,12 +117,14 @@ export function TreemapView({
     setCanHover(window.matchMedia('(hover: hover)').matches);
   }, []);
 
-  // Height policy: 3:2 desktop, 4:3 mobile, clamped
+  // Height policy: 3:2 desktop, 4:3 mobile, scales with node count for dense views
   const isMobile = measuredWidth > 0 && measuredWidth < 480;
   const ratio = isMobile ? 4 / 3 : 3 / 2;
   const rawHeight = measuredWidth / ratio;
   const minH = isMobile ? 200 : 250;
-  const maxH = isMobile ? 400 : 500;
+  const baseMaxH = isMobile ? 400 : 500;
+  const nodeBonus = Math.min(300, Math.max(0, (nodes.length - 10) * 15));
+  const maxH = baseMaxH + nodeBonus;
   const computedHeight = Math.max(minH, Math.min(maxH, rawHeight));
 
   const items: TreemapItem[] = useMemo(
@@ -222,17 +228,21 @@ export function TreemapView({
         {rects.map((r) => {
           const isHovered = hoveredNodeId === r.item.id;
           const wt = r.item.wineType;
-          const minDim = Math.min(r.width, r.height);
-          const showLabel = minDim >= MIN_LABEL_DIM;
-          const showSub = minDim >= MIN_SUB_DIM;
           const isWine = isTerminalPath;
 
           const labelSize = Math.max(10, Math.min(14, Math.sqrt(r.width * r.height) / 8));
           const subSize = Math.max(8, labelSize - 2);
+          const cx = r.x + r.width / 2;
+          const cy = r.y + r.height / 2;
 
           // For wine tiles, use the formatter
           const node = nodeMap.get(r.item.id);
           const labels = isWine ? wineTileLabel(node!) : { primary: r.item.label, secondary: `${r.item.weight} ${r.item.weight === 1 ? 'wine' : 'wines'}` };
+
+          // Three-tier label classification
+          const mode = classifyLabel(r.width, r.height, labels.primary.length);
+          const showSub = Math.min(r.width, r.height) >= MIN_SUB_DIM && mode === 'full';
+          const monogram = mode === 'monogram' ? generateMonogram(labels.primary) : '';
           const composition = node?.composition ?? [];
           const hasComposition = !isWine && composition.length > 0;
           // Unique clip-path id for rounded composition bands
@@ -242,7 +252,7 @@ export function TreemapView({
             <g
               key={r.item.id}
               onClick={() => handleClick(r.item.id)}
-              onMouseEnter={() => handleMouseEnter(r.item.id, r.x + r.width / 2, r.y + r.height / 2)}
+              onMouseEnter={() => handleMouseEnter(r.item.id, cx, cy)}
               onMouseLeave={handleMouseLeave}
               onKeyDown={(e) => handleKeyDown(e, r.item.id)}
               tabIndex={0}
@@ -330,34 +340,65 @@ export function TreemapView({
                 style={{ pointerEvents: 'none' }}
               />
 
-              {/* Primary label — use dominant composition type for color when available */}
-              {showLabel && (
+              {/* Three-tier label rendering */}
+              {mode === 'full' && (
                 <text
-                  x={r.x + r.width / 2}
-                  y={r.y + r.height / 2 - (showSub && labels.secondary ? subSize * 0.4 : 0)}
+                  x={cx}
+                  y={cy - (showSub && labels.secondary ? subSize * 0.4 : 0)}
                   textAnchor="middle"
                   dominantBaseline="central"
                   fill={nodeColor(wt ?? (composition.length > 0 ? composition[0].type : undefined))}
                   fontSize={labelSize}
                   fontWeight={500}
-                  fontFamily="'Avenir Next', 'Avenir', 'Nunito Sans', 'Trebuchet MS', sans-serif"
+                  fontFamily={FONT_FAMILY}
                   style={{ pointerEvents: 'none', userSelect: 'none' }}
                 >
                   {labels.primary}
                 </text>
               )}
-
-              {/* Sub-label */}
-              {showSub && showLabel && labels.secondary && (
+              {mode === 'vertical' && (
                 <text
-                  x={r.x + r.width / 2}
-                  y={r.y + r.height / 2 + labelSize * 0.7}
+                  x={cx}
+                  y={cy}
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  fill={nodeColor(wt ?? (composition.length > 0 ? composition[0].type : undefined))}
+                  fontSize={Math.max(9, labelSize - 1)}
+                  fontWeight={500}
+                  fontFamily={FONT_FAMILY}
+                  transform={`rotate(-90 ${cx} ${cy})`}
+                  style={{ pointerEvents: 'none', userSelect: 'none' }}
+                >
+                  {labels.primary}
+                </text>
+              )}
+              {mode === 'monogram' && (
+                <text
+                  x={cx}
+                  y={cy}
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  fill={nodeColor(wt ?? (composition.length > 0 ? composition[0].type : undefined))}
+                  fontSize={Math.max(9, labelSize - 2)}
+                  fontWeight={700}
+                  fontFamily={FONT_FAMILY}
+                  style={{ pointerEvents: 'none', userSelect: 'none' }}
+                >
+                  {monogram}
+                </text>
+              )}
+
+              {/* Sub-label (only in full mode) */}
+              {showSub && labels.secondary && (
+                <text
+                  x={cx}
+                  y={cy + labelSize * 0.7}
                   textAnchor="middle"
                   dominantBaseline="central"
                   fill={nodeColor(wt)}
                   fontSize={subSize}
                   fontWeight={400}
-                  fontFamily="'Avenir Next', 'Avenir', 'Nunito Sans', 'Trebuchet MS', sans-serif"
+                  fontFamily={FONT_FAMILY}
                   opacity={0.6}
                   style={{ pointerEvents: 'none', userSelect: 'none' }}
                 >

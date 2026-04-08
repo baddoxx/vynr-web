@@ -12,6 +12,7 @@ interface AtlasBrowserProps {
 
 export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
   const [pathKeys, setPathKeys] = useState<string[]>(initialPath);
+  const [selectedLeafId, setSelectedLeafId] = useState<string | null>(null);
 
   const { node: currentNode, chain } = useMemo(() => resolveUrlPath(pathKeys), [pathKeys]);
 
@@ -20,20 +21,34 @@ export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
     [currentNode],
   );
 
+  // Resolve selected leaf node for info panel display
+  const selectedLeafNode = useMemo(() => {
+    if (!selectedLeafId) return null;
+    return children.find(n => n.id === selectedLeafId) ?? null;
+  }, [selectedLeafId, children]);
+
   const breadcrumbSegments = useMemo(
     () => chain.map(n => ({ id: n.canonicalKey, label: n.displayName })),
     [chain],
   );
 
   const handleNodeClick = useCallback((node: AtlasNode) => {
-    const newKeys = [...pathKeys, node.canonicalKey];
-    setPathKeys(newKeys);
-    const newPath = `/atlas/${newKeys.join('/')}`;
-    window.history.pushState(null, '', newPath);
+    if (node.childIds.length > 0) {
+      // Container — drill down
+      const newKeys = [...pathKeys, node.canonicalKey];
+      setPathKeys(newKeys);
+      setSelectedLeafId(null);
+      const newPath = `/atlas/${newKeys.join('/')}`;
+      window.history.pushState(null, '', newPath);
+    } else {
+      // Leaf — show education in info panel, don't drill
+      setSelectedLeafId(node.id);
+    }
   }, [pathKeys]);
 
   const handleNavigate = useCallback((newPathIds: string[]) => {
     setPathKeys(newPathIds);
+    setSelectedLeafId(null);
     const newPath = newPathIds.length > 0 ? `/atlas/${newPathIds.join('/')}` : '/atlas';
     window.history.pushState(null, '', newPath);
   }, []);
@@ -57,8 +72,11 @@ export function AtlasBrowser({ initialPath }: AtlasBrowserProps) {
         />
       </div>
 
-      {/* Info panel -- always visible, shows current node education */}
-      <AtlasInfoPanel currentNode={currentNode} childCount={children.length} />
+      {/* Info panel -- shows selected leaf or current node education */}
+      <AtlasInfoPanel
+        currentNode={selectedLeafNode ?? currentNode}
+        childCount={selectedLeafNode ? selectedLeafNode.childIds.length : children.length}
+      />
     </div>
   );
 }
