@@ -62,7 +62,7 @@ export type ShareResult =
 
 export async function fetchShare(shareId: string): Promise<ShareResult> {
   const res = await fetch(`${SHARE_API_BASE}/api/shares/${shareId}`, {
-    next: { revalidate: 60 },
+    cache: 'no-store',
   });
 
   if (res.status === 404) {
