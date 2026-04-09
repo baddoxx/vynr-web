@@ -10,12 +10,15 @@ const WINE_TYPE_LABELS: Record<string, string> = {
   orange: 'Orange',
 };
 
+const SHARE_API_BASE = process.env.NEXT_PUBLIC_SHARE_API_URL || 'https://vynr-share.vynr.workers.dev';
+
 interface WineDetailPanelProps {
   wine: ShareEntry | null;
+  shareId: string;
   onDismiss: () => void;
 }
 
-export function WineDetailPanel({ wine, onDismiss }: WineDetailPanelProps) {
+export function WineDetailPanel({ wine, shareId, onDismiss }: WineDetailPanelProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
 
@@ -112,6 +115,25 @@ export function WineDetailPanel({ wine, onDismiss }: WineDetailPanelProps) {
 
         {/* Content */}
         <div style={{ padding: '8px 24px 32px' }}>
+          {/* Label image */}
+          {wine.hasLabelImage && (
+            <div style={{ marginBottom: 16, display: 'flex', justifyContent: 'center' }}>
+              <img
+                src={`${SHARE_API_BASE}/api/shares/${encodeURIComponent(shareId)}/labels/${encodeURIComponent(wine.externalEntryId)}`}
+                alt=""
+                width={120}
+                height={120}
+                loading="lazy"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                style={{
+                  borderRadius: 10,
+                  objectFit: 'cover',
+                  background: 'var(--atlas-card)',
+                }}
+              />
+            </div>
+          )}
+
           {/* Wine name */}
           <h2 style={{
             fontSize: '1.3rem', fontWeight: 600, color: 'var(--atlas-text)',

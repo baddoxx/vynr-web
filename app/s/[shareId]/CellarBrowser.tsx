@@ -224,6 +224,7 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
       {/* Wine detail panel */}
       <WineDetailPanel
         wine={selectedWine}
+        shareId={shareId}
         onDismiss={handleDismissPanel}
       />
     </div>
