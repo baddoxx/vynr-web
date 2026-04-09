@@ -1,6 +1,8 @@
 import type { ShareEntry } from '@/lib/share-api';
 import { wineTypeTint, wineTypeColor, wineTypeBorder } from '@/lib/treemap-colors';
 
+// Worker URL is public (not a secret). Uses NEXT_PUBLIC_ prefix because this
+// component runs in the client bundle (imported by ListView which is 'use client').
 const SHARE_API_BASE = process.env.NEXT_PUBLIC_SHARE_API_URL || 'https://vynr-share.vynr.workers.dev';
 
 const WINE_TYPE_LABELS: Record<string, string> = {
