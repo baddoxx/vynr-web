@@ -53,6 +53,7 @@ export interface ShareEntry {
   atlasRegionId?: string;
   atlasAppellationId?: string;
   providerNote?: string;
+  hasLabelImage?: boolean;
 }
 
 export type ShareResult =

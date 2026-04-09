@@ -155,6 +155,7 @@ export function CellarBrowser({ tree, rootLabel, shareId }: CellarBrowserProps) 
         <ListView
           nodes={currentChildren}
           isTerminalPath={isTerminalPath}
+          shareId={shareId}
           onNodeClick={handleNodeClick}
         />
       )}

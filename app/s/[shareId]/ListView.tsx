@@ -7,10 +7,11 @@ import { WineCard } from './WineCard';
 interface ListViewProps {
   nodes: CellarNode[];
   isTerminalPath: boolean;
+  shareId: string;
   onNodeClick: (node: CellarNode) => void;
 }
 
-export function ListView({ nodes, isTerminalPath, onNodeClick }: ListViewProps) {
+export function ListView({ nodes, isTerminalPath, shareId, onNodeClick }: ListViewProps) {
   // Flatten all wines under current scope into a single alphabetical list,
   // matching the app's list view behavior.
   const wines = useMemo(() => {
@@ -40,6 +41,7 @@ export function ListView({ nodes, isTerminalPath, onNodeClick }: ListViewProps) 
         <WineCard
           key={entry.externalEntryId}
           entry={entry}
+          shareId={shareId}
           onClick={() => handleWineClick(entry.externalEntryId)}
         />
       ))}
