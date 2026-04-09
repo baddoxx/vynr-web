@@ -119,7 +119,7 @@ export function WineDetailPanel({ wine, shareId, onDismiss }: WineDetailPanelPro
           {wine.hasLabelImage && (
             <div style={{ marginBottom: 16, display: 'flex', justifyContent: 'center' }}>
               <img
-                src={`${SHARE_API_BASE}/api/shares/${encodeURIComponent(shareId)}/labels/${encodeURIComponent(wine.externalEntryId)}`}
+                src={`${SHARE_API_BASE}/api/shares/${shareId}/labels/${wine.externalEntryId}`}
                 alt=""
                 width={120}
                 height={120}

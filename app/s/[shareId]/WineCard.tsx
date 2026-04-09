@@ -37,7 +37,7 @@ export function WineCard({ entry, shareId, onClick }: WineCardProps) {
   const geo = geographyLine(entry);
 
   const labelUrl = entry.hasLabelImage
-    ? `${SHARE_API_BASE}/api/shares/${encodeURIComponent(shareId)}/labels/${encodeURIComponent(entry.externalEntryId)}`
+    ? `${SHARE_API_BASE}/api/shares/${shareId}/labels/${entry.externalEntryId}`
     : null;
 
   return (
