@@ -205,8 +205,8 @@ export default function BetaPage() {
 
         <h3>AI Fix This (sparkles button)</h3>
         <p>
-          After scanning a wine label, look for the sparkles button next
-          to the Add to Cellar button. It shows a badge count of empty
+          After scanning a wine label, look for the sparkles button above
+          the Add to Cellar button. It shows a badge count of empty
           fields. Tap it to request AI-assisted corrections.
         </p>
         <ul>
@@ -271,11 +271,11 @@ export default function BetaPage() {
         <h3>Scan diagnostics</h3>
         <p>
           A new diagnostic view lets you see exactly what the scanner
-          detected. After scanning a wine, long-press the small label
-          photo at the top of the Add to Cellar screen. Tap
-          &ldquo;Capture Details&rdquo; to see the OCR output, pipeline
-          decisions, and spatial analysis. This is useful for
-          understanding and reporting scan failures.
+          detected. Open a wine&rsquo;s detail page, tap the overflow
+          menu (&#8943; button in the header), and select
+          &ldquo;Capture Details&rdquo;. This shows OCR output, pipeline
+          decisions, and spatial analysis. From there you can also
+          &ldquo;Send to Support&rdquo; to share the diagnostic bundle.
         </p>
 
         <h3>What to look for</h3>
@@ -305,7 +305,7 @@ export default function BetaPage() {
 
         <h2>Where else to push the system</h2>
         <p>
-          Beyond sharing, actively stress these areas:
+          Beyond the new features above, actively stress these areas:
         </p>
 
         <h3>Ingestion edge cases</h3>
@@ -413,19 +413,20 @@ export default function BetaPage() {
         <h3>Label scanning or parsing failures</h3>
         <p>
           If a scan produces wrong results &mdash; wrong producer, missing
-          vintage, incorrect cuvée &mdash; use the built-in diagnostic tool.
-          On the Add to Cellar screen, find the small scanned label photo at
-          the top. <strong>Long-press the small photo directly</strong> (do not
-          tap it first), then tap Send to Support. This sends the image and
-          technical details needed to investigate the failure.
+          vintage, incorrect cuvée &mdash; use the built-in diagnostic tools.
+          On the Add to Cellar screen, <strong>long-press the small label
+          photo</strong> at the top to send a diagnostic bundle directly via
+          Send to Support. After saving the wine, you can also open its
+          detail page and use the overflow menu &rarr; Capture Details for a
+          detailed view of what the scanner detected.
         </p>
 
         <h3>Education or reference-data issues</h3>
         <p>
-          Every education panel has an Edit button. Use it to report incorrect
-          appellation or regional information, wrong grape data, missing
-          producers, or unclear educational text. Reference-data corrections are
-          especially valuable during beta.
+          Education panels have a pencil button (Contribute). Use it to report
+          incorrect appellation or regional information, wrong grape data,
+          missing producers, or unclear educational text. Reference-data
+          corrections are especially valuable during beta.
         </p>
 
         <h3>Crashes, freezes, or general issues</h3>
