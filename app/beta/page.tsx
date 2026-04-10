@@ -197,67 +197,105 @@ export default function BetaPage() {
 
         <hr />
 
-        <h2>This build: sharing &amp; the web atlas</h2>
+        <h2>This build: what&rsquo;s new to test</h2>
         <p>
-          This release introduces <strong>cellar sharing</strong> and a
-          public <strong>web atlas</strong>. These are the areas we need
-          tested most right now.
+          Build 14 has improvements across scanning, sharing, and cellar
+          management. These are the areas we need tested most right now.
         </p>
 
-        <h3>Share your cellar</h3>
-        <ol>
-          <li>
-            Open your cellar and tap the share action. Choose
-            &ldquo;Share Cellar Snapshot&rdquo;.
-          </li>
-          <li>
-            A shareable link and QR code are generated. Try both:
-            <ul>
-              <li>Send the link to someone (or yourself) and open it in Safari.</li>
-              <li>Save or screenshot the QR code, then scan it with your phone&rsquo;s camera.</li>
-            </ul>
-          </li>
-          <li>
-            The shared cellar should open as a web page at
-            {" "}<strong>vynr.app</strong> &mdash; a read-only treemap of your
-            collection. Verify that the wines, regions, and hierarchy
-            look correct.
-          </li>
-        </ol>
+        <h3>AI Fix This (sparkles button)</h3>
         <p>
-          Try sharing cellars of different sizes &mdash; small (3&ndash;5 wines),
-          medium (20+), and large (50+). Check that the treemap renders
-          cleanly and that navigation into regions works.
+          After scanning a wine label, look for the sparkles button next
+          to the Add to Cellar button. It shows a badge count of empty
+          fields. Tap it to request AI-assisted corrections.
+        </p>
+        <ul>
+          <li>
+            Scan a wine where the parser misses fields &mdash; no
+            producer, no geography, no colour. Does the sparkles button
+            appear? Does the badge count match the number of empty fields?
+          </li>
+          <li>
+            Tap the sparkles button. Does the AI fill in missing fields
+            correctly? Are the suggestions reasonable?
+          </li>
+          <li>
+            After AI fills fields, manually edit one (e.g. change the
+            producer). Tap sparkles again. Does the AI respect your edit
+            and not overwrite it?
+          </li>
+          <li>
+            Long-press the sparkles button for review mode &mdash; you
+            see each correction individually before accepting.
+          </li>
+        </ul>
+
+        <h3>Wine image replacement</h3>
+        <p>
+          You can now replace a wine&rsquo;s label photo after capture.
+          Open a wine&rsquo;s detail page and tap the label image. Choose
+          a new photo from your library or take a new one with the camera.
+        </p>
+        <ul>
+          <li>Does the new image appear immediately after selection?</li>
+          <li>Does cancelling the replacement leave the original intact?</li>
+        </ul>
+
+        <h3>Shared cellar label images</h3>
+        <p>
+          When sharing your cellar via QR code or link, wine label images
+          are now included. The shared web page shows label thumbnails for
+          each wine.
+        </p>
+        <ul>
+          <li>
+            Share a cellar with 5+ wines that have label images. Open
+            the link &mdash; do the images appear in the web view?
+          </li>
+          <li>
+            Scan a vynr QR code with your phone camera. Does the app
+            detect it and offer to import the cellar?
+          </li>
+        </ul>
+
+        <h3>Consuming from cellar</h3>
+        <p>
+          Fixed a crash when consuming the last bottle of a wine. Test
+          this by adding a wine with quantity 1, then logging a tasting
+          from the cellar. The wine should move out of the cellar
+          cleanly without crashing.
         </p>
 
-        <h3>Web atlas pages</h3>
+        <h3>Scan diagnostics</h3>
         <p>
-          The atlas is now browsable on the web at{" "}
-          <a href="https://vynr.app/atlas" style={{ color: "var(--atlas-tint)" }}>vynr.app/atlas</a>.
-          Explore regions, drill into countries and appellations, and
-          check that education content appears correctly. Report any
-          missing or incorrect information using the feedback channels
-          below.
+          A new diagnostic view lets you see exactly what the scanner
+          detected. After scanning a wine, long-press the small label
+          photo at the top of the Add to Cellar screen. Tap
+          &ldquo;Capture Details&rdquo; to see the OCR output, pipeline
+          decisions, and spatial analysis. This is useful for
+          understanding and reporting scan failures.
         </p>
 
         <h3>What to look for</h3>
         <ul>
           <li>
-            Does the shared cellar link work in Safari, Chrome, and
-            other browsers?
+            Does the AI Fix button appear on wines where the parser
+            missed fields? Does it stay hidden when everything is
+            already filled in?
           </li>
           <li>
-            Does the QR code scan correctly and open the right page?
+            Are AI corrections accurate? Especially geography &mdash;
+            does it get the right appellation from garbled OCR text?
           </li>
           <li>
-            Is the treemap on the shared page readable and navigable?
+            Do shared cellars render correctly with label images in
+            Safari, Chrome, and on mobile?
           </li>
           <li>
-            Does the web atlas show education content (description,
-            grapes, style) when you tap into a region?
+            Can you consume the last bottle of a wine without issues?
           </li>
           <li>
-            Any layout or rendering issues on mobile vs desktop?
+            Any layout or interaction issues on your device?
           </li>
         </ul>
 
