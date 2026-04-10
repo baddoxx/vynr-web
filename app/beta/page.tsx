@@ -233,12 +233,14 @@ export default function BetaPage() {
         <h3>Wine image replacement</h3>
         <p>
           You can now replace a wine&rsquo;s label photo after capture.
-          Open a wine&rsquo;s detail page and tap the label image. Choose
-          a new photo from your library or take a new one with the camera.
+          Open a wine&rsquo;s detail page, tap Edit Details, then tap the
+          label image at the top. Choose a new photo from your library or
+          take a new one with the camera. Save to commit the change.
         </p>
         <ul>
-          <li>Does the new image appear immediately after selection?</li>
-          <li>Does cancelling the replacement leave the original intact?</li>
+          <li>Does the new image preview appear in the edit sheet?</li>
+          <li>Does saving persist the replacement correctly?</li>
+          <li>Does cancelling the edit leave the original image intact?</li>
         </ul>
 
         <h3>Shared cellar label images</h3>
