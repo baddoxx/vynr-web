@@ -1,4 +1,4 @@
-import { fetchShare, type SharePack, type ShareEntry } from '@/lib/share-api';
+import { fetchShare, type SharePack, type ShareEntry, type MarginaliaEntry } from '@/lib/share-api';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { buildHierarchy } from '@/lib/cellar-tree';
@@ -99,7 +99,14 @@ function ActiveShareView({
 
       {/* ── Cellar Browser (replaces treemap hero + divider + wine list) ── */}
       {pack.entries.length > 0 && (
-        <CellarBrowser tree={tree} rootLabel={rootLabel} shareId={shareId} />
+        <CellarBrowser
+          tree={tree}
+          rootLabel={rootLabel}
+          shareId={shareId}
+          marginalia={pack.marginalia ?? []}
+          curatorName={provider.providerDisplayName}
+          accentColor={pack.theme?.accentColor}
+        />
       )}
 
       {/* ── Footer — quiet, subordinate ── */}

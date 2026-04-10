@@ -37,6 +37,28 @@ export interface SharePack {
     quantityVisibility?: string;
   };
   entries: ShareEntry[];
+  marginalia?: MarginaliaEntry[];
+}
+
+/** A curator annotation targeting one or more atlas entities. */
+export interface MarginaliaEntry {
+  id: string;
+  content: string;
+  targets: MarginaliaTarget[];
+  mediaRefs?: MarginaliaMediaRef[];
+  displayOrder: number;
+}
+
+export interface MarginaliaTarget {
+  targetType: 'atlasNode' | 'producer' | 'varietal' | 'wine';
+  targetId: string;
+}
+
+export interface MarginaliaMediaRef {
+  assetKey: string;
+  width: number;
+  height: number;
+  displayOrder: number;
 }
 
 export interface ShareEntry {
