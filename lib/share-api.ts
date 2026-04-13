@@ -95,12 +95,12 @@ export interface ShareEntry {
     drinkEndYear?: number;
     reminderEnabled?: boolean;
     intentTags?: string[];
+    acquiredAt?: string;
   };
   acquisition?: {
     priceMinorUnits?: number;
     currencyCode?: string;
     source?: string;
-    acquiredAt?: string;
   };
 }
 
