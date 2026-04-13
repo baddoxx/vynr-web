@@ -35,6 +35,12 @@ export interface SharePack {
     notesIncluded?: string;
     notesCarryOnClone?: boolean;
     quantityVisibility?: string;
+    fieldInclusion?: {
+      classification?: boolean;
+      inventory?: boolean;
+      intentTags?: boolean;
+      acquisition?: boolean;
+    };
   };
   entries: ShareEntry[];
   marginalia?: MarginaliaEntry[];
@@ -76,6 +82,26 @@ export interface ShareEntry {
   atlasAppellationId?: string;
   providerNote?: string;
   hasLabelImage?: boolean;
+  // v4 additions
+  ownerNote?: string;
+  classification?: {
+    color?: string;
+    structure?: string;
+    sweetness?: string;
+  };
+  inventory?: {
+    quantity?: number;
+    drinkStartYear?: number;
+    drinkEndYear?: number;
+    reminderEnabled?: boolean;
+    intentTags?: string[];
+  };
+  acquisition?: {
+    priceMinorUnits?: number;
+    currencyCode?: string;
+    source?: string;
+    acquiredAt?: string;
+  };
 }
 
 export type ShareResult =
