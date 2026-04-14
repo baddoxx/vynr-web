@@ -199,8 +199,83 @@ export default function BetaPage() {
 
         <h2>This build: what&rsquo;s new to test</h2>
         <p>
-          Build 14 has improvements across scanning, sharing, and cellar
-          management. These are the areas we need tested most right now.
+          This build introduces forward time scrubbing &mdash; likely the
+          most significant addition to vynr since launch. It also includes
+          improvements across scanning, sharing, and cellar management.
+        </p>
+
+        <h3>Forward time scrubbing</h3>
+        <p>
+          Open the time scrubber (tap the clock icon in the bottom bar).
+          Instead of just browsing your cellar&rsquo;s history, you can
+          now project forward in time to see which wines are ready to
+          drink, which are approaching their peak, and which you&rsquo;re
+          about to miss.
+        </p>
+        <p>
+          The readiness ribbon appears immediately &mdash; three
+          overlapping curves showing approaching (amber), at peak (green),
+          and closing (clay red) wines. Below it, your top appellations
+          are ranked by maturity with directive language: &ldquo;drink
+          now,&rdquo; &ldquo;don&rsquo;t miss,&rdquo; &ldquo;watch.&rdquo;
+        </p>
+        <ul>
+          <li>
+            Open the time scrubber. Does the ribbon and appellation
+            stack appear immediately at &ldquo;now&rdquo; without
+            needing to drag?
+          </li>
+          <li>
+            Drag the slider right (forward). Do the curves shift? Do
+            the counts and appellation rankings update as you scrub?
+          </li>
+          <li>
+            Tap on the ribbon. Does a wine list appear below, grouped
+            by maturity state with coloured dots? Does it replace the
+            appellation stack?
+          </li>
+          <li>
+            Drag along the ribbon or tap a different region. Does the
+            wine list update live without dismissing?
+          </li>
+          <li>
+            Tap an appellation name (e.g. &ldquo;Meursault&rdquo;).
+            Does the list filter to wines from that region? Does the
+            header show the appellation name with a count summary?
+          </li>
+          <li>
+            With an appellation focused, drag the time slider. Does
+            the list update live for the focused appellation?
+          </li>
+          <li>
+            Tap a wine in the list. Does it open the wine detail view
+            with a back chevron to return?
+          </li>
+          <li>
+            Swipe right on the wine list (or tap &ldquo;Overview&rdquo;).
+            Does it return to the appellation stack and clear the
+            ribbon selection?
+          </li>
+          <li>
+            Drag the slider left past &ldquo;now.&rdquo; Does the
+            ribbon disappear and the treemap return? The boundary
+            between past and future should feel distinct.
+          </li>
+          <li>
+            If you have wines with manually set drink windows (set
+            via Edit on the wine detail page), does the forward
+            scrubber respect those windows instead of the generic
+            appellation estimate?
+          </li>
+        </ul>
+        <p>
+          <strong>What to look for:</strong> The system should feel
+          like one continuous surface. Scrubbing, tapping, and focusing
+          should all flow without modal pop-ups or resets. If anything
+          feels disconnected &mdash; a list that doesn&rsquo;t update,
+          a count that doesn&rsquo;t match, a wine in the wrong group
+          &mdash; report it. Consistency across every surface is the
+          most important quality for this feature.
         </p>
 
         <h3>AI Fix This (sparkles button)</h3>
