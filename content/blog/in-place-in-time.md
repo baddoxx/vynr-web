@@ -18,6 +18,8 @@ But a cellar is not a library. Bottles change. They evolve, peak, fade. The map 
 
 The new time lens adds a temporal axis. Scrub forward in time and the cellar rearranges itself — not by what you own, but by what is ready.
 
+![The readiness ribbon — wines grouped by maturity state as you scrub through time](/journal/time-lens-distribution.png)
+
 Each wine carries a drinkability curve: a projection of how it evolves from youth through peak into decline. The curves are shaped by appellation character — Barolo declines slowly with a long asymmetric tail; Champagne peaks tightly and falls fast; white Burgundy holds a broad plateau. These are not predictions about your specific bottle. They are honest expressions of how a category tends to behave, with built-in humility about how much the model actually knows.
 
 ## Honest shape
@@ -25,8 +27,6 @@ Each wine carries a drinkability curve: a projection of how it evolves from yout
 The model draws on oenological research — the Ashenfelter tradition of vintage quality regression, structural longevity studies on tannin and acidity as antioxidant mechanisms, and the well-documented varietal priors that wine professionals carry intuitively. But it resists the temptation to over-specify.
 
 Confidence is structural, not cosmetic. When the system knows less about a wine — an obscure appellation, a grape with limited aging data — the curve itself communicates that uncertainty. The peak flattens. The plateau widens. The slopes soften. The shape says "roughly here" without pretending to know more.
-
-![The readiness ribbon — wines grouped by maturity state as you scrub through time](/journal/time-lens-distribution.png)
 
 ![A single wine's drinkability trajectory — the curve shaped by appellation, vintage, and confidence](/journal/time-lens-trajectory.png)
 
