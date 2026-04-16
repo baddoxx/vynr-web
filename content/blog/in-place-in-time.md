@@ -2,8 +2,6 @@
 title: In Place. In Time.
 date: 2026-04-16
 description: Vynr adds a temporal dimension — wine evolution modelling that shows your cellar not just where it lives, but when it peaks.
-heroImage: /journal/time-lens-trajectory.png
-heroAlt: A drinkability trajectory for Gevrey-Chambertin, projected to 2031
 tags:
   - time lens
   - drinkability
