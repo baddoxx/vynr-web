@@ -32,7 +32,7 @@ export default function Home() {
           lineHeight: 1.5,
         }}
       >
-        Wine Cellar &amp; Journal
+        Your wines. In place. In time.
       </p>
 
       {/* Hero — wine glass illustration */}

@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     default: "Vynr",
     template: "%s — Vynr",
   },
-  description: "A private wine cellar and tasting journal. Atlas maps, tasting notes, and region education.",
+  description: "A private wine atlas, cellar, and tasting journal. Place, time, and memory — all on-device.",
   openGraph: {
-    title: "Vynr — Wine Cellar & Journal",
-    description: "A private wine cellar and tasting journal. Atlas maps, tasting notes, and region education.",
+    title: "Vynr — Your wines. In place. In time.",
+    description: "A private wine atlas, cellar, and tasting journal. Place, time, and memory — all on-device.",
     url: "https://vynr.app",
     siteName: "Vynr",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Vynr" }],
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vynr — Wine Cellar & Journal",
-    description: "A private wine cellar and tasting journal. Atlas maps, tasting notes, and region education.",
+    title: "Vynr — Your wines. In place. In time.",
+    description: "A private wine atlas, cellar, and tasting journal. Place, time, and memory — all on-device.",
     images: ["/og.png"],
   },
   verification: {
@@ -37,7 +37,7 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   name: "Vynr",
   description:
-    "A private wine cellar and tasting journal. Atlas maps, tasting notes, and region education — all on-device.",
+    "A private wine atlas, cellar, and tasting journal. Place, time, and memory — all on-device.",
   applicationCategory: "LifestyleApplication",
   operatingSystem: "iOS",
   offers: {
