@@ -28,6 +28,8 @@ Confidence is structural, not cosmetic. When the system knows less about a wine 
 
 ![The readiness ribbon — wines grouped by maturity state as you scrub through time](/journal/time-lens-distribution.png)
 
+![A single wine's drinkability trajectory — the curve shaped by appellation, vintage, and confidence](/journal/time-lens-trajectory.png)
+
 A Gevrey-Chambertin gets a moderately asymmetric decline and a narrow plateau — structured, with a long tail. A Meursault gets a broad, gentle window. A wine with no appellation match at all gets a wide, low, uncertain curve that communicates caution rather than confidence. The goal is curves that feel expressive, not computed.
 
 ## Where meets when
