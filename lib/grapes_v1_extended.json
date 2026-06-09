@@ -2,99 +2,14 @@
   "$schema": "../../schemas/grapes.schema.json",
   "version": "1.0",
   "description": "Extended grape variety dataset - valid but less commonly encountered varieties",
-  "count": 85,
+  "count": 166,
   "provenance": {
     "source_name": "Manual curation",
     "license": "Proprietary - vynr app data",
-    "last_updated": "2026-03-14",
+    "last_updated": "2026-04-09",
     "curator": "vynr team"
   },
   "grapes": [
-    {
-      "canonical_name": "Sagrantino",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "sagrantino"
-      ],
-      "style_hint": "Full-bodied, very tannic"
-    },
-    {
-      "canonical_name": "Lagrein",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "lagrein"
-      ],
-      "style_hint": "Medium to full-bodied"
-    },
-    {
-      "canonical_name": "Teroldego",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "teroldego"
-      ],
-      "style_hint": "Medium to full-bodied"
-    },
-    {
-      "canonical_name": "Rondinella",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "rondinella"
-      ],
-      "style_hint": "Blending grape"
-    },
-    {
-      "canonical_name": "Molinara",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "molinara"
-      ],
-      "style_hint": "Blending grape"
-    },
-    {
-      "canonical_name": "Graciano",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "graciano"
-      ],
-      "style_hint": "Full-bodied, aromatic"
-    },
-    {
-      "canonical_name": "Bobal",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "bobal"
-      ],
-      "style_hint": "Full-bodied"
-    },
-    {
-      "canonical_name": "Touriga Franca",
-      "color": "red",
-      "aliases": [
-        "touriga francesa"
-      ],
-      "tokens": [
-        "touriga",
-        "franca",
-        "francesa"
-      ],
-      "style_hint": "Medium to full-bodied"
-    },
-    {
-      "canonical_name": "Baga",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "baga"
-      ],
-      "style_hint": "Full-bodied, tannic"
-    },
     {
       "canonical_name": "Agiorgitiko",
       "color": "red",
@@ -105,383 +20,9 @@
         "agiorgitiko",
         "george"
       ],
-      "style_hint": "Medium to full-bodied"
-    },
-    {
-      "canonical_name": "Kadarka",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "kadarka"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "St. Laurent",
-      "color": "red",
-      "aliases": [
-        "saint laurent"
-      ],
-      "tokens": [
-        "laurent"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "Frappato",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "frappato"
-      ],
-      "style_hint": "Light-bodied, fruity"
-    },
-    {
-      "canonical_name": "Schioppettino",
-      "color": "red",
-      "aliases": [
-        "ribolla nera"
-      ],
-      "tokens": [
-        "schioppettino",
-        "ribolla",
-        "nera"
-      ],
-      "style_hint": "Medium-bodied, peppery"
-    },
-    {
-      "canonical_name": "Refosco",
-      "color": "red",
-      "aliases": [
-        "refosco dal peduncolo rosso"
-      ],
-      "tokens": [
-        "refosco",
-        "peduncolo"
-      ],
-      "style_hint": "Medium to full-bodied"
-    },
-    {
-      "canonical_name": "Bonarda",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "bonarda"
-      ],
-      "style_hint": "Medium-bodied"
-    },
-    {
-      "canonical_name": "Plavac Mali",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "plavac",
-        "mali"
-      ],
-      "style_hint": "Full-bodied"
-    },
-    {
-      "canonical_name": "Mavrud",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "mavrud"
-      ],
-      "style_hint": "Full-bodied"
-    },
-    {
-      "canonical_name": "Saperavi",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "saperavi"
-      ],
-      "style_hint": "Full-bodied, tannic"
-    },
-    {
-      "canonical_name": "Grignolino",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "grignolino"
-      ],
-      "style_hint": "Light-bodied"
-    },
-    {
-      "canonical_name": "Freisa",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "freisa"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "Ruché",
-      "color": "red",
-      "aliases": [
-        "ruche"
-      ],
-      "tokens": [
-        "ruche"
-      ],
-      "style_hint": "Medium-bodied, aromatic"
-    },
-    {
-      "canonical_name": "Pelaverga",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "pelaverga"
-      ],
-      "style_hint": "Light-bodied"
-    },
-    {
-      "canonical_name": "Cesanese",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "cesanese"
-      ],
-      "style_hint": "Medium-bodied"
-    },
-    {
-      "canonical_name": "Canaiolo",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "canaiolo"
-      ],
-      "style_hint": "Light-bodied, blending"
-    },
-    {
-      "canonical_name": "Colorino",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "colorino"
-      ],
-      "style_hint": "Blending grape"
-    },
-    {
-      "canonical_name": "Mammolo",
-      "color": "red",
-      "aliases": [],
-      "tokens": [
-        "mammolo"
-      ],
-      "style_hint": "Blending grape"
-    },
-    {
-      "canonical_name": "Ribolla Gialla",
-      "color": "white",
-      "aliases": [
-        "rebula"
-      ],
-      "tokens": [
-        "ribolla",
-        "gialla",
-        "rebula"
-      ],
-      "style_hint": "Light to medium-bodied, crisp"
-    },
-    {
-      "canonical_name": "Pecorino",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "pecorino"
-      ],
-      "style_hint": "Medium-bodied"
-    },
-    {
-      "canonical_name": "Carricante",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "carricante"
-      ],
-      "style_hint": "Light to medium-bodied, crisp"
-    },
-    {
-      "canonical_name": "Catarratto",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "catarratto"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "Grillo",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "grillo"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "Inzolia",
-      "color": "white",
-      "aliases": [
-        "ansonica"
-      ],
-      "tokens": [
-        "inzolia",
-        "ansonica"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "Clairette",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "clairette"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "Xarel·lo",
-      "color": "white",
-      "aliases": [
-        "xarello",
-        "xarel-lo"
-      ],
-      "tokens": [
-        "xarello"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "Parellada",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "parellada"
-      ],
-      "style_hint": "Light-bodied"
-    },
-    {
-      "canonical_name": "Encruzado",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "encruzado"
-      ],
-      "style_hint": "Medium to full-bodied"
-    },
-    {
-      "canonical_name": "Loureiro",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "loureiro"
-      ],
-      "style_hint": "Light-bodied, aromatic"
-    },
-    {
-      "canonical_name": "Arinto",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "arinto"
-      ],
-      "style_hint": "Light to medium-bodied, crisp"
-    },
-    {
-      "canonical_name": "Scheurebe",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "scheurebe"
-      ],
-      "style_hint": "Light to medium-bodied, aromatic"
-    },
-    {
-      "canonical_name": "Kerner",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "kerner"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "Bacchus",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "bacchus"
-      ],
-      "style_hint": "Aromatic, floral, Muscat-like"
-    },
-    {
-      "canonical_name": "Welschriesling",
-      "color": "white",
-      "aliases": [
-        "olasz rizling",
-        "laski rizling",
-        "riesling italico"
-      ],
-      "tokens": [
-        "welschriesling",
-        "olasz",
-        "rizling",
-        "laski",
-        "italico"
-      ],
-      "style_hint": "Light-bodied"
-    },
-    {
-      "canonical_name": "Moschofilero",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "moschofilero"
-      ],
-      "style_hint": "Light-bodied, aromatic"
-    },
-    {
-      "canonical_name": "Roditis",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "roditis"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "Malagousia",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "malagousia"
-      ],
-      "style_hint": "Medium-bodied, aromatic"
-    },
-    {
-      "canonical_name": "Hárslevelű",
-      "color": "white",
-      "aliases": [
-        "harslevelu"
-      ],
-      "tokens": [
-        "harslevelu"
-      ],
-      "style_hint": "Medium to full-bodied, aromatic"
-    },
-    {
-      "canonical_name": "Jacquère",
-      "color": "white",
-      "aliases": [
-        "jacquere"
-      ],
-      "tokens": [
-        "jacquere"
-      ],
-      "style_hint": "Light-bodied, crisp"
+      "style_hint": "Medium to full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Altesse",
@@ -493,225 +34,134 @@
         "altesse",
         "roussette"
       ],
-      "style_hint": "Medium-bodied"
+      "style_hint": "Medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
-      "canonical_name": "Colombard",
+      "canonical_name": "Arinto",
       "color": "white",
       "aliases": [],
       "tokens": [
-        "colombard"
+        "arinto"
       ],
-      "style_hint": "Light-bodied, crisp"
+      "style_hint": "Light to medium-bodied, crisp",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
-      "canonical_name": "Erbaluce",
+      "canonical_name": "Bacchus",
       "color": "white",
       "aliases": [],
       "tokens": [
-        "erbaluce"
+        "bacchus"
       ],
-      "style_hint": "Light to medium-bodied, crisp"
+      "style_hint": "Aromatic, floral, Muscat-like",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
-      "canonical_name": "Timorasso",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "timorasso"
-      ],
-      "style_hint": "Full-bodied"
-    },
-    {
-      "canonical_name": "Nascetta",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "nascetta"
-      ],
-      "style_hint": "Medium-bodied"
-    },
-    {
-      "canonical_name": "Nosiola",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "nosiola"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "Rkatsiteli",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "rkatsiteli"
-      ],
-      "style_hint": "Medium-bodied"
-    },
-    {
-      "canonical_name": "Mtsvane",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "mtsvane"
-      ],
-      "style_hint": "Medium-bodied, aromatic"
-    },
-    {
-      "canonical_name": "Fernão Pires",
-      "color": "white",
-      "aliases": [
-        "Maria Gomes"
-      ],
-      "tokens": [
-        "fernao",
-        "pires",
-        "maria",
-        "gomes"
-      ],
-      "style_hint": "Light-bodied, aromatic"
-    },
-    {
-      "canonical_name": "Vital",
-      "color": "white",
-      "aliases": [],
-      "tokens": [
-        "vital"
-      ],
-      "style_hint": "Light to medium-bodied"
-    },
-    {
-      "canonical_name": "Trincadeira",
+      "canonical_name": "Baga",
       "color": "red",
-      "aliases": [
-        "Tinta Amarela"
-      ],
+      "aliases": [],
       "tokens": [
-        "trincadeira",
-        "tinta",
-        "amarela"
+        "baga"
       ],
-      "style_hint": "Medium to full-bodied, spicy"
+      "style_hint": "Full-bodied, tannic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 6
+    },
+    {
+      "canonical_name": "Bobal",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "bobal"
+      ],
+      "style_hint": "Full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Bonarda",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "bonarda"
+      ],
+      "style_hint": "Medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Brachetto",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "brachetto"
+      ],
+      "style_hint": "Light-bodied, aromatic, sweet",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Canaiolo",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "canaiolo"
+      ],
+      "style_hint": "Light-bodied, blending",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Carricante",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "carricante"
+      ],
+      "style_hint": "Light to medium-bodied, crisp",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Castelão",
       "color": "red",
       "aliases": [
-        "Periquita"
+        "Periquita",
+        "Castelao"
       ],
       "tokens": [
         "castelao",
         "periquita"
       ],
-      "style_hint": "Medium-bodied, fruity"
+      "style_hint": "Medium-bodied, fruity",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
-      "canonical_name": "Verdelho",
+      "canonical_name": "Catarratto",
       "color": "white",
-      "aliases": [
-        "verdelho"
-      ],
+      "aliases": [],
       "tokens": [
-        "verdelho"
+        "catarratto"
       ],
-      "style_hint": "Medium-bodied, tropical"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
-      "canonical_name": "Gros Manseng",
-      "color": "white",
-      "aliases": [
-        "gros manseng"
-      ],
-      "tokens": [
-        "manseng"
-      ],
-      "style_hint": "Full-bodied, aromatic"
-    },
-    {
-      "canonical_name": "Petit Manseng",
-      "color": "white",
-      "aliases": [
-        "petit manseng"
-      ],
-      "tokens": [
-        "manseng"
-      ],
-      "style_hint": "Rich, sweet potential"
-    },
-    {
-      "canonical_name": "Tinta Negra",
+      "canonical_name": "Cesanese",
       "color": "red",
-      "aliases": [
-        "tinta negra mole",
-        "negra mole"
-      ],
+      "aliases": [],
       "tokens": [
-        "tinta",
-        "negra"
+        "cesanese"
       ],
-      "style_hint": "Medium-bodied, versatile"
-    },
-    {
-      "canonical_name": "Sercial",
-      "color": "white",
-      "aliases": [
-        "esgana cão"
-      ],
-      "tokens": [
-        "sercial"
-      ],
-      "style_hint": "High-acid, dry"
-    },
-    {
-      "canonical_name": "Malvasia",
-      "color": "white",
-      "aliases": [
-        "malvasia bianca",
-        "malvasía",
-        "malmsey"
-      ],
-      "tokens": [
-        "malvasia",
-        "malmsey"
-      ],
-      "style_hint": "Aromatic, rich"
-    },
-    {
-      "canonical_name": "Grechetto",
-      "color": "white",
-      "aliases": [
-        "grechetto di orvieto",
-        "grechetto bianco"
-      ],
-      "tokens": [
-        "grechetto"
-      ],
-      "style_hint": "Medium-bodied, fresh"
-    },
-    {
-      "canonical_name": "Lambrusco",
-      "color": "red",
-      "aliases": [
-        "lambrusco di sorbara",
-        "lambrusco grasparossa",
-        "lambrusco salamino"
-      ],
-      "tokens": [
-        "lambrusco"
-      ],
-      "style_hint": "Light, fizzy"
-    },
-    {
-      "canonical_name": "Vernaccia",
-      "color": "white",
-      "aliases": [
-        "vernaccia di san gimignano"
-      ],
-      "tokens": [
-        "vernaccia"
-      ],
-      "style_hint": "Crisp, mineral"
+      "style_hint": "Medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Chasselas",
@@ -729,27 +179,89 @@
         "perlan",
         "dorin"
       ],
-      "style_hint": "Light-bodied, neutral"
+      "style_hint": "Light-bodied, neutral",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
-      "canonical_name": "Romorantin",
+      "canonical_name": "Clairette",
       "color": "white",
       "aliases": [],
       "tokens": [
-        "romorantin"
+        "clairette"
       ],
-      "style_hint": "Medium-bodied, mineral"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
     },
     {
-      "canonical_name": "Négrette",
+      "canonical_name": "Colombard",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "colombard"
+      ],
+      "style_hint": "Light-bodied, crisp",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Colorino",
       "color": "red",
+      "aliases": [],
+      "tokens": [
+        "colorino"
+      ],
+      "style_hint": "Blending grape",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Delaware",
+      "color": "white",
       "aliases": [
-        "negrette"
+        "デラウェア"
       ],
       "tokens": [
-        "negrette"
+        "delaware"
       ],
-      "style_hint": "Medium-bodied, fruity, violet"
+      "style_hint": "Light, fruity, sweet",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Durella",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "durella",
+        "durello"
+      ],
+      "style_hint": "Light-bodied, high-acid, sparkling",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Encruzado",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "encruzado"
+      ],
+      "style_hint": "Medium to full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Erbaluce",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "erbaluce"
+      ],
+      "style_hint": "Light to medium-bodied, crisp",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Fer Servadou",
@@ -767,26 +279,48 @@
         "braucol",
         "pinenc"
       ],
-      "style_hint": "Medium-bodied, rustic, tannic"
+      "style_hint": "Medium-bodied, rustic, tannic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
-      "canonical_name": "Brachetto",
+      "canonical_name": "Fernão Pires",
+      "color": "white",
+      "aliases": [
+        "Maria Gomes",
+        "Fernao Pires"
+      ],
+      "tokens": [
+        "fernao",
+        "pires",
+        "maria",
+        "gomes"
+      ],
+      "style_hint": "Light-bodied, aromatic",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Frappato",
       "color": "red",
       "aliases": [],
       "tokens": [
-        "brachetto"
+        "frappato"
       ],
-      "style_hint": "Light-bodied, aromatic, sweet"
+      "style_hint": "Light-bodied, fruity",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
     },
     {
-      "canonical_name": "Durella",
-      "color": "white",
+      "canonical_name": "Freisa",
+      "color": "red",
       "aliases": [],
       "tokens": [
-        "durella",
-        "durello"
+        "freisa"
       ],
-      "style_hint": "Light-bodied, high-acid, sparkling"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Gaglioppo",
@@ -798,22 +332,69 @@
         "gaglioppo",
         "galloppo"
       ],
-      "style_hint": "Medium to full-bodied, tannic"
+      "style_hint": "Medium to full-bodied, tannic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
-      "canonical_name": "Nero di Troia",
+      "canonical_name": "Graciano",
       "color": "red",
+      "aliases": [],
+      "tokens": [
+        "graciano"
+      ],
+      "style_hint": "Full-bodied, aromatic",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 8
+    },
+    {
+      "canonical_name": "Grechetto",
+      "color": "white",
       "aliases": [
-        "uva di troia",
-        "sumarello"
+        "grechetto di orvieto",
+        "grechetto bianco"
       ],
       "tokens": [
-        "nero",
-        "troia",
-        "uva",
-        "sumarello"
+        "grechetto"
       ],
-      "style_hint": "Full-bodied, tannic"
+      "style_hint": "Medium-bodied, fresh",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Grignolino",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "grignolino"
+      ],
+      "style_hint": "Light-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Grillo",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "grillo"
+      ],
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Gros Manseng",
+      "color": "white",
+      "aliases": [
+        "gros manseng"
+      ],
+      "tokens": [
+        "manseng"
+      ],
+      "style_hint": "Full-bodied, aromatic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Hondarrabi Zuri",
@@ -830,22 +411,223 @@
         "zuri",
         "zuria"
       ],
-      "style_hint": "Light-bodied, high-acid, crisp"
+      "style_hint": "Light-bodied, high-acid, crisp",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
-      "canonical_name": "Trollinger",
-      "color": "red",
+      "canonical_name": "Hárslevelű",
+      "color": "white",
       "aliases": [
-        "schiava grossa",
-        "vernatsch"
+        "harslevelu"
       ],
       "tokens": [
-        "trollinger",
-        "schiava",
-        "schiava grossa",
-        "vernatsch"
+        "harslevelu"
       ],
-      "style_hint": "Light-bodied, fruity"
+      "style_hint": "Medium to full-bodied, aromatic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Inzolia",
+      "color": "white",
+      "aliases": [
+        "ansonica"
+      ],
+      "tokens": [
+        "inzolia",
+        "ansonica"
+      ],
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Jacquère",
+      "color": "white",
+      "aliases": [
+        "jacquere"
+      ],
+      "tokens": [
+        "jacquere"
+      ],
+      "style_hint": "Light-bodied, crisp",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Kadarka",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "kadarka"
+      ],
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Kerner",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "kerner"
+      ],
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Koshu",
+      "color": "white",
+      "aliases": [
+        "甲州"
+      ],
+      "tokens": [
+        "koshu"
+      ],
+      "style_hint": "Light, delicate, citrus",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Lagrein",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "lagrein"
+      ],
+      "style_hint": "Medium to full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Lambrusco",
+      "color": "red",
+      "aliases": [
+        "lambrusco di sorbara",
+        "lambrusco grasparossa",
+        "lambrusco salamino",
+        "Lambrusco Marani",
+        "Lambrusco Maestri"
+      ],
+      "tokens": [
+        "lambrusco"
+      ],
+      "style_hint": "Light, fizzy",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Loureiro",
+      "color": "white",
+      "aliases": [
+        "Loureira"
+      ],
+      "tokens": [
+        "loureiro"
+      ],
+      "style_hint": "Light-bodied, aromatic",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Malagousia",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "malagousia"
+      ],
+      "style_hint": "Medium-bodied, aromatic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Malvasia",
+      "color": "white",
+      "aliases": [
+        "malvasia bianca",
+        "malvasía",
+        "malmsey",
+        "Malvasia Fina",
+        "Malvasia Bianca Lunga",
+        "Malvasía Volcánica"
+      ],
+      "tokens": [
+        "malvasia",
+        "malmsey"
+      ],
+      "style_hint": "Aromatic, rich",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Mammolo",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "mammolo"
+      ],
+      "style_hint": "Blending grape",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Marselan",
+      "color": "red",
+      "aliases": [
+        "马瑟兰"
+      ],
+      "tokens": [
+        "marselan"
+      ],
+      "style_hint": "full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Mavrud",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "mavrud"
+      ],
+      "style_hint": "Full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Molinara",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "molinara"
+      ],
+      "style_hint": "Blending grape",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Moschofilero",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "moschofilero"
+      ],
+      "style_hint": "Light-bodied, aromatic",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Mtsvane",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "mtsvane"
+      ],
+      "style_hint": "Medium-bodied, aromatic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Muscat Bailey A",
@@ -860,18 +642,470 @@
         "muscat",
         "bailey"
       ],
-      "style_hint": "Light-bodied, fruity, strawberry"
+      "style_hint": "Light-bodied, fruity, strawberry",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
-      "canonical_name": "Koshu",
+      "canonical_name": "Nascetta",
       "color": "white",
+      "aliases": [],
+      "tokens": [
+        "nascetta"
+      ],
+      "style_hint": "Medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Nero di Troia",
+      "color": "red",
       "aliases": [
-        "甲州"
+        "uva di troia",
+        "sumarello"
       ],
       "tokens": [
-        "koshu"
+        "nero",
+        "troia",
+        "uva",
+        "sumarello"
       ],
-      "style_hint": "Light, delicate, citrus"
+      "style_hint": "Full-bodied, tannic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Niagara",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "niagara"
+      ],
+      "style_hint": "Sweet, grapey, aromatic",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Nosiola",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "nosiola"
+      ],
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Négrette",
+      "color": "red",
+      "aliases": [
+        "negrette"
+      ],
+      "tokens": [
+        "negrette"
+      ],
+      "style_hint": "Medium-bodied, fruity, violet",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Parellada",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "parellada"
+      ],
+      "style_hint": "Light-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Pecorino",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "pecorino"
+      ],
+      "style_hint": "Medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Pelaverga",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "pelaverga"
+      ],
+      "style_hint": "Light-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Petit Manseng",
+      "color": "white",
+      "aliases": [
+        "petit manseng"
+      ],
+      "tokens": [
+        "manseng"
+      ],
+      "style_hint": "Rich, sweet potential",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Plavac Mali",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "plavac",
+        "mali"
+      ],
+      "style_hint": "Full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 8
+    },
+    {
+      "canonical_name": "Refosco",
+      "color": "red",
+      "aliases": [
+        "refosco dal peduncolo rosso"
+      ],
+      "tokens": [
+        "refosco",
+        "peduncolo"
+      ],
+      "style_hint": "Medium to full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Ribolla Gialla",
+      "color": "white",
+      "aliases": [
+        "rebula",
+        "Ribolla"
+      ],
+      "tokens": [
+        "ribolla",
+        "gialla",
+        "rebula"
+      ],
+      "style_hint": "Light to medium-bodied, crisp",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Rkatsiteli",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "rkatsiteli"
+      ],
+      "style_hint": "Medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Roditis",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "roditis"
+      ],
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Romorantin",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "romorantin"
+      ],
+      "style_hint": "Medium-bodied, mineral",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Rondinella",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "rondinella"
+      ],
+      "style_hint": "Blending grape",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Ruché",
+      "color": "red",
+      "aliases": [
+        "ruche",
+        "Ruchè"
+      ],
+      "tokens": [
+        "ruche"
+      ],
+      "style_hint": "Medium-bodied, aromatic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Sagrantino",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "sagrantino"
+      ],
+      "style_hint": "Full-bodied, very tannic",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
+    },
+    {
+      "canonical_name": "Saperavi",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "saperavi"
+      ],
+      "style_hint": "Full-bodied, tannic",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 8
+    },
+    {
+      "canonical_name": "Scheurebe",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "scheurebe"
+      ],
+      "style_hint": "Light to medium-bodied, aromatic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Schioppettino",
+      "color": "red",
+      "aliases": [
+        "ribolla nera"
+      ],
+      "tokens": [
+        "schioppettino",
+        "ribolla",
+        "nera"
+      ],
+      "style_hint": "Medium-bodied, peppery",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Sercial",
+      "color": "white",
+      "aliases": [
+        "esgana cão"
+      ],
+      "tokens": [
+        "sercial"
+      ],
+      "style_hint": "High-acid, dry",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 25
+    },
+    {
+      "canonical_name": "St. Laurent",
+      "color": "red",
+      "aliases": [
+        "saint laurent",
+        "Sankt Laurent"
+      ],
+      "tokens": [
+        "laurent"
+      ],
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Steuben",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "steuben"
+      ],
+      "style_hint": "Sweet, fruity, foxy character",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Tempranillo Blanco",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "tempranillo",
+        "blanco"
+      ],
+      "style_hint": "Medium-bodied, aromatic white; natural mutation of Tempranillo discovered in Rioja (1988)",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Teroldego",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "teroldego"
+      ],
+      "style_hint": "Medium to full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Timorasso",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "timorasso"
+      ],
+      "style_hint": "Full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Tinta Negra",
+      "color": "red",
+      "aliases": [
+        "tinta negra mole",
+        "negra mole"
+      ],
+      "tokens": [
+        "tinta",
+        "negra"
+      ],
+      "style_hint": "Medium-bodied, versatile",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Touriga Franca",
+      "color": "red",
+      "aliases": [
+        "touriga francesa"
+      ],
+      "tokens": [
+        "touriga",
+        "franca",
+        "francesa"
+      ],
+      "style_hint": "Medium to full-bodied",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
+    },
+    {
+      "canonical_name": "Trincadeira",
+      "color": "red",
+      "aliases": [
+        "Tinta Amarela"
+      ],
+      "tokens": [
+        "trincadeira",
+        "tinta",
+        "amarela"
+      ],
+      "style_hint": "Medium to full-bodied, spicy",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Trollinger",
+      "color": "red",
+      "aliases": [
+        "schiava grossa",
+        "vernatsch"
+      ],
+      "tokens": [
+        "trollinger",
+        "schiava",
+        "schiava grossa",
+        "vernatsch"
+      ],
+      "style_hint": "Light-bodied, fruity",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Verdelho",
+      "color": "white",
+      "aliases": [
+        "verdelho"
+      ],
+      "tokens": [
+        "verdelho"
+      ],
+      "style_hint": "Medium-bodied, tropical",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Vernaccia",
+      "color": "white",
+      "aliases": [
+        "vernaccia di san gimignano"
+      ],
+      "tokens": [
+        "vernaccia"
+      ],
+      "style_hint": "Crisp, mineral",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Vital",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "vital"
+      ],
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Welschriesling",
+      "color": "white",
+      "aliases": [
+        "olasz rizling",
+        "laski rizling",
+        "riesling italico"
+      ],
+      "tokens": [
+        "welschriesling",
+        "olasz",
+        "rizling",
+        "laski",
+        "italico"
+      ],
+      "style_hint": "Light-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Xarel·lo",
+      "color": "white",
+      "aliases": [
+        "xarello",
+        "xarel-lo"
+      ],
+      "tokens": [
+        "xarello"
+      ],
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Yama Sauvignon",
@@ -883,39 +1117,1022 @@
         "yama",
         "sauvignon"
       ],
-      "style_hint": "Medium-bodied, herbaceous"
+      "style_hint": "Medium-bodied, herbaceous",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
-      "canonical_name": "Delaware",
-      "color": "white",
-      "aliases": [
-        "デラウェア"
-      ],
+      "canonical_name": "Yamasachi",
+      "color": "red",
+      "aliases": [],
       "tokens": [
-        "delaware"
+        "yamasachi"
       ],
-      "style_hint": "Light, fruity, sweet"
+      "style_hint": "Light-bodied, fruity",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
     },
     {
-      "canonical_name": "Tempranillo Blanco",
+      "canonical_name": "Muscadelle",
       "color": "white",
       "aliases": [],
       "tokens": [
-        "tempranillo",
-        "blanco"
+        "muscadelle"
       ],
-      "style_hint": "Medium-bodied, aromatic white; natural mutation of Tempranillo discovered in Rioja (1988)"
+      "style_hint": "Floral, aromatic, blending grape",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
     },
     {
-      "canonical_name": "Marselan",
+      "canonical_name": "Grolleau",
       "color": "red",
       "aliases": [
-        "马瑟兰"
+        "groslot",
+        "grolleau noir"
       ],
       "tokens": [
-        "marselan"
+        "grolleau",
+        "groslot"
       ],
-      "style_hint": "full-bodied"
+      "style_hint": "Light, fruity, rosé grape",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Mauzac",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "mauzac"
+      ],
+      "style_hint": "Apple-skin, sparkling wine base",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Pineau d'Aunis",
+      "color": "red",
+      "aliases": [
+        "chenin noir"
+      ],
+      "tokens": [
+        "pineau",
+        "aunis"
+      ],
+      "style_hint": "Peppery, light-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Folle Blanche",
+      "color": "white",
+      "aliases": [
+        "gros plant"
+      ],
+      "tokens": [
+        "folle",
+        "blanche"
+      ],
+      "style_hint": "High-acid, lean, distillation grape",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Arrufiac",
+      "color": "white",
+      "aliases": [
+        "arrufiat"
+      ],
+      "tokens": [
+        "arrufiac",
+        "arrufiat"
+      ],
+      "style_hint": "Aromatic, SW France blending grape",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Courbu",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "courbu"
+      ],
+      "style_hint": "Rich, full-bodied, Jurançon blending grape",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Mondeuse",
+      "color": "red",
+      "aliases": [
+        "mondeuse noire"
+      ],
+      "tokens": [
+        "mondeuse"
+      ],
+      "style_hint": "Peppery, tannic, Savoie red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Persan",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "persan"
+      ],
+      "style_hint": "Rare Savoie red, dark and structured",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Poulsard",
+      "color": "red",
+      "aliases": [
+        "ploussard"
+      ],
+      "tokens": [
+        "poulsard",
+        "ploussard"
+      ],
+      "style_hint": "Pale, delicate, Jura red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Trousseau",
+      "color": "red",
+      "aliases": [
+        "bastardo"
+      ],
+      "tokens": [
+        "trousseau"
+      ],
+      "style_hint": "Dark, earthy, Jura red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Piedirosso",
+      "color": "red",
+      "aliases": [
+        "per' e palummo"
+      ],
+      "tokens": [
+        "piedirosso"
+      ],
+      "style_hint": "Medium-bodied, Campanian blending red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Biancolella",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "biancolella"
+      ],
+      "style_hint": "Mineral, citrus, Campanian island white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Sciascinoso",
+      "color": "red",
+      "aliases": [
+        "olivella"
+      ],
+      "tokens": [
+        "sciascinoso",
+        "olivella"
+      ],
+      "style_hint": "Light Campanian blending red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Coda di Volpe",
+      "color": "white",
+      "aliases": [
+        "coda di volpe bianca",
+        "coda di volpe"
+      ],
+      "tokens": [
+        "coda",
+        "volpe"
+      ],
+      "style_hint": "Crisp, neutral Campanian white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Forastera",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "forastera"
+      ],
+      "style_hint": "Aromatic Ischian white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Nocera",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "nocera"
+      ],
+      "style_hint": "Dark, tannic Sicilian red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Perricone",
+      "color": "red",
+      "aliases": [
+        "pignatello"
+      ],
+      "tokens": [
+        "perricone",
+        "pignatello"
+      ],
+      "style_hint": "Full-bodied Sicilian red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Lacrima",
+      "color": "red",
+      "aliases": [
+        "lacrima di morro d'alba"
+      ],
+      "tokens": [
+        "lacrima"
+      ],
+      "style_hint": "Intensely aromatic, floral Marche red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Croatina",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "croatina"
+      ],
+      "style_hint": "Fruity Oltrepò/Emilia blending red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Pignola Valtellinese",
+      "color": "red",
+      "aliases": [
+        "pignola"
+      ],
+      "tokens": [
+        "pignola",
+        "valtellinese"
+      ],
+      "style_hint": "Rare Valtellina blending red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Bombino Nero",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "bombino",
+        "nero"
+      ],
+      "style_hint": "Light Puglian red/rosé grape",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Pignoletto",
+      "color": "white",
+      "aliases": [
+        "grechetto di todi"
+      ],
+      "tokens": [
+        "pignoletto"
+      ],
+      "style_hint": "Fresh, sparkling-capable Emilia white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Bosco",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "bosco"
+      ],
+      "style_hint": "Ligurian Cinque Terre white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Albana",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "albana"
+      ],
+      "style_hint": "Full-bodied Romagnol white, first Italian white DOCG",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Pelaverga Piccolo",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "pelaverga",
+        "piccolo"
+      ],
+      "style_hint": "Peppery, aromatic Verduno red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Tai Rosso",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "rosso"
+      ],
+      "style_hint": "Veneto red, Colli Berici",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Vespaiola",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "vespaiola"
+      ],
+      "style_hint": "Aromatic Breganze white, Torcolato dessert wine",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Listán Negro",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "listan",
+        "negro"
+      ],
+      "style_hint": "Light, volcanic Canary Islands red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Negramoll",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "negramoll"
+      ],
+      "style_hint": "Soft Canary Islands blending red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Airén",
+      "color": "white",
+      "aliases": [
+        "airen"
+      ],
+      "tokens": [
+        "airen"
+      ],
+      "style_hint": "Neutral, high-yield Spanish white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Manto Negro",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "manto",
+        "negro"
+      ],
+      "style_hint": "Soft, Mallorcan red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Callet",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "callet"
+      ],
+      "style_hint": "Indigenous Mallorcan red, increasingly prized",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Prensal Blanc",
+      "color": "white",
+      "aliases": [
+        "moll"
+      ],
+      "tokens": [
+        "prensal",
+        "moll"
+      ],
+      "style_hint": "Crisp, Mallorcan white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Malvar",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "malvar"
+      ],
+      "style_hint": "Neutral Madrid-region white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Juan García",
+      "color": "red",
+      "aliases": [
+        "juan garcia"
+      ],
+      "tokens": [
+        "juan",
+        "garcia"
+      ],
+      "style_hint": "Dark Arribes red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Rufete",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "rufete"
+      ],
+      "style_hint": "Light, aromatic Salamanca red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Prieto Picudo",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "prieto",
+        "picudo"
+      ],
+      "style_hint": "Tannic León red, rosé specialty",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Albarín",
+      "color": "white",
+      "aliases": [
+        "albarin",
+        "albarín blanco"
+      ],
+      "tokens": [
+        "albarin"
+      ],
+      "style_hint": "Aromatic León white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Trepat",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "trepat"
+      ],
+      "style_hint": "Light Catalan rosé/Cava grape",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Picapoll",
+      "color": "white",
+      "aliases": [
+        "picapoll blanc"
+      ],
+      "tokens": [
+        "picapoll"
+      ],
+      "style_hint": "Crisp Catalan white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Sumoll",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "sumoll"
+      ],
+      "style_hint": "Tannic, revived Catalan red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Zaléma",
+      "color": "white",
+      "aliases": [
+        "zalema"
+      ],
+      "tokens": [
+        "zalema"
+      ],
+      "style_hint": "Neutral Huelva white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Romé",
+      "color": "red",
+      "aliases": [
+        "rome"
+      ],
+      "tokens": [
+        "rome"
+      ],
+      "style_hint": "Rare Málaga red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Verijadiego",
+      "color": "white",
+      "aliases": [
+        "vijariego blanco"
+      ],
+      "tokens": [
+        "verijadiego"
+      ],
+      "style_hint": "Rare Canary Islands white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Baboso Negro",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "baboso",
+        "negro"
+      ],
+      "style_hint": "Rare volcanic Canary Islands red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Diego",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "diego"
+      ],
+      "style_hint": "Indigenous Lanzarote white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Garnacha Tintorera",
+      "color": "red",
+      "aliases": [
+        "alicante bouschet",
+        "alicante"
+      ],
+      "tokens": [
+        "garnacha",
+        "tintorera",
+        "alicante",
+        "bouschet"
+      ],
+      "style_hint": "Dark teinturier red, colored flesh",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Treixadura",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "treixadura"
+      ],
+      "style_hint": "Aromatic Galician white, Ribeiro star",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Vijariego",
+      "color": "white",
+      "aliases": [
+        "vijiriega",
+        "bujariego"
+      ],
+      "tokens": [
+        "vijariego",
+        "vijiriega"
+      ],
+      "style_hint": "Canary Islands white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Merseguera",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "merseguera"
+      ],
+      "style_hint": "Neutral Valencian white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Pardina",
+      "color": "white",
+      "aliases": [
+        "pardillo"
+      ],
+      "tokens": [
+        "pardina",
+        "pardillo"
+      ],
+      "style_hint": "Neutral Extremadura white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Cayetana Blanca",
+      "color": "white",
+      "aliases": [
+        "cayetana"
+      ],
+      "tokens": [
+        "cayetana"
+      ],
+      "style_hint": "High-yield Extremadura white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "País",
+      "color": "red",
+      "aliases": [
+        "pais",
+        "mission",
+        "listán prieto",
+        "criolla chica"
+      ],
+      "tokens": [
+        "pais",
+        "mission",
+        "listan",
+        "prieto",
+        "criolla"
+      ],
+      "style_hint": "Light, historic Chilean/Mission grape",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Dornfelder",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "dornfelder"
+      ],
+      "style_hint": "Deep-colored, fruity German red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Ramisco",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "ramisco"
+      ],
+      "style_hint": "Tannic, rare Colares phylloxera-survivor",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 8
+    },
+    {
+      "canonical_name": "Galego Dourado",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "galego",
+        "dourado"
+      ],
+      "style_hint": "Rare Carcavelos dessert white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Ratinho",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "ratinho"
+      ],
+      "style_hint": "Rare Carcavelos white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Tinta Miúda",
+      "color": "red",
+      "aliases": [
+        "tinta miuda",
+        "graciano"
+      ],
+      "tokens": [
+        "tinta",
+        "miuda"
+      ],
+      "style_hint": "Small-berried, concentrated Portuguese red (= Graciano)",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Amaral",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "amaral"
+      ],
+      "style_hint": "Light Vinho Verde red",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Cerceal",
+      "color": "white",
+      "aliases": [
+        "cercial"
+      ],
+      "tokens": [
+        "cerceal",
+        "cercial"
+      ],
+      "style_hint": "Crisp Dão/Bairrada white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Crato Branco",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "crato",
+        "branco"
+      ],
+      "style_hint": "Neutral Algarve white",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Zierfandler",
+      "color": "white",
+      "aliases": [
+        "spätrot"
+      ],
+      "tokens": [
+        "zierfandler",
+        "spatrot"
+      ],
+      "style_hint": "Rich, aromatic Thermenregion white",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Rotgipfler",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "rotgipfler"
+      ],
+      "style_hint": "Full-bodied, aromatic Thermenregion white",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Roter Veltliner",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "roter",
+        "veltliner"
+      ],
+      "style_hint": "Rich, spicy Austrian white",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Cienna",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "cienna"
+      ],
+      "style_hint": "Light-bodied, fruity red — Brown Brothers signature",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
+    },
+    {
+      "canonical_name": "Vidal Blanc",
+      "color": "white",
+      "aliases": [
+        "Vidal",
+        "Vidal 256"
+      ],
+      "tokens": [
+        "vidal",
+        "blanc"
+      ],
+      "style_hint": "Rich, honeyed white; Canadian Icewine benchmark grape",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 15
+    },
+    {
+      "canonical_name": "Maturana tinta",
+      "color": "red",
+      "aliases": [
+        "maturana",
+        "merenzao",
+        "bastardo menudo",
+        "maria ordoña"
+      ],
+      "tokens": [
+        "maturana",
+        "merenzao"
+      ],
+      "style_hint": "Full-bodied, deep color, high tannin; Rioja DOCa authorized variety since 2007 (Pliego de Condiciones AM13 Section 6); synonym merenzao used in Galicia/Ribeiro",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
+    },
+    {
+      "canonical_name": "Arbane",
+      "color": "white",
+      "aliases": [
+        "arbanne"
+      ],
+      "tokens": [
+        "arbane",
+        "arbanne"
+      ],
+      "style_hint": "Light-bodied, citric; near-extinct heritage Champagne variety. <0.1% of regulator-named Champagne cépages principaux per CIVC plantings.",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Petit Meslier",
+      "color": "white",
+      "aliases": [
+        "petit-meslier"
+      ],
+      "tokens": [
+        "petit",
+        "meslier"
+      ],
+      "style_hint": "High-acid, lean; heritage Champagne variety with rising boutique-grower revival. <0.2% of Champagne plantings per CIVC.",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Voltis",
+      "color": "white",
+      "aliases": [],
+      "tokens": [
+        "voltis"
+      ],
+      "style_hint": "Disease-resistant white variety; Champagne AOC variété d'intérêt à fin d'adaptation (≤5% vineyard / ≤10% assemblage), regulator-named in JORFTEXT000052045089 (arrêté du 31 juillet 2025).",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Chardonnay rose",
+      "color": "white",
+      "aliases": [
+        "chardonnay rose rs",
+        "chardonnay-rose"
+      ],
+      "tokens": [
+        "chardonnay",
+        "rose"
+      ],
+      "style_hint": "Pink-skinned Chardonnay mutation; new to Champagne cépages principaux per JORFTEXT000052045089 (arrêté du 31 juillet 2025). Compositionally identical to Chardonnay for ageing purposes.",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
+    },
+    {
+      "canonical_name": "Charbono",
+      "color": "red",
+      "aliases": [
+        "bonarda",
+        "douce noire",
+        "corbeau",
+        "charbonneau"
+      ],
+      "tokens": [
+        "charbono",
+        "bonarda"
+      ],
+      "style_hint": "Medium to full-bodied, rustic tannins",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
+    },
+    {
+      "canonical_name": "Krakhuna",
+      "color": "white",
+      "aliases": [
+        "krakhouna"
+      ],
+      "tokens": [
+        "krakhuna"
+      ],
+      "style_hint": "Full-bodied, amber-tinged when skin-contact",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 4
+    },
+    {
+      "canonical_name": "Oseleta",
+      "color": "red",
+      "aliases": [],
+      "tokens": [
+        "oseleta"
+      ],
+      "style_hint": "Dark, tannic, high in polyphenols",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
+    },
+    {
+      "canonical_name": "Otskhanuri Sapere",
+      "color": "red",
+      "aliases": [
+        "otskhanuri"
+      ],
+      "tokens": [
+        "otskhanuri",
+        "sapere"
+      ],
+      "style_hint": "Medium-bodied, earthy, tannic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 6
+    },
+    {
+      "canonical_name": "Tsitska",
+      "color": "white",
+      "aliases": [
+        "tsitska-tsolikouri"
+      ],
+      "tokens": [
+        "tsitska"
+      ],
+      "style_hint": "Light-bodied, high acid, floral",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
+    },
+    {
+      "canonical_name": "Schiava",
+      "color": "red",
+      "aliases": [
+        "vernatsch",
+        "trollinger",
+        "black hamburg",
+        "schiava gentile",
+        "schiava grossa",
+        "schiava grigia",
+        "lago di caldaro"
+      ],
+      "tokens": [
+        "schiava",
+        "vernatsch",
+        "trollinger"
+      ],
+      "style_hint": "Light-bodied, low tannin, red cherry",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     }
   ]
 }

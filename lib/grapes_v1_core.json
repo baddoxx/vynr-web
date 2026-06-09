@@ -26,7 +26,9 @@
         "cab",
         "sav"
       ],
-      "style_hint": "Full-bodied, tannic"
+      "style_hint": "Full-bodied, tannic",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 12
     },
     {
       "canonical_name": "Merlot",
@@ -39,7 +41,9 @@
       "tokens": [
         "merlot"
       ],
-      "style_hint": "Medium to full-bodied, soft"
+      "style_hint": "Medium to full-bodied, soft",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 8
     },
     {
       "canonical_name": "Pinot Noir",
@@ -52,7 +56,9 @@
         "黑比诺",
         "ピノ・ノワール",
         "ピノ･ノワール",
-        "ピノノワール"
+        "ピノノワール",
+        "Pinot Nero",
+        "Fruhburgunder"
       ],
       "tokens": [
         "pinot",
@@ -60,7 +66,9 @@
         "spatburgunder",
         "blauburgunder"
       ],
-      "style_hint": "Light to medium-bodied, elegant"
+      "style_hint": "Light to medium-bodied, elegant",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Syrah",
@@ -72,7 +80,9 @@
         "syrah",
         "shiraz"
       ],
-      "style_hint": "Full-bodied, spicy"
+      "style_hint": "Full-bodied, spicy",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 8
     },
     {
       "canonical_name": "Cabernet Franc",
@@ -88,7 +98,9 @@
         "bouchet",
         "breton"
       ],
-      "style_hint": "Medium-bodied, herbaceous"
+      "style_hint": "Medium-bodied, herbaceous",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Malbec",
@@ -102,7 +114,9 @@
         "cot",
         "auxerrois"
       ],
-      "style_hint": "Full-bodied, fruity"
+      "style_hint": "Full-bodied, fruity",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Grenache",
@@ -118,7 +132,9 @@
         "garnatxa",
         "cannonau"
       ],
-      "style_hint": "Medium to full-bodied, fruity"
+      "style_hint": "Medium to full-bodied, fruity",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Tempranillo",
@@ -138,7 +154,9 @@
         "aragonez",
         "cencibel"
       ],
-      "style_hint": "Medium to full-bodied"
+      "style_hint": "Medium to full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Sangiovese",
@@ -154,7 +172,9 @@
         "prugnolo",
         "morellino"
       ],
-      "style_hint": "Medium to full-bodied, high acid"
+      "style_hint": "Medium to full-bodied, high acid",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Nebbiolo",
@@ -168,7 +188,15 @@
         "spanna",
         "chiavennasca"
       ],
-      "style_hint": "Full-bodied, tannic, high acid"
+      "style_hint": "Full-bodied, tannic, high acid",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 12,
+      "closure_typicality": {
+        "supported": true,
+        "rationale": "Mid-life closure is a recognised phenomenological feature of structured Nebbiolo (Barolo, Barbaresco): the wine commonly shuts down between primary fruit expression and tertiary integration before reopening with greater complexity.",
+        "evidence_class": "corpus_seed",
+        "as_of": "2026-05-27"
+      }
     },
     {
       "canonical_name": "Barbera",
@@ -182,7 +210,9 @@
         "asti",
         "alba"
       ],
-      "style_hint": "Medium to full-bodied, high acid"
+      "style_hint": "Medium to full-bodied, high acid",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Dolcetto",
@@ -196,7 +226,9 @@
         "alba",
         "asti"
       ],
-      "style_hint": "Light to medium-bodied"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Mourvèdre",
@@ -211,7 +243,9 @@
         "monastrell",
         "mataro"
       ],
-      "style_hint": "Full-bodied, tannic"
+      "style_hint": "Full-bodied, tannic",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
     },
     {
       "canonical_name": "Zinfandel",
@@ -225,7 +259,9 @@
         "primitivo",
         "zin"
       ],
-      "style_hint": "Full-bodied, fruit-forward"
+      "style_hint": "Full-bodied, fruit-forward",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Petit Verdot",
@@ -237,18 +273,23 @@
       "tokens": [
         "verdot"
       ],
-      "style_hint": "Full-bodied, tannic"
+      "style_hint": "Full-bodied, tannic",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
     },
     {
       "canonical_name": "Carménère",
       "color": "red",
       "aliases": [
-        "carmenere"
+        "carmenere",
+        "Carmenère"
       ],
       "tokens": [
         "carmenere"
       ],
-      "style_hint": "Medium to full-bodied, herbaceous"
+      "style_hint": "Medium to full-bodied, herbaceous",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Carignan",
@@ -256,7 +297,8 @@
       "aliases": [
         "carignane",
         "carinena",
-        "mazuelo"
+        "mazuelo",
+        "Cariñena"
       ],
       "tokens": [
         "carignan",
@@ -264,7 +306,9 @@
         "carinena",
         "mazuelo"
       ],
-      "style_hint": "Full-bodied, tannic"
+      "style_hint": "Full-bodied, tannic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Cinsault",
@@ -276,7 +320,9 @@
         "cinsault",
         "cinsaut"
       ],
-      "style_hint": "Light-bodied, fruity"
+      "style_hint": "Light-bodied, fruity",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
     },
     {
       "canonical_name": "Gamay",
@@ -287,7 +333,9 @@
       "tokens": [
         "gamay"
       ],
-      "style_hint": "Light-bodied, fruity"
+      "style_hint": "Light-bodied, fruity",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
     },
     {
       "canonical_name": "Corvina",
@@ -298,7 +346,9 @@
       "tokens": [
         "corvina"
       ],
-      "style_hint": "Light to medium-bodied"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Nero d'Avola",
@@ -311,7 +361,9 @@
         "avola",
         "calabrese"
       ],
-      "style_hint": "Full-bodied"
+      "style_hint": "Full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Aglianico",
@@ -323,7 +375,9 @@
         "aglianico",
         "vulture"
       ],
-      "style_hint": "Full-bodied, tannic"
+      "style_hint": "Full-bodied, tannic",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
     },
     {
       "canonical_name": "Montepulciano",
@@ -335,7 +389,9 @@
         "montepulciano",
         "abruzzo"
       ],
-      "style_hint": "Medium to full-bodied"
+      "style_hint": "Medium to full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Negroamaro",
@@ -348,7 +404,9 @@
         "negro",
         "amaro"
       ],
-      "style_hint": "Full-bodied"
+      "style_hint": "Full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Zweigelt",
@@ -361,7 +419,9 @@
         "zweigelt",
         "rotburger"
       ],
-      "style_hint": "Light to medium-bodied"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Blaufränkisch",
@@ -369,14 +429,17 @@
       "aliases": [
         "blaufrankisch",
         "lemberger",
-        "kekfrankos"
+        "kekfrankos",
+        "Kékfrankos"
       ],
       "tokens": [
         "blaufrankisch",
         "lemberger",
         "kekfrankos"
       ],
-      "style_hint": "Medium-bodied, spicy"
+      "style_hint": "Medium-bodied, spicy",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Tannat",
@@ -390,7 +453,9 @@
         "harriague",
         "tanat"
       ],
-      "style_hint": "Full-bodied, very tannic"
+      "style_hint": "Full-bodied, very tannic",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
     },
     {
       "canonical_name": "Mencía",
@@ -401,7 +466,9 @@
       "tokens": [
         "mencia"
       ],
-      "style_hint": "Medium-bodied"
+      "style_hint": "Medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Touriga Nacional",
@@ -414,7 +481,15 @@
         "touriga",
         "nacional"
       ],
-      "style_hint": "Full-bodied, aromatic"
+      "style_hint": "Full-bodied, aromatic",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10,
+      "closure_typicality": {
+        "supported": true,
+        "rationale": "Vintage Port (Touriga Nacional dominant) commonly enters an extended mid-life dormancy in the years following bottling before re-emerging with integrated complexity; the phenomenon is one of the most clearly attested closed-phase patterns in the wine corpus.",
+        "evidence_class": "corpus_seed",
+        "as_of": "2026-05-27"
+      }
     },
     {
       "canonical_name": "Pinotage",
@@ -425,7 +500,9 @@
       "tokens": [
         "pinotage"
       ],
-      "style_hint": "Medium to full-bodied"
+      "style_hint": "Medium to full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Xinomavro",
@@ -438,7 +515,9 @@
         "xinomavro",
         "xynomavro"
       ],
-      "style_hint": "Full-bodied, tannic, high acid"
+      "style_hint": "Full-bodied, tannic, high acid",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
     },
     {
       "canonical_name": "Petite Sirah",
@@ -452,7 +531,9 @@
         "sirah",
         "durif"
       ],
-      "style_hint": "Full-bodied, very tannic"
+      "style_hint": "Full-bodied, very tannic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 6
     },
     {
       "canonical_name": "Nerello Mascalese",
@@ -465,7 +546,9 @@
         "nerello",
         "mascalese"
       ],
-      "style_hint": "Medium-bodied, elegant"
+      "style_hint": "Medium-bodied, elegant",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 8
     },
     {
       "canonical_name": "Chardonnay",
@@ -481,7 +564,9 @@
         "morillon",
         "chardonnas"
       ],
-      "style_hint": "Full-bodied"
+      "style_hint": "Full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Sauvignon Blanc",
@@ -489,14 +574,17 @@
       "aliases": [
         "fume blanc",
         "ソーヴィニヨン・ブラン",
-        "ソーヴィニヨンブラン"
+        "ソーヴィニヨンブラン",
+        "Sauvignon"
       ],
       "tokens": [
         "sauvignon",
         "blanc",
         "fume"
       ],
-      "style_hint": "Light to medium-bodied, crisp"
+      "style_hint": "Light to medium-bodied, crisp",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
       "canonical_name": "Riesling",
@@ -511,13 +599,16 @@
         "riesling",
         "rheinriesling"
       ],
-      "style_hint": "Light-bodied, high acid"
+      "style_hint": "Light-bodied, high acid",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
     },
     {
       "canonical_name": "Pinot Grigio",
       "color": "white",
       "aliases": [
         "pinot gris",
+        "pinot gris G",
         "grauburgunder",
         "rulander"
       ],
@@ -528,14 +619,17 @@
         "grauburgunder",
         "rulander"
       ],
-      "style_hint": "Light to medium-bodied"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
       "canonical_name": "Pinot Blanc",
       "color": "white",
       "aliases": [
         "pinot bianco",
-        "weissburgunder"
+        "weissburgunder",
+        "Weißburgunder"
       ],
       "tokens": [
         "pinot",
@@ -543,7 +637,9 @@
         "bianco",
         "weissburgunder"
       ],
-      "style_hint": "Light to medium-bodied"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
     },
     {
       "canonical_name": "Gewürztraminer",
@@ -556,7 +652,9 @@
         "gewurztraminer",
         "traminer"
       ],
-      "style_hint": "Full-bodied, aromatic"
+      "style_hint": "Full-bodied, aromatic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Viognier",
@@ -569,7 +667,9 @@
       "tokens": [
         "viognier"
       ],
-      "style_hint": "Full-bodied, aromatic"
+      "style_hint": "Full-bodied, aromatic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Chenin Blanc",
@@ -585,7 +685,9 @@
         "loire",
         "steen"
       ],
-      "style_hint": "Light to full-bodied, versatile"
+      "style_hint": "Light to full-bodied, versatile",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
     },
     {
       "canonical_name": "Sémillon",
@@ -596,7 +698,9 @@
       "tokens": [
         "semillon"
       ],
-      "style_hint": "Full-bodied, rich"
+      "style_hint": "Full-bodied, rich",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 10
     },
     {
       "canonical_name": "Melon de Bourgogne",
@@ -609,7 +713,9 @@
         "melon",
         "muscadet"
       ],
-      "style_hint": "Light-bodied, crisp"
+      "style_hint": "Light-bodied, crisp",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
       "canonical_name": "Albariño",
@@ -622,7 +728,9 @@
         "albarino",
         "alvarinho"
       ],
-      "style_hint": "Light to medium-bodied, crisp"
+      "style_hint": "Light to medium-bodied, crisp",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Verdejo",
@@ -631,7 +739,9 @@
       "tokens": [
         "verdejo"
       ],
-      "style_hint": "Light to medium-bodied"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Grüner Veltliner",
@@ -645,7 +755,9 @@
         "veltliner",
         "gv"
       ],
-      "style_hint": "Light to medium-bodied, crisp"
+      "style_hint": "Light to medium-bodied, crisp",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Torrontés",
@@ -656,7 +768,9 @@
       "tokens": [
         "torrontes"
       ],
-      "style_hint": "Light to medium-bodied, aromatic"
+      "style_hint": "Light to medium-bodied, aromatic",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
       "canonical_name": "Vermentino",
@@ -670,20 +784,27 @@
         "rolle",
         "pigato"
       ],
-      "style_hint": "Light to medium-bodied"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
       "canonical_name": "Trebbiano",
       "color": "white",
       "aliases": [
-        "ugni blanc"
+        "ugni blanc",
+        "Trebbiano Toscano",
+        "Trebbiano d'Abruzzo",
+        "Procanico"
       ],
       "tokens": [
         "trebbiano",
         "ugni",
         "blanc"
       ],
-      "style_hint": "Light-bodied, neutral"
+      "style_hint": "Light-bodied, neutral",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
       "canonical_name": "Garganega",
@@ -695,7 +816,9 @@
         "garganega",
         "grecanico"
       ],
-      "style_hint": "Light to medium-bodied"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Glera",
@@ -707,7 +830,9 @@
         "glera",
         "prosecco"
       ],
-      "style_hint": "Light-bodied, sparkling"
+      "style_hint": "Light-bodied, sparkling",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
       "canonical_name": "Cortese",
@@ -719,7 +844,9 @@
         "cortese",
         "gavi"
       ],
-      "style_hint": "Light to medium-bodied, crisp"
+      "style_hint": "Light to medium-bodied, crisp",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
       "canonical_name": "Arneis",
@@ -731,7 +858,9 @@
       "tokens": [
         "arneis"
       ],
-      "style_hint": "Medium-bodied"
+      "style_hint": "Medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Fiano",
@@ -743,7 +872,9 @@
         "fiano",
         "avellino"
       ],
-      "style_hint": "Medium-bodied"
+      "style_hint": "Medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Greco",
@@ -755,7 +886,9 @@
         "greco",
         "tufo"
       ],
-      "style_hint": "Medium-bodied"
+      "style_hint": "Medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Falanghina",
@@ -769,7 +902,9 @@
         "sannio",
         "beneventana"
       ],
-      "style_hint": "Light to medium-bodied"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Friulano",
@@ -783,7 +918,9 @@
         "tocai",
         "sauvignonasse"
       ],
-      "style_hint": "Medium-bodied"
+      "style_hint": "Medium-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Verdicchio",
@@ -797,7 +934,9 @@
         "jesi",
         "matelica"
       ],
-      "style_hint": "Light to medium-bodied, crisp"
+      "style_hint": "Light to medium-bodied, crisp",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Marsanne",
@@ -810,7 +949,9 @@
         "marsanne",
         "ermitage"
       ],
-      "style_hint": "Full-bodied"
+      "style_hint": "Full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Roussanne",
@@ -823,19 +964,24 @@
         "roussanne",
         "bergeron"
       ],
-      "style_hint": "Full-bodied, aromatic"
+      "style_hint": "Full-bodied, aromatic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Picpoul",
       "color": "white",
       "aliases": [
-        "piquepoul"
+        "piquepoul",
+        "Piquepoul Blanc"
       ],
       "tokens": [
         "picpoul",
         "piquepoul"
       ],
-      "style_hint": "Light-bodied, crisp"
+      "style_hint": "Light-bodied, crisp",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
       "canonical_name": "Grenache Blanc",
@@ -849,7 +995,9 @@
         "garnacha",
         "blanca"
       ],
-      "style_hint": "Full-bodied"
+      "style_hint": "Full-bodied",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Macabeo",
@@ -861,7 +1009,9 @@
         "macabeo",
         "viura"
       ],
-      "style_hint": "Light to medium-bodied"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
       "canonical_name": "Godello",
@@ -873,7 +1023,9 @@
         "godello",
         "gouveio"
       ],
-      "style_hint": "Medium-bodied, aromatic"
+      "style_hint": "Medium-bodied, aromatic",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Assyrtiko",
@@ -887,7 +1039,9 @@
         "assyrtiko",
         "assyrtico"
       ],
-      "style_hint": "Medium-bodied, high acid"
+      "style_hint": "Medium-bodied, high acid",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Furmint",
@@ -901,7 +1055,9 @@
         "tokaji",
         "sipon"
       ],
-      "style_hint": "Full-bodied, high acid"
+      "style_hint": "Full-bodied, high acid",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     },
     {
       "canonical_name": "Muscat",
@@ -910,7 +1066,12 @@
         "moscato",
         "muscat blanc",
         "moscatel",
-        "muskateller"
+        "muskateller",
+        "Moscato Bianco",
+        "Muscat A Petits Grains",
+        "Muscat À Petits Grains",
+        "Muscat Of Alexandria",
+        "Moscatel de Alejandría"
       ],
       "tokens": [
         "muscat",
@@ -918,7 +1079,9 @@
         "moscatel",
         "muskateller"
       ],
-      "style_hint": "Light to medium-bodied, aromatic"
+      "style_hint": "Light to medium-bodied, aromatic",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
     },
     {
       "canonical_name": "Savagnin",
@@ -933,7 +1096,9 @@
         "traminer",
         "heida"
       ],
-      "style_hint": "Full-bodied, oxidative"
+      "style_hint": "Full-bodied, oxidative",
+      "aging_potential": "very_long",
+      "typical_peak_offset_years": 15
     },
     {
       "canonical_name": "Aligoté",
@@ -944,7 +1109,9 @@
       "tokens": [
         "aligote"
       ],
-      "style_hint": "Light to medium-bodied, crisp"
+      "style_hint": "Light to medium-bodied, crisp",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
     },
     {
       "canonical_name": "Müller-Thurgau",
@@ -958,7 +1125,9 @@
         "thurgau",
         "rivaner"
       ],
-      "style_hint": "Light-bodied"
+      "style_hint": "Light-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 2
     },
     {
       "canonical_name": "Silvaner",
@@ -970,19 +1139,26 @@
         "silvaner",
         "sylvaner"
       ],
-      "style_hint": "Light to medium-bodied"
+      "style_hint": "Light to medium-bodied",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
     },
     {
       "canonical_name": "Palomino",
       "color": "white",
       "aliases": [
-        "listan blanco"
+        "listan blanco",
+        "Palomino Fino",
+        "Listán Blanco",
+        "Lisán"
       ],
       "tokens": [
         "palomino",
         "listan"
       ],
-      "style_hint": "Light-bodied, neutral"
+      "style_hint": "Light-bodied, neutral",
+      "aging_potential": "short",
+      "typical_peak_offset_years": 3
     },
     {
       "canonical_name": "Pedro Ximénez",
@@ -996,7 +1172,9 @@
         "ximenez",
         "px"
       ],
-      "style_hint": "Full-bodied, sweet"
+      "style_hint": "Full-bodied, sweet",
+      "aging_potential": "long",
+      "typical_peak_offset_years": 15
     },
     {
       "canonical_name": "Pinot Meunier",
@@ -1008,7 +1186,9 @@
         "pinot",
         "meunier"
       ],
-      "style_hint": "Light-bodied, fruity"
+      "style_hint": "Light-bodied, fruity",
+      "aging_potential": "medium",
+      "typical_peak_offset_years": 5
     }
   ]
 }
