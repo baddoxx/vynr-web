@@ -11,9 +11,9 @@ tags:
 
 The Time Lens is how you move through your cellar in time — what you've drunk, what's ready now, what's still coming up. I built it, and then I kept building. For weeks it grew more elaborate, and I was pleased with it.
 
-![The over-built version — a jewelled time scrubber, an engraved medallion, a mountain curve, layered italic captions over a faint map](/journal/timelens-ornate.png)
+![The over-built version — a jewelled time scrubber, an engraved clock, a mountain curve, layered italic captions over a faint map](/journal/timelens-ornate.png)
 
-A scrubber with a coloured notch for every bottle. An engraved medallion in the middle. A mountain curve behind it. *Memories* and *Evolution* with their arrows. A headline, a subtitle, a second subtitle, and a map ghosted under all of it. I'd fallen for the concept and kept decorating it.
+A scrubber with a coloured notch for every bottle. An engraved clock in the middle. A mountain curve behind it. *Memories* and *Evolution* with their arrows. A headline, a subtitle, a second subtitle, and a map ghosted under all of it. I'd fallen for the concept and kept decorating it.
 
 We have a test for this: does a screen answer *what is this?* or *how should I feel?* This one only ever answered the second — loudly — before it had told you anything true about your cellar.
 
@@ -23,13 +23,13 @@ Eventually I admitted it was too complex, and did the thing I always seem to end
 
 ![The reset sketch — three panels: a memories rail, a now-scrubber with arrows, an evolution curve](/journal/timelens-sketch.jpg)
 
-Three panels — past, now, future — and nothing else. This isn't where I'd started; the build came first and the clutter after. The sketch was a reset: the idea stripped back to the only three things it actually needed, on paper, where adding a medallion takes real effort instead of one more component.
+Three panels — past, now, future — and nothing else. This isn't where I'd started; the build came first and the clutter after. The sketch was a reset: the idea stripped back to the only three things it actually needed, on paper, where adding a clock takes real effort instead of one more component.
 
 ## Cutting it back
 
 ![The stripped build — three modes, Memories and Evolution above, Now below, large serif type and open space](/journal/timelens-stripped.jpg)
 
-So it was mostly deletion. The scrubber, the medallion, the mountain — gone. What was left were the three modes, one line of copy, and the numbers.
+So it was mostly deletion. The scrubber, the clock, the mountain — gone. What was left were the three modes, one line of copy, and the numbers.
 
 The signal that it worked wasn't that it looked better. It was that I stopped thinking about it. I'd open the Time Lens and think about which bottles were ready to drink, not about the interface.
 
