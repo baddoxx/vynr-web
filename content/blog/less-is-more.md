@@ -2,26 +2,28 @@
 title: Less Is More
 date: 2026-06-22
 type: journal
-description: I spent weeks making the time lens more elaborate, then found the concept I started with was already right — and why the code underneath only looks complicated.
+description: I spent weeks making the time lens more elaborate, then took my journal to a café and cut it back to three modes — and why the complexity underneath is the whole point.
 tags:
   - design
   - time lens
   - less is more
 ---
 
-The Time Lens is how you move through your cellar in time — what you've drunk, what's ready now, what's still coming up. I had the shape of it early: three modes, past, present, future. Then, for weeks, I made it more elaborate.
+The Time Lens is how you move through your cellar in time — what you've drunk, what's ready now, what's still coming up. I built it, and then I kept building. For weeks it grew more elaborate, and I was pleased with it.
 
 ![The over-built version — a jewelled time scrubber, an engraved medallion, a mountain curve, layered italic captions over a faint map](/journal/timelens-ornate.png)
 
-A scrubber with a coloured notch for every bottle. An engraved medallion in the middle. A mountain curve behind it. *Memories* and *Evolution* with their arrows. A headline, a subtitle, a second subtitle, and a map ghosted under all of it. I'd fallen for the concept and started decorating it.
+A scrubber with a coloured notch for every bottle. An engraved medallion in the middle. A mountain curve behind it. *Memories* and *Evolution* with their arrows. A headline, a subtitle, a second subtitle, and a map ghosted under all of it. I'd fallen for the concept and kept decorating it.
 
 We have a test for this: does a screen answer *what is this?* or *how should I feel?* This one only ever answered the second — loudly — before it had told you anything true about your cellar.
 
-## The version I started with
+## The reset
 
-![The first sketch — three panels: a memories rail, a now-scrubber with arrows, an evolution curve](/journal/timelens-sketch.jpg)
+Eventually I admitted it was too complex, and did the thing I always seem to end up doing when that happens: I took my journal to a café and drew it. (It's becoming a pattern — the maps got fixed the same way.)
 
-That's the first sketch. Three panels, nothing else. After weeks of additions, the honest conclusion was that the original concept had been right all along, and most of what I'd piled on since was in the way. The interesting part of the redesign wasn't a new idea — it was admitting I'd already had it.
+![The reset sketch — three panels: a memories rail, a now-scrubber with arrows, an evolution curve](/journal/timelens-sketch.jpg)
+
+Three panels — past, now, future — and nothing else. This isn't where I'd started; the build came first and the clutter after. The sketch was a reset: the idea stripped back to the only three things it actually needed, on paper, where adding a medallion takes real effort instead of one more component.
 
 ## Cutting it back
 
