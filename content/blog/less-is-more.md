@@ -33,7 +33,7 @@ The signal that it worked wasn't that it looked better. It was that I stopped th
 
 ## The complicated part
 
-![The vynr source as a knowledge graph — thousands of nodes in a dense glowing sphere, every line a dependency](/journal/vynr-code-galaxy.png)
+![The vynr source as a knowledge graph — thousands of nodes in a dense glowing sphere, every line a dependency](/journal/vynr-code-galaxy.webp)
 
 That's the vynr codebase — every point a function, every line a dependency. It is genuinely complex. But it isn't one big complicated thing; it's a great many *simple* things laid over each other. One piece reads a label. One resolves an appellation. One shapes an ageing curve. One scores how much to trust the rest. None is clever on its own — but superpose enough of them and you can model a cellar, which is a far messier problem than it looks: geography, vintages, how a wine changes over years, and a great deal of honest doubt.
 
