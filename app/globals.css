@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 :root {
+  /* Warm papyrus aesthetic is light-only — never follow the OS dark preference */
+  color-scheme: light;
+
   /* Atlas Canvas (Papyrus/Sepia) */
   --atlas-bg: #fdf6e3;
   --atlas-card: #eee8d5;
@@ -20,22 +23,6 @@
 
   --background: var(--atlas-bg);
   --foreground: var(--atlas-text);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --atlas-bg: #1C1814;
-    --atlas-card: #282220;
-    --atlas-card-stroke: #3A322A;
-    --atlas-text: #E4DACE;
-    --atlas-text-secondary: #B0A590;
-    --atlas-text-placeholder: #847A68;
-    --atlas-separator: #3A322A;
-    --atlas-tint: #C4A878;
-    --atlas-destructive: #C46050;
-
-    --chrome-bg: #1C1814;
-  }
 }
 
 /* Force light mode on share pages — warm papyrus aesthetic is light-only */
@@ -220,13 +207,6 @@ button:focus-visible {
   mask-composite: intersect;
 }
 
-@media (prefers-color-scheme: dark) {
-  .memory-shot img {
-    opacity: 0.92;
-    filter: saturate(0.85) contrast(1.05) brightness(0.95);
-  }
-}
-
 .memory-shot-odd {
   margin-top: 2.5rem;
 }
@@ -300,13 +280,6 @@ button:focus-visible {
     linear-gradient(to right,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%),
     linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
   mask-composite: intersect;
-}
-
-@media (prefers-color-scheme: dark) {
-  .journal-photo img {
-    opacity: 0.95;
-    filter: saturate(0.88) contrast(1.04) brightness(0.96);
-  }
 }
 
 /* Clear float before first h2 so rest is single column */
@@ -409,15 +382,6 @@ button:focus-visible {
   color: var(--atlas-text-placeholder);
   width: 40px;
   flex-shrink: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  .wine-taste-track {
-    background: rgba(255,255,255,0.08);
-  }
-  .wine-taste-center {
-    background: rgba(255,255,255,0.15);
-  }
 }
 
 /* SVG treemap focus ring */
