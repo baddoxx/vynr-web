@@ -39,7 +39,7 @@ The signal that it worked wasn't that it looked better. It was that I stopped th
 
 That's the vynr codebase — every point a function, every line a dependency. It is genuinely complex. But it isn't one big complicated thing; it's a great many *simple* things laid over each other. One piece reads a label. One resolves an appellation. One shapes an ageing curve. One scores how much to trust the rest. None is clever on its own — but superpose enough of them and you can model a cellar, which is a far messier problem than it looks: geography, vintages, how a wine changes over years, and a great deal of honest doubt.
 
-That's the complexity the problem actually demands. And it has to live somewhere. So simplifying the screen was the easy part — the hard part is everything in that picture: building enough of it to hold the problem, then keeping all of it underneath and handing you back something simple, and ideally beautiful, that you never have to think about. Three plain doors over a whole modelled world.
+That's the complexity the problem actually demands. And it has to live somewhere. So simplifying the screen was the easy part — the hard part is everything in that picture: building enough of it to hold the problem, then keeping all of it underneath and handing you back something simple, and beautiful, that you never have to think about. Three plain doors over a whole modelled world.
 
 That struggle — between the complexity the problem demands and the simplicity it deserves —
 
