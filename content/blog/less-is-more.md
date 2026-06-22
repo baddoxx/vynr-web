@@ -2,65 +2,49 @@
 title: Less Is More
 date: 2026-06-22
 type: journal
-description: How the time lens got simpler — from an ornate, over-decorated build back to three quiet doors — and the complexity that hides underneath.
+description: How an over-built time lens got cut back to three plain modes — and how the code underneath got more complex, not less.
 tags:
   - design
   - time lens
   - less is more
 ---
 
-A cellar isn't only a *where* — it's a *when*. So vynr already had a way to walk through time: the wines you've drunk, the moment you're standing in, the future the bottles are still climbing toward. I'd built it. And I'd given it everything.
+A cellar isn't only a *where* — it's a *when*. vynr already had a way to move through time: the wines you've drunk, where you are now, and where the bottles are still heading. I'd built it, and then I'd kept adding to it.
 
 ![The first build — a jewelled time scrubber, an engraved medallion, a mountain curve, layered italic captions over a faint map](/journal/timelens-ornate.png)
 
-A scrubber strung with little coloured notches, one for every bottle. An engraved medallion in the centre, like a coin. A mountain rising behind it. *Memories* and *Evolution* leaning in from the wings with their arrows. A headline, a subtitle, a second subtitle. A map ghosted underneath the whole thing.
+A scrubber with a coloured notch for every bottle. An engraved medallion in the middle. A mountain curve behind it. *Memories* and *Evolution* with their arrows. A headline, a subtitle, a second subtitle, and a map ghosted under all of it.
 
-It looked *designed*. It looked like a poster for itself. There's a test we keep coming back to here — *does it answer "what is this?" or "how should I feel?"* — and this answered the second question in a dozen small voices at once, before it had told you a single true thing about your cellar. I had built a fairground.
+We have a test for this kind of thing: does a screen answer *what is this?* or *how should I feel?* This one answered the second question, loudly, before it had told you anything true about your cellar. I'd built a fairground.
 
 So I went back to paper.
 
 ## The sketch
 
-Pen, graph paper, no undo — which is where every honest idea starts. I stopped drawing the *thing* and drew what I'd actually meant: three panels. The past, the present, and a little mountain for the years ahead.
-
 ![The notebook storyboard — three panels: a memories rail, a now-scrubber with arrows, an evolution curve](/journal/timelens-sketch.jpg)
 
-> *Memories — Now — Evolution.*
+The notebook version had three panels: the past, now, and the future. That was the whole thing. The version I'd shipped had accumulated a scrubber, a medallion, captions, a mountain and a map. Somewhere along the way I'd started solving a different problem — making it look impressive — instead of the one I'd actually drawn.
 
-Three rooms in time, and a way to walk between them. That was the whole of it. On the screen I'd built a fairground; on the graph paper in front of me were three quiet rooms — which is what I'd wanted all along. The sketch knew what the build had forgotten.
+The embarrassing part is that the sketch was clearer than the implementation, and it had taken thirty seconds with a pen.
 
-## Bringing it back
+## Cutting it back
 
-Then the work was making the screen match the notebook — which meant removing, not adding.
+![The stripped build — three modes, Memories and Evolution above, Now below, large serif type and open space](/journal/timelens-stripped.jpg)
 
-![The stripped build — three calm doors, Memories and Evolution above, Now below, large serif type and open space](/journal/timelens-stripped.jpg)
+The redesign was mostly deletion. The scrubber went. The medallion went. The mountain went. What was left were the three modes the sketch had asked for — *Memories* and *Evolution* as two doors, *Now* underneath — one line of copy, and the numbers. The map stayed, but only as background.
 
-The scrubber went. The medallion went. The mountain went. What was left were the three rooms — *Memories, the past* and *Evolution, the future* as two plain doors, *Now, the present* standing underneath with nothing to prove. One sentence about the cellar, in type large enough to mean it. The map, finally allowed to just be the floor.
+The surprising part wasn't that it looked better. It was that I stopped thinking about it. I'd open the Time Lens and think about which bottles were ready to drink, not about the interface. That was the clearest signal the redesign was heading the right way.
 
-Less to look at. More to understand. You arrive and you *know where you are* — and only then, when you reach for a door, does time start to move. The decoration hadn't been adding meaning. It had been standing in front of it.
-
-The strange part came after: with the decoration gone, I stopped noticing the screen at all. I'd open it and find myself thinking about the wine instead of the interface — which is the only thing the interface was ever supposed to do.
-
-## What "less" costs
-
-Here's the part nobody sees.
+## What it cost
 
 ![The vynr source as a knowledge graph — thousands of nodes in a dense glowing sphere, every line a dependency](/journal/vynr-code-galaxy.png)
 
-Behind those three calm doors sit thousands of appellation ageing curves, producer profiles, the OCR that reads a label, the map projections, and a confidence score on every single guess. A bottle scanned on your phone falls through that entire galaxy before three doors can appear and pretend it was nothing.
+Here's the part that doesn't show up on screen. Behind those three modes sit thousands of appellation ageing curves, producer profiles, the OCR that reads the label, the map projections, and a confidence score on every guess. A bottle you scan falls through all of that before the three doors can render.
 
-The simplicity on the surface is bought with all of that underneath. *Less is more* is not less work — it's the opposite. It's the work of deciding, a thousand times, what the screen gets to leave out, and then building the machinery that earns the silence.
+So the surface got simpler and the code underneath got more complex — not less. *Less is more* didn't mean less work. It meant spending more of it deciding what to leave out, and then building enough underneath to make the result look obvious.
 
-The fairground was easy. The three quiet rooms were expensive.
-
----
-
-> *Strip the surface bare —*
->
-> *underneath, a whole galaxy*
->
-> *holding up the calm*
+The fairground was the easy version. The simple one cost far more.
 
 ---
 
-*Less on the screen. More beneath it.*
+*Less on the screen. More underneath it.*
