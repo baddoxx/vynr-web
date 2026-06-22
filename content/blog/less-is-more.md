@@ -31,15 +31,15 @@ So it was mostly deletion. The scrubber, the medallion, the mountain — gone. W
 
 The signal that it worked wasn't that it looked better. It was that I stopped thinking about it. I'd open the Time Lens and think about which bottles were ready to drink, not about the interface.
 
-## It only looks complicated
+## The complicated part
 
 ![The vynr source as a knowledge graph — thousands of nodes in a dense glowing sphere, every line a dependency](/journal/vynr-code-galaxy.png)
 
-That's the vynr codebase — every point a function, every line a dependency. It looks complicated. It mostly isn't: it's a great many *simple* things stacked on top of each other. One piece reads a label. One resolves an appellation. One shapes an ageing curve. One scores how much to trust any of it. None of them is clever on its own.
+That's the vynr codebase — every point a function, every line a dependency. It is genuinely complex. But it isn't one big complicated thing; it's a great many *simple* things laid over each other. One piece reads a label. One resolves an appellation. One shapes an ageing curve. One scores how much to trust the rest. None is clever on its own — but superpose enough of them and you can model a cellar, which is a far messier problem than it looks: geography, vintages, how a wine changes over years, and a great deal of honest doubt.
 
-And that's the actual job. Simplifying the screen was the easy half — three modes took thirty seconds with a pen. The hard half is building something complex enough underneath that a messy domain — wine, with all its geography and time and doubt — can show up on the surface as three plain doors.
+That's the complexity the problem actually demands. And it has to live somewhere. So simplifying the screen was the easy half — the hard half is everything in that picture: building enough of it to hold the problem, then keeping all of it underneath and handing you back something simple, and ideally beautiful, that you never have to think about. Three plain doors over a whole modelled world.
 
-Less on the screen, paid for by a lot of small, correct things underneath.
+That struggle — between the complexity the problem demands and the simplicity it deserves —
 
 ---
 
