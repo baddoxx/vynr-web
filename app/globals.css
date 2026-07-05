@@ -51,6 +51,8 @@ body {
    any extra space lands under the hero content, above the footer */
 main {
   flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Keyboard focus — visible ring on all interactive elements */
@@ -512,17 +514,17 @@ g:focus-visible .focus-ring {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: url("/vynr-world-map.jpg?v=6");
+  background-image: url("/vynr-world-map.jpg?v=7");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 26% center;
   opacity: 0.14;
   mix-blend-mode: multiply;
-  /* fill the canvas with one hemisphere; fade softly to cream at the edges
-     so the title/CTA text stays crisp. Tuning knobs: opacity (presence),
-     background-position (which slice of the map), background-size (zoom). */
-  -webkit-mask-image: radial-gradient(125% 82% at 50% 44%, #000 52%, rgba(0, 0, 0, 0) 100%);
-  mask-image: radial-gradient(125% 82% at 50% 44%, #000 52%, rgba(0, 0, 0, 0) 100%);
+  /* Fill the whole canvas edge-to-edge; fade ONLY into the header/footer
+     separator lines so there is no mid-canvas boundary. Paper is pre-baked to
+     white, so multiply renders it as the exact page cream (no tonal seam). */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 6%, #000 94%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 6%, #000 94%, rgba(0, 0, 0, 0) 100%);
   animation: heroMapFade 700ms ease-out both;
 }
 

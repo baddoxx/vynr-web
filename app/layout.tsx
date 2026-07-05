@@ -108,7 +108,7 @@ export default function RootLayout({
                   letterSpacing: "0.04em",
                 }}
               >
-                build 6
+                build 7
               </span>
             </span>
             <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
