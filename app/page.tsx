@@ -36,13 +36,13 @@ export default function Home() {
       </p>
 
       {/* Hero — wine glass illustration */}
-      <div style={{ marginTop: "clamp(1.75rem, 8vw, 3.5rem)", marginBottom: "0.75rem" }}>
+      <div style={{ marginTop: "clamp(0.75rem, 4vw, 3.5rem)", marginBottom: "0.5rem" }}>
         <Image
           src="/journal/vynr-glass.png"
           alt="A wine glass, ink illustration"
           width={240}
           height={240}
-          style={{ width: 240, height: "auto", margin: "0 auto", display: "block" }}
+          style={{ width: "clamp(168px, 46vw, 240px)", height: "auto", margin: "0 auto", display: "block" }}
           priority
         />
       </div>
@@ -68,66 +68,6 @@ export default function Home() {
         }}
       >
         Vynr launches soon on iOS.
-      </p>
-
-      <form
-        action="https://buttondown.com/api/emails/embed-subscribe/vynr"
-        method="post"
-        target="popupwindow"
-        style={{
-          marginTop: "1.25rem",
-          display: "flex",
-          gap: "0.5rem",
-          justifyContent: "center",
-          maxWidth: 360,
-          margin: "1.25rem auto 0",
-        }}
-      >
-        <input type="hidden" name="embed" value="1" />
-        <input
-          type="email"
-          name="email"
-          placeholder="your@email.com"
-          required
-          style={{
-            flex: 1,
-            padding: "10px 14px",
-            fontSize: "0.875rem",
-            border: "1px solid var(--atlas-separator)",
-            borderRadius: 6,
-            backgroundColor: "var(--atlas-bg)",
-            color: "var(--atlas-text)",
-            outline: "none",
-            letterSpacing: "0.01em",
-          }}
-        />
-        <button
-          type="submit"
-          style={{
-            padding: "10px 20px",
-            fontSize: "0.85rem",
-            fontWeight: 600,
-            letterSpacing: "0.01em",
-            color: "var(--atlas-bg)",
-            backgroundColor: "var(--atlas-text)",
-            border: "none",
-            borderRadius: 6,
-            cursor: "pointer",
-          }}
-        >
-          Join the early list
-        </button>
-      </form>
-
-      <p
-        style={{
-          marginTop: "0.6rem",
-          fontSize: "0.75rem",
-          color: "var(--atlas-text-placeholder)",
-          letterSpacing: "0.01em",
-        }}
-      >
-        No spam. One email when the app launches.
       </p>
 
       <div style={{ marginTop: "clamp(1.5rem, 7vw, 3rem)" }}>
