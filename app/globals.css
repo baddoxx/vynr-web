@@ -446,11 +446,11 @@ g:focus-visible .focus-ring {
 
 /* Silly Jam maker's-mark colophon — a quiet publisher's seal at the foot of the page */
 .sj-mark-wrap {
-  margin-top: 1.4rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.65rem;
 }
 
 .sj-divider {
@@ -530,5 +530,25 @@ g:focus-visible .focus-ring {
 @media (prefers-reduced-motion: reduce) {
   .hero-map {
     animation: none;
+  }
+}
+
+/* Desktop: a narrow portrait column crops the landscape map into an ugly
+   vertical strip marooned in cream. Instead present the WHOLE Mappe-Monde at
+   its natural landscape extent, centered behind the content (wider than the
+   text column) so the text floats over a world-map spread. */
+@media (min-width: 680px) {
+  .hero-map {
+    inset: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(92vw, 1060px);
+    height: auto;
+    aspect-ratio: 1536 / 1024;
+    background-size: contain;
+    background-position: center;
+    -webkit-mask-image: radial-gradient(78% 84% at 50% 50%, #000 46%, rgba(0, 0, 0, 0) 100%);
+    mask-image: radial-gradient(78% 84% at 50% 50%, #000 46%, rgba(0, 0, 0, 0) 100%);
   }
 }

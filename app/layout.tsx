@@ -130,7 +130,7 @@ export default function RootLayout({
         <footer
           style={{
             borderTop: "1px solid var(--atlas-separator)",
-            padding: "2rem 1.5rem",
+            padding: "1.5rem 1.5rem 1.75rem",
             textAlign: "center",
             color: "var(--atlas-text-placeholder)",
             fontSize: "0.8rem",
