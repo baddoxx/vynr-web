@@ -512,7 +512,7 @@ g:focus-visible .focus-ring {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: url("/vynr-world-map.jpg");
+  background-image: url("/vynr-world-map.jpg?v=6");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 26% center;
