@@ -453,13 +453,6 @@ g:focus-visible .focus-ring {
   gap: 0.65rem;
 }
 
-.sj-divider {
-  width: 26px;
-  height: 1px;
-  background: var(--atlas-separator);
-  opacity: 0.5;
-}
-
 .sj-colophon {
   display: inline-flex;
   align-items: center;

@@ -224,7 +224,6 @@ export default function RootLayout({
           </a>
 
           <div className="sj-mark-wrap">
-            <span className="sj-divider" aria-hidden="true" />
             <span className="sj-colophon" title="Silly Jam Pte. Ltd. — publisher of Vynr">
               <svg
                 className="sj-jar"
