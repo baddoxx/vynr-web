@@ -35,14 +35,15 @@ export default function Home() {
         Your wines. In place. In time.
       </p>
 
-      {/* Hero — wine glass illustration */}
-      <div style={{ marginTop: "clamp(0.75rem, 4vw, 3.5rem)", marginBottom: "0.5rem" }}>
+      {/* Hero — wine glass over a faint antique world map */}
+      <div style={{ position: "relative", marginTop: "clamp(0.75rem, 4vw, 3.5rem)", marginBottom: "0.5rem" }}>
+        <div className="hero-map" aria-hidden="true" />
         <Image
           src="/journal/vynr-glass.png"
           alt="A wine glass, ink illustration"
           width={240}
           height={240}
-          style={{ width: "clamp(168px, 46vw, 240px)", height: "auto", margin: "0 auto", display: "block" }}
+          style={{ position: "relative", zIndex: 1, width: "clamp(168px, 46vw, 240px)", height: "auto", margin: "0 auto", display: "block" }}
           priority
         />
       </div>

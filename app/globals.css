@@ -494,3 +494,43 @@ g:focus-visible .focus-ring {
     transform: none;
   }
 }
+
+/* Antique Mappe-Monde wash behind the hero wine glass — printed into the
+   cream paper via multiply, cropped to a soft circle over one hemisphere.
+   Tuning knobs: --hero-map-opacity, background-position (which hemisphere),
+   background-size (zoom). */
+.hero-map {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(94vw, 480px);
+  aspect-ratio: 1 / 1;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/vynr-world-map.jpg");
+  background-repeat: no-repeat;
+  background-size: 185%;
+  background-position: 30% 44%;
+  opacity: 0.1;
+  mix-blend-mode: multiply;
+  /* soft-circle crop: solid center, gone before the torn parchment edges */
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 33%, rgba(0, 0, 0, 0) 70%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 33%, rgba(0, 0, 0, 0) 70%);
+  animation: heroMapFade 600ms ease-out both;
+}
+
+@keyframes heroMapFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-map {
+    animation: none;
+  }
+}
