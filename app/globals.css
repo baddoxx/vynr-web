@@ -501,23 +501,21 @@ g:focus-visible .focus-ring {
    background-size (zoom). */
 .hero-map {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: min(94vw, 480px);
-  aspect-ratio: 1 / 1;
-  z-index: 0;
+  inset: 0;
+  z-index: -1;
   pointer-events: none;
   background-image: url("/vynr-world-map.jpg");
   background-repeat: no-repeat;
-  background-size: 185%;
-  background-position: 30% 44%;
-  opacity: 0.1;
+  background-size: cover;
+  background-position: 26% center;
+  opacity: 0.14;
   mix-blend-mode: multiply;
-  /* soft-circle crop: solid center, gone before the torn parchment edges */
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 33%, rgba(0, 0, 0, 0) 70%);
-  mask-image: radial-gradient(circle at 50% 50%, #000 33%, rgba(0, 0, 0, 0) 70%);
-  animation: heroMapFade 600ms ease-out both;
+  /* fill the canvas with one hemisphere; fade softly to cream at the edges
+     so the title/CTA text stays crisp. Tuning knobs: opacity (presence),
+     background-position (which slice of the map), background-size (zoom). */
+  -webkit-mask-image: radial-gradient(125% 82% at 50% 44%, #000 52%, rgba(0, 0, 0, 0) 100%);
+  mask-image: radial-gradient(125% 82% at 50% 44%, #000 52%, rgba(0, 0, 0, 0) 100%);
+  animation: heroMapFade 700ms ease-out both;
 }
 
 @keyframes heroMapFade {
@@ -525,7 +523,7 @@ g:focus-visible .focus-ring {
     opacity: 0;
   }
   to {
-    opacity: 0.1;
+    opacity: 0.14;
   }
 }
 
