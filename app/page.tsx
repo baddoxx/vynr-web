@@ -7,7 +7,7 @@ export default function Home() {
       style={{
         maxWidth: 600,
         margin: "0 auto",
-        padding: "64px 24px 80px",
+        padding: "clamp(36px, 9vw, 64px) 24px clamp(44px, 11vw, 80px)",
         textAlign: "center",
       }}
     >
@@ -36,7 +36,7 @@ export default function Home() {
       </p>
 
       {/* Hero — wine glass illustration */}
-      <div style={{ marginTop: "3.5rem", marginBottom: "0.75rem" }}>
+      <div style={{ marginTop: "clamp(1.75rem, 8vw, 3.5rem)", marginBottom: "0.75rem" }}>
         <Image
           src="/journal/vynr-glass.png"
           alt="A wine glass, ink illustration"
@@ -130,7 +130,7 @@ export default function Home() {
         No spam. One email when the app launches.
       </p>
 
-      <div style={{ marginTop: "3rem" }}>
+      <div style={{ marginTop: "clamp(1.5rem, 7vw, 3rem)" }}>
         <Link
           href="/blog"
           style={{
@@ -149,7 +149,7 @@ export default function Home() {
 
       <p
         style={{
-          marginTop: "3rem",
+          marginTop: "clamp(1.5rem, 7vw, 3rem)",
           fontSize: "0.7rem",
           letterSpacing: "0.15em",
           textTransform: "uppercase" as const,
