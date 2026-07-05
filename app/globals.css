@@ -39,6 +39,18 @@ body {
   /* let the full-bleed hero map extend to the viewport edges without
      introducing a horizontal scrollbar (clip doesn't break sticky header) */
   overflow-x: clip;
+  /* fill the viewport so the footer is pinned to the bottom and the hero
+     canvas grows to absorb any slack (sticky-footer layout) */
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* the canvas between header and footer grows to fill leftover height;
+   any extra space lands under the hero content, above the footer */
+main {
+  flex: 1 0 auto;
 }
 
 /* Keyboard focus — visible ring on all interactive elements */

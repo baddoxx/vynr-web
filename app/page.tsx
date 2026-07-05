@@ -6,6 +6,7 @@ export default function Home() {
     <section
       style={{
         position: "relative",
+        minHeight: "100%",
         maxWidth: 600,
         margin: "0 auto",
         padding: "clamp(36px, 9vw, 64px) 24px clamp(38px, 9vw, 60px)",
