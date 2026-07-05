@@ -86,31 +86,18 @@ export default function RootLayout({
               justifyContent: "space-between",
             }}
           >
-            <span style={{ display: "flex", alignItems: "baseline", gap: "0.4rem" }}>
-              <Link
-                href="/"
-                style={{
-                  fontSize: "1.1rem",
-                  fontWeight: 600,
-                  color: "var(--atlas-text)",
-                  textDecoration: "none",
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                Vynr
-              </Link>
-              {/* TEMPORARY build marker — remove before launch */}
-              <span
-                style={{
-                  fontSize: "0.62rem",
-                  fontWeight: 500,
-                  color: "var(--atlas-text-placeholder)",
-                  letterSpacing: "0.04em",
-                }}
-              >
-                build 10
-              </span>
-            </span>
+            <Link
+              href="/"
+              style={{
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                color: "var(--atlas-text)",
+                textDecoration: "none",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Vynr
+            </Link>
             <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
               <Link
                 href="/atlas"
