@@ -56,7 +56,7 @@ export default async function AtlasPage({
   const { path = [] } = await params;
   return (
     <div style={{
-      maxWidth: 1100, width: '100%', margin: '0 auto', padding: '20px 20px 60px',
+      maxWidth: 1280, width: '100%', margin: '0 auto', padding: '20px 20px 60px',
       flex: 1, display: 'flex', flexDirection: 'column',
     }}>
       {/* Atlas header */}
