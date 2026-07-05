@@ -7,6 +7,7 @@ export default function Home() {
       style={{
         position: "relative",
         flex: 1,
+        width: "100%",
         maxWidth: 600,
         margin: "0 auto",
         padding: "clamp(36px, 9vw, 64px) 24px clamp(38px, 9vw, 60px)",
