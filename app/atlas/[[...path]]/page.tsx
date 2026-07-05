@@ -55,7 +55,10 @@ export default async function AtlasPage({
 }) {
   const { path = [] } = await params;
   return (
-    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '20px 20px 60px' }}>
+    <div style={{
+      maxWidth: 1100, width: '100%', margin: '0 auto', padding: '20px 20px 60px',
+      flex: 1, display: 'flex', flexDirection: 'column',
+    }}>
       {/* Atlas header */}
       <header style={{ marginBottom: 12 }}>
         <h1 style={{
@@ -83,9 +86,9 @@ export default async function AtlasPage({
         Content is generated and curated by vynr using multiple sources and internal models. It is intended as a guide, not a definitive reference.
       </div>
 
-      {/* Sign-off — separated CTA */}
+      {/* Sign-off — anchored to the bottom, just above the site footer */}
       <footer style={{
-        marginTop: 48, textAlign: 'center', fontSize: '0.68rem',
+        marginTop: 'auto', paddingTop: 48, textAlign: 'center', fontSize: '0.68rem',
         color: 'var(--atlas-text-placeholder)', letterSpacing: '0.02em',
         lineHeight: 1.6,
       }}>
