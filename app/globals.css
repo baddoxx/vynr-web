@@ -36,6 +36,9 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* let the full-bleed hero map extend to the viewport edges without
+     introducing a horizontal scrollbar (clip doesn't break sticky header) */
+  overflow-x: clip;
 }
 
 /* Keyboard focus — visible ring on all interactive elements */
@@ -526,22 +529,22 @@ g:focus-visible .focus-ring {
   }
 }
 
-/* Desktop: a narrow portrait column crops the landscape map into an ugly
-   vertical strip marooned in cream. Instead present the WHOLE Mappe-Monde at
-   its natural landscape extent, centered behind the content (wider than the
-   text column) so the text floats over a world-map spread. */
+/* Desktop: fill the full viewport width, bounded to the hero height. Cover
+   crops out the ornate top/bottom cartouches, leaving clean hemispheres
+   spanning edge to edge; only the top/bottom fade into the cream so it
+   doesn't hard-cut at the header/footer borders. */
 @media (min-width: 680px) {
   .hero-map {
-    inset: auto;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: min(92vw, 1060px);
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
     height: auto;
-    aspect-ratio: 1536 / 1024;
-    background-size: contain;
+    transform: translateX(-50%);
+    background-size: cover;
     background-position: center;
-    -webkit-mask-image: radial-gradient(78% 84% at 50% 50%, #000 46%, rgba(0, 0, 0, 0) 100%);
-    mask-image: radial-gradient(78% 84% at 50% 50%, #000 46%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 14%, #000 86%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 14%, #000 86%, rgba(0, 0, 0, 0) 100%);
   }
 }
