@@ -222,6 +222,31 @@ export default function RootLayout({
               <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.43 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.07 2.49 5.57 5.56 5.57 3.07 0 5.56-2.5 5.56-5.57V9.01a7.3 7.3 0 0 0 4.32 1.4V7.3s-1.98.07-3.6-1.48Z" />
             </svg>
           </a>
+
+          <div className="sj-mark-wrap">
+            <span className="sj-divider" aria-hidden="true" />
+            <span className="sj-colophon" title="Silly Jam Pte. Ltd. — publisher of Vynr">
+              <svg
+                className="sj-jar"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect x="7.5" y="3" width="9" height="3.4" rx="1" />
+                <rect x="5" y="6.4" width="14" height="14.6" rx="2.6" />
+                <line x1="6.4" y1="10.6" x2="17.6" y2="10.6" />
+                <line x1="6.4" y1="16.4" x2="17.6" y2="16.4" />
+              </svg>
+              <span>A Silly Jam Pte. Ltd. product</span>
+            </span>
+          </div>
         </footer>
       </body>
     </html>
